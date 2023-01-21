@@ -5,6 +5,7 @@ import { FirebaseProvider } from "./repository/FirebaseContext";
 import SignIn from "./components/pages/SignIn/SignIn";
 import Navbar from "./components/elements/navbar/Navbar";
 import SignUp from "./components/pages/SignUp/SignUpPage";
+import Dasboard from "./components/pages/Home/Dasboard";
 
 
 function App() {
@@ -14,7 +15,8 @@ function App() {
 
         <Navbar />
         <Routes>
-          <Route path="/" element={<Board />} />
+          <Route path="/" element={<Dasboard />} />
+          <Route path="/Board" element={<Board />} />
           <Route path="/SignIn" element={<SignIn />} />
           <Route path="/SignUp" element={<SignUp />} />
         </Routes>
