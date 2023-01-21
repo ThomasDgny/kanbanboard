@@ -1,13 +1,15 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { collection, addDoc } from "firebase/firestore";
 import { db } from '../../../Firebase';
 import { UserAuth } from '../../../context/UserAuth';
+import { getProjects } from '../../../repository/FirebaseCustomFunc';
 
 
 
 
 const Dasboard = () => {
     const [ProjectName, setProjectName] = useState('')
+    const [projectsData, setProjectsData] = useState([])
     const { user } = UserAuth()
 
 
@@ -36,6 +38,17 @@ const Dasboard = () => {
         const docRef = await addDoc(collectionRef, defultProjectStart)
         console.log("Document written with ID: ", docRef.id);
     }
+
+    useEffect(() => {
+        const getResults = async () => {
+            const res = await getProjects(user, db)
+            setProjectsData(res)
+        }
+        getResults()
+    }, [user])
+
+    console.log(projectsData)
+
 
 
     return (
