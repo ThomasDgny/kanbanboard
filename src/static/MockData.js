@@ -2,9 +2,9 @@ export const userMockData = {
     userid: 'IobuwqyivIVByivYUVutviBOI',
     bucket: [
         {
-            id:'todo',
-            label:'todo',
-            todo: [
+            id: 'todo',
+            label: 'todo',
+            list: [
                 {
                     "title": "Firebase Authentication",
                     "img": "https://images.unsplash.com/photo-1512374382149-233c42b6a83b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
@@ -22,7 +22,7 @@ export const userMockData = {
                 ,
                 {
                     "title": "Firebase Dynamic Links",
-                    "img": "https://images.unsplash.com/photo-1520974284589-6a5f71dacb74?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                    "img": null,
                     "createddate": "2022-01-10",
                     "severity": "high",
                     "description": "Learn how to create and track dynamic links in Firebase."
@@ -31,9 +31,9 @@ export const userMockData = {
             ]
         },
         {
-            id:'inprogress',
-            label:'inprogress',
-            inprogress: [
+            id: 'inprogress',
+            label: 'inprogress',
+            list: [
                 {
                     "title": "Firebase Realtime Database",
                     "img": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
@@ -52,9 +52,9 @@ export const userMockData = {
             ]
         },
         {
-            id:'done',
-            label:'done',
-            done: [
+            id: 'done',
+            label: 'done',
+            list: [
                 {
                     "title": "Firebase Cloud Messaging",
                     "img": null,
