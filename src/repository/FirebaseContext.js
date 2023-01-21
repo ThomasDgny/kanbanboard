@@ -25,8 +25,8 @@ export function FirebaseProvider({ children }) {
     const { user } = UserAuth()
     const db = getFirestore()
 
-    async function GetProjectsData(projectid) {
-        return await getProjects(user, db, projectid)
+    async function GetProjectsData(trackId) {
+        return await getProjects(user, db, trackId)
     }
 
     return (

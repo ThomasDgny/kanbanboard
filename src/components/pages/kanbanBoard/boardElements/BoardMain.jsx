@@ -1,35 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import BoardCard from '../KanbanCompanents/BoardCard/BoardCard'
 import PlusIcon from '../../../../assets/icons/PlusIcon'
 import { userMockData } from '../../../../static/MockData'
-import { FirebaseContextApi } from '../../../../repository/FirebaseContext';
 
 
 const BoardMain = () => {
-    const [projectData, setProjectData] = useState([])
-
 
     // console.log(userMockData)
     const buckets = userMockData.bucket
     const TodoBuckets = buckets.find(bucket => bucket.id === 'todo')
     const inProgressBuckets = buckets.find(bucket => bucket.id === 'inprogress')
     const doneBuckets = buckets.find(bucket => bucket.id === 'done')
-
-    const { GetProjectsData } = FirebaseContextApi()
-
-
-    useEffect(() => {
-        const getResults = async () => {
-            const res = await Promise.all(
-                projectData?.map(async (data) => {
-                    return await GetProjectsData(data.trackId)
-                })
-            );
-            const nonNullResult = res.filter(res => res !== null)
-        }
-        getResults()
-    }, [GetProjectsData, projectData])
-
 
     return (
         <div className='Main max-w-[1400px]'>

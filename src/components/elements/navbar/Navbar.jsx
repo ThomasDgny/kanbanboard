@@ -1,56 +1,54 @@
-import { Disclosure } from '@headlessui/react'
+import { auth } from '../../../Firebase';
 import { UserAuth } from '../../../context/UserAuth';
-import { NavLink } from 'react-router-dom';
-import BurgerIcon from '../../../assets/icons/BurgerIcon';
-import DropdownMenu from './navbarCompanent/DropdownMenu';
-import NavbarMobile from './navbarCompanent/NavbarMobile';
-import NavItems from './navbarCompanent/NavItems';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 
 export default function Navbar() {
     const { user } = UserAuth();
 
+    const { LogOut } = UserAuth();
+    const navigate = useNavigate();
+    
+    const HandleSignOut = async () => {
+        try {
+            LogOut(auth)
+            navigate('/')
+        } catch (error) {
+
+        }
+    };
+
     const userEmail = user?.email
-
+    console.log(user);
     return (
-        <Disclosure as="nav" className="bg-[#fff]">
-            {({ open }) => (
-                <>
-                    <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-                        <div className="relative flex h-16 items-center justify-between">
-                            <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+        <div className="flex">
 
-                                {/* Mobile menu button*/}
-                                <Disclosure.Button className="inline-flex items-center justify-center duration-300 rounded-md p-2 hover:bg-[#ff51ae] hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                                    <span className="sr-only">Open main menu</span>
-                                    {open ? (
-                                        <BurgerIcon className="block h-6 w-6" aria-hidden="true" />
-                                    ) : (
-                                        <BurgerIcon className="block h-6 w-6" aria-hidden="true" />
-                                    )}
-                                </Disclosure.Button>
+            <ul className="flex gap-4 items-center  w-full  p-3 text-[#212121]">
 
-                            </div>
-                            <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                                <div className="flex flex-shrink-0 items-center">
-                                    <NavLink className='text-[20px] font-bold text-[#ff51ae]' to={'/'}>Zeus Flight.</NavLink>
-                                </div>
+                <li className="hover:text-[#ff51ae] duration-200">
+                    <NavLink to={'/'} className="block py-2 pr-4 pl-3 font-medium text-[15px]" aria-current="page">Home</NavLink>
+                </li>
 
-                                <div className="hidden sm:ml-6 sm:block w-full">
-                                    {!userEmail && <NavItems />}
-                                </div>
-                            </div>
+                <li className="hover:text-[#ff51ae] duration-200">
+                    <NavLink to={'/SignUp'} className="block py-2 pr-4 pl-3 font-medium text-[15px]">SignUp</NavLink>
+                </li>
 
-                            <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                                {userEmail && <DropdownMenu userName={userEmail} />}
-                            </div>
-                        </div>
-                    </div>
+                <li className="hover:text-[#ff51ae]">
+                    <NavLink to={'/SignIn'} className="block py-2 pr-4 pl-3 font-medium text-[15px]">SignIn</NavLink>
+                </li>
 
-                    <NavbarMobile />
+                <li className="hover:text-[#ff51ae]">
+                   <button onClick={HandleSignOut}>Sign Out</button>
+                </li>
 
-                </>
-            )}
-        </Disclosure>
+
+
+                <li>
+                    {userEmail && <h1>{userEmail}</h1>}
+                </li>
+
+            </ul>
+        </div>
+
     )
 }
