@@ -17,7 +17,6 @@ const Dasboard = () => {
     }, [user])
     console.log(projectsData)
 
-
     return (
         <div>
 
@@ -26,7 +25,7 @@ const Dasboard = () => {
                     <h1>Projects</h1>
                     <button onClick={() => navigate('/CreateProject')}>Create</button>
                 </div>
-                <div>
+                <div className='ProjectLsit flex gap-5'>
                     {projectsData.map((item, id) => (
                         <ProjectCrad key={id} item={item} />
                     ))

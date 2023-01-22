@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { createProject } from '../../../repository/FirebaseCreateProject'
+import FirebaseCreateProject from '../../../repository/FirebaseCreateProject'
 import { UserAuth } from '../../../context/UserAuth'
 
 const CreateProject = () => {
@@ -8,11 +8,14 @@ const CreateProject = () => {
     const { user } = UserAuth()
     const navigate = useNavigate()
 
-
-    const handleCreateProject = (e) => {
-        e.preventDefault()
-        createProject(user, projectName)
-        navigate('/Board')
+    const handleCreateProject = async (e) => {
+        try {
+            e.preventDefault()
+            FirebaseCreateProject(user, projectName)
+                .then((docId) => navigate(`/Board/${docId.id}`))
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     return (
@@ -22,6 +25,7 @@ const CreateProject = () => {
                     Project Name:
                     <input required type="text" placeholder='Project Name' onChange={(e) => setProjectName(e.target.value.trim())} />
                 </label>
+
                 <input type="submit" value="Create" />
             </form>
         </div>
