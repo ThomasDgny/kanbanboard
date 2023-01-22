@@ -6,6 +6,7 @@ import SignIn from "./components/pages/SignIn/SignIn";
 import Navbar from "./components/elements/navbar/Navbar";
 import SignUp from "./components/pages/SignUp/SignUpPage";
 import Dasboard from "./components/pages/Home/Dasboard";
+import CreateProject from "./components/pages/CreateProject/CreateProject";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Dasboard />} />
+          <Route path="/CreateProject" element={<CreateProject />} />
           <Route path="/Board" element={<Board />} />
           <Route path="/SignIn" element={<SignIn />} />
           <Route path="/SignUp" element={<SignUp />} />
