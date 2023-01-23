@@ -1,16 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import BoardCard from '../KanbanCompanents/BoardCard/BoardCard'
 import PlusIcon from '../../../../assets/icons/PlusIcon'
-import { userMockData } from '../../../../static/MockData'
+import { UserAuth } from '../../../../context/UserAuth'
+import { db } from '../../../../Firebase'
+import { useLocation } from 'react-router-dom'
+import { getPickedProjects } from '../../../../repository/FirebaseGetPickedProject'
 
 
 const BoardMain = () => {
+    const [projectsData, setProjectsData] = useState([])
+    const { user } = UserAuth()
+    const { state: id } = useLocation()
 
-    // console.log(userMockData)
-    const buckets = userMockData.bucket
-    const TodoBuckets = buckets.find(bucket => bucket.id === 'todo')
-    const inProgressBuckets = buckets.find(bucket => bucket.id === 'inprogress')
-    const doneBuckets = buckets.find(bucket => bucket.id === 'done')
+
+    const buckets = projectsData.bucket
+    const TodoBuckets = buckets?.find(bucket => bucket.id === 'todo')
+    const inProgressBuckets = buckets?.find(bucket => bucket.id === 'inprogress')
+    const doneBuckets = buckets?.find(bucket => bucket.id === 'done')
+
+    useEffect(() => {
+        getPickedProjects(user, db, id).then((res) => setProjectsData(res))
+    }, [id, user])
+    console.log(projectsData)
 
     return (
         <div className='Main max-w-[1400px]'>
@@ -23,7 +34,7 @@ const BoardMain = () => {
                     </div>
 
                     <div className='TodoContent flex flex-col gap-5'>
-                        {TodoBuckets.list.map((item, id) => (
+                        {TodoBuckets?.list.map((item, id) => (
                             <BoardCard key={id} cardData={item} />
                         ))}
                     </div>
@@ -37,7 +48,7 @@ const BoardMain = () => {
                     </div>
 
                     <div className='TodoContent flex flex-col gap-5'>
-                        {inProgressBuckets.list.map((item, id) => (
+                        {inProgressBuckets?.list.map((item, id) => (
                             <BoardCard key={id} cardData={item} />
                         ))}
                     </div>
@@ -51,7 +62,7 @@ const BoardMain = () => {
                     </div>
 
                     <div className='TodoContent flex flex-col gap-5'>
-                        {doneBuckets.list.map((item, id) => (
+                        {doneBuckets?.list.map((item, id) => (
                             <BoardCard key={id} cardData={item} />
                         ))}
                     </div>

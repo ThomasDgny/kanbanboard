@@ -1,6 +1,6 @@
 import { collection, getDocs, query } from "firebase/firestore";
 
-export const getProjects = async (user, db) => {
+export const getAllProjects = async (user, db) => {
     if (!user) {
         return []
     }

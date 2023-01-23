@@ -39,7 +39,7 @@ const BoardCard = ({ cardData }) => {
                     {cardData?.img && <img src={cardData?.img} className='rounded-lg h-full w-full' alt="" />}
 
                     <div className='flex gap-3 items-center'>
-                        <label className={''}>{cardData.severity}</label>
+                        <label className={severity()}>{cardData.severity}</label>
                         <span className="text-[16px] text-black font-medium">{cardData.createddate}</span>
                     </div>
 

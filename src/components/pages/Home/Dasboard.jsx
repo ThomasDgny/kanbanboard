@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { db } from '../../../Firebase';
 import { UserAuth } from '../../../context/UserAuth';
-import { getProjects } from '../../../repository/FirebaseGetProjects';
+import { getAllProjects } from '../../../repository/FirebaseGetProjects';
 import { useNavigate } from 'react-router-dom';
 import ProjectCrad from './DashboardElements/ProjectCrad';
 
 
 const Dasboard = () => {
-
     const [projectsData, setProjectsData] = useState([])
     const { user } = UserAuth()
     const navigate = useNavigate()
 
     useEffect(() => {
-        getProjects(user, db).then((res) => setProjectsData(res))
+        getAllProjects(user, db).then((res) => setProjectsData(res))
     }, [user])
     console.log(projectsData)
+
+
 
     return (
         <div>

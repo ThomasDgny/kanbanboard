@@ -1,34 +1,30 @@
 import React from 'react'
+import { projectProgress as projectProgresBar } from '../../../../useCase/ProgressCal';
+import { useNavigate } from 'react-router-dom';
 
 const ProjectCrad = (item, id) => {
+    const navigate = useNavigate()
 
-    const itemBuckets = item.item.bucket
-    const todoLength = itemBuckets.find(todo => todo.id === 'todo').list.length
-    const inProgressLength = itemBuckets.find(todo => todo.id === 'inprogress').list.length
-    console.log(todoLength)
-    console.log(inProgressLength)
-    const projectProgress = (todoLength, inProgressLength) => {
-        return (todoLength / inProgressLength) * 100
+
+    const handleOpenProject = () => {
+        navigate(`/Board/${item.item.projectid}`, { state: item.item.projectid })
     }
-    console.log(projectProgress(12, 50));
 
-
-
-
+    console.log('Project progress bar result', projectProgresBar(item));
     return (
 
-        <div key={id}>
+        <div key={id} onClick={handleOpenProject}>
             <div className='w-[100px]'>
                 <img src={item.item.projectlogo} className='w-full h-[100px] object-cover rounded-md' alt="" />
                 <div>
                     <h1>{item.item.projectname}</h1>
-                    <p>{item?.item?.projectnotes?.length}21 Notes</p>
+                    <p>{item?.item?.projectnotes?.length} Notes</p>
                 </div>
 
             </div>
 
             <div>
-                <p>{projectProgress(12, 50)}%</p>
+                <p>{projectProgresBar(item)}%</p>
             </div>
 
         </div>
