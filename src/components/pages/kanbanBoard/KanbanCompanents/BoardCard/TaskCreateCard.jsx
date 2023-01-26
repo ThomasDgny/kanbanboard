@@ -1,7 +1,8 @@
-import { addDoc, collection, updateDoc } from 'firebase/firestore'
+//import { addDoc, collection, updateDoc } from 'firebase/firestore'
 import React, { useState } from 'react'
-import { db } from '../../../../../Firebase'
+//import { db } from '../../../../../Firebase'
 import { UserAuth } from '../../../../../context/UserAuth'
+import { newTask } from '../../../../../repository/FirebaseTaskCreater'
 
 const TaskCreateCard = ({ id }) => {
     const [title, setTitle] = useState('')
@@ -13,29 +14,33 @@ const TaskCreateCard = ({ id }) => {
     const { user } = UserAuth()
     console.log(id)
 
-
-    const createBlog = async (e) => {
+    const createNewTask = (e) => {
         e.preventDefault()
-
-        if (user) {
-
-            const newTask = {
-                title: title,
-                description: description,
-                userId: user.uid,
-                creationDate: new Date(),
-                status: status
-            }
-
-
-            const collectionRef = collection(db, 'users', user.uid, 'projects', id, 'bucket', status, 'list')
-            const docRef = await addDoc(collectionRef, newTask)
-
-            await updateDoc(docRef, { projectid: docRef.id })
-
-            return docRef
-        }
+        newTask(user, title, description, status, id)
     }
+
+    // const createBlog = async (e) => {
+    //     e.preventDefault()
+
+    //     if (user) {
+
+    //         const newTask = {
+    //             title: title,
+    //             description: description,
+    //             userId: user.uid,
+    //             creationDate: new Date(),
+    //             status: status
+    //         }
+
+
+    //         const collectionRef = collection(db, 'users', user.uid, 'projects', id, 'bucket', status, 'list')
+    //         const docRef = await addDoc(collectionRef, newTask)
+
+    //         await updateDoc(docRef, { projectid: docRef.id })
+
+    //         return docRef
+    //     }
+    // }
 
     return (
         <div className='CreateCardPopUp absolute w-[80vh] h-[100vh] bg-slate-200 rounded-lg'>
@@ -46,7 +51,7 @@ const TaskCreateCard = ({ id }) => {
                 </div>
 
                 <div className='flex flex-col gap-6'>
-                    <form onSubmit={createBlog}>
+                    <form onSubmit={createNewTask}>
                         <input type="text" required placeholder='Title' onChange={(e) => setTitle(e.target.value)} />
                         <input type="text" required placeholder='Description' onChange={(e) => setDescription(e.target.value)} />
                         <input type="text" required placeholder='Status' onChange={(e) => setStatus(e.target.value)} />
