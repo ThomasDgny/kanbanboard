@@ -8,21 +8,6 @@ const FirebaseCreateProject = async (user, projectName) => {
         projectlogo: defultImg,
         projectnotes: [],
         createddate: new Date().getTime(),
-        bucket: [{
-            id: 'todo',
-            label: 'todo',
-            list: []
-        },
-        {
-            id: 'inprogress',
-            label: 'inprogress',
-            list: []
-        },
-        {
-            id: 'done',
-            label: 'done',
-            list: []
-        }],
     }
 
     const collectionRef = collection(db, 'users', user?.uid, 'projects')

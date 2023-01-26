@@ -12,7 +12,7 @@ const CreateProject = () => {
         try {
             e.preventDefault()
             FirebaseCreateProject(user, projectName)
-                .then((docId) => navigate(`/Board/${docId.id}`))
+                .then((docId) => navigate(`/Board/${docId.id}` , { state: docId.id }))
         } catch (error) {
             console.log(error)
         }

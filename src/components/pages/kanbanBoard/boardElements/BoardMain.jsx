@@ -3,34 +3,44 @@ import BoardCard from '../KanbanCompanents/BoardCard/BoardCard'
 import PlusIcon from '../../../../assets/icons/PlusIcon'
 import { UserAuth } from '../../../../context/UserAuth'
 import { db } from '../../../../Firebase'
-import { useLocation } from 'react-router-dom'
 import { getPickedProjects } from '../../../../repository/FirebaseGetPickedProject'
+import TaskCreateCard from '../KanbanCompanents/BoardCard/TaskCreateCard'
 
 
-const BoardMain = () => {
+const BoardMain = ({ id }) => {
     const [projectsData, setProjectsData] = useState([])
+    const [CreateTaskPopUp, setCreateTaskPopUp] = useState(false)
     const { user } = UserAuth()
-    const { state: id } = useLocation()
-
-
-    const buckets = projectsData.bucket
-    const TodoBuckets = buckets?.find(bucket => bucket.id === 'todo')
-    const inProgressBuckets = buckets?.find(bucket => bucket.id === 'inprogress')
-    const doneBuckets = buckets?.find(bucket => bucket.id === 'done')
+    console.log(id)
 
     useEffect(() => {
         getPickedProjects(user, db, id).then((res) => setProjectsData(res))
     }, [id, user])
     console.log(projectsData)
 
+    const buckets = projectsData?.bucket
+    const TodoBuckets = buckets?.find(bucket => bucket.id === 'todo')
+    const inProgressBuckets = buckets?.find(bucket => bucket.id === 'inprogress')
+    const doneBuckets = buckets?.find(bucket => bucket.id === 'done')
+
+
+    const handleCreateTask = () => {
+        setCreateTaskPopUp(true)
+    }
+
     return (
         <div className='Main max-w-[1400px]'>
+            {
+                !CreateTaskPopUp &&
+                <TaskCreateCard id={id} />
+            }
+
             <div className='MainBody grid grid-cols-3 gap-5 w-full'>
 
                 <div className='Todo flex flex-col gap-5'>
 
                     <div className='TodoHeader'>
-                        <button className='text-[22px] py-4 px-3 rounded-lg border border-[#D6E3EC] w-full flex items-center justify-between'>Todo <PlusIcon /></button>
+                        <button onChange={handleCreateTask} className='text-[22px] py-4 px-3 rounded-lg border border-[#D6E3EC] w-full flex items-center justify-between'>Todo <PlusIcon /></button>
                     </div>
 
                     <div className='TodoContent flex flex-col gap-5'>
