@@ -5,10 +5,12 @@ import { UserAuth } from '../../../../context/UserAuth'
 import { db } from '../../../../Firebase'
 import { getPickedProjects } from '../../../../repository/FirebaseGetPickedProject'
 import TaskCreateCard from '../KanbanCompanents/BoardCard/TaskCreateCard'
+import { collection, doc, getDoc, getDocs, onSnapshot, query } from 'firebase/firestore'
 
 
 const BoardMain = ({ id }) => {
     const [projectsData, setProjectsData] = useState([])
+    const [bucket, setBucket] = useState([])
     const [CreateTaskPopUp, setCreateTaskPopUp] = useState(false)
     const { user } = UserAuth()
     console.log(id)
@@ -22,6 +24,29 @@ const BoardMain = ({ id }) => {
     const TodoBuckets = buckets?.find(bucket => bucket.id === 'todo')
     const inProgressBuckets = buckets?.find(bucket => bucket.id === 'inprogress')
     const doneBuckets = buckets?.find(bucket => bucket.id === 'done')
+
+
+    const getPickedProjectsBucket = async () => {
+        if (!user) {
+            return []
+        }
+        // const collectionRef = collection(db, 'users', user.uid, 'projects', id, 'bucket', 'todo', 'list')
+        const q = query(collection(db, 'users', user.uid, 'projects', id, 'bucket', 'todo', 'list'));
+        const unsubscribe = onSnapshot(q, (querySnapshot) => {
+            const cities = [];
+            querySnapshot.forEach((doc) => {
+                cities.push(doc.data());
+            });
+            console.log("Current cities in CA: ", cities);
+        });
+
+        return unsubscribe
+    }
+
+    getPickedProjectsBucket()
+
+
+
 
 
     const handleCreateTask = () => {
