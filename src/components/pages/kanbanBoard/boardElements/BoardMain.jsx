@@ -33,11 +33,11 @@ const BoardMain = ({ id }) => {
         // const collectionRef = collection(db, 'users', user.uid, 'projects', id, 'bucket', 'todo', 'list')
         const q = query(collection(db, 'users', user.uid, 'projects', id, 'bucket', 'todo', 'list'));
         const unsubscribe = onSnapshot(q, (querySnapshot) => {
-            const cities = [];
+            const listItems = [];
             querySnapshot.forEach((doc) => {
-                cities.push(doc.data());
+                listItems.push(doc.data());
             });
-            console.log("Current cities in CA: ", cities);
+            console.log("Current cities in CA: ", listItems);
         });
 
         return unsubscribe
