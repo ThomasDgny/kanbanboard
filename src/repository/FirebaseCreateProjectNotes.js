@@ -2,20 +2,21 @@ import { addDoc, collection, updateDoc } from 'firebase/firestore'
 import { db } from "../Firebase"
 
 
-export const newTask = async (user, title, description, status, id) => {
+export const newProjectNote = async (user, title, description, id) => {
     if (user) {
         const newTask = {
             title: title,
             description: description,
             userId: user.uid,
-            creationDate: new Date().getTime(),
-            status: status
+            creationDate: new Date()
         }
 
 
-        const collectionRef = collection(db, 'users', user.uid, 'projects', id, 'bucket', status, 'list')
+        const collectionRef = collection(db, 'users', user.uid, 'projects', id, 'ProjectNotes')
         const docRef = await addDoc(collectionRef, newTask)
 
         await updateDoc(docRef, { id: docRef.id })
+
+        return docRef
     }
 }

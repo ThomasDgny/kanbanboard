@@ -10,7 +10,9 @@ import { getBucketList } from '../../../../repository/FirebaseGetBucketList'
 
 const BoardMain = ({ id }) => {
     const [projectsData, setProjectsData] = useState([])
-    const [bucketList, setBucketList] = useState([])
+    const [todoBucketList, setTodoBucketList] = useState([])
+    const [inProgressBucketList, setInProgressBucketList] = useState([])
+    const [doneBucketList, setDoneBucketList] = useState([])
     const [CreateTaskPopUp, setCreateTaskPopUp] = useState(false)
     const { user } = UserAuth()
     console.log(id)
@@ -20,18 +22,12 @@ const BoardMain = ({ id }) => {
     }, [id, user])
     console.log(projectsData)
 
-    const buckets = projectsData?.bucket
-    const TodoBuckets = buckets?.find(bucket => bucket.id === 'todo')
-    const inProgressBuckets = buckets?.find(bucket => bucket.id === 'inprogress')
-    const doneBuckets = buckets?.find(bucket => bucket.id === 'done')
 
     useEffect(() => {
-        getBucketList(db, user, id, 'todo').then((res) => setBucketList(res))
-    }, [id, user])
-
-
-
-    console.log("Current Items: ", bucketList);
+        getBucketList(db, user, id, 'todo').then((res) => setTodoBucketList(res))
+        getBucketList(db, user, id, 'inProgress').then((res) => setInProgressBucketList(res))
+        getBucketList(db, user, id, 'done').then((res) => setDoneBucketList(res))
+    }, [id, user, doneBucketList, todoBucketList, inProgressBucketList])
 
 
     const handleCreateTask = () => {
@@ -41,7 +37,7 @@ const BoardMain = ({ id }) => {
     return (
         <div className='Main max-w-[1400px]'>
             {
-                !CreateTaskPopUp &&
+                CreateTaskPopUp &&
                 <TaskCreateCard id={id} />
             }
 
@@ -54,7 +50,7 @@ const BoardMain = ({ id }) => {
                     </div>
 
                     <div className='TodoContent flex flex-col gap-5'>
-                        {TodoBuckets?.list.map((item, id) => (
+                        {todoBucketList?.map((item, id) => (
                             <BoardCard key={id} cardData={item} />
                         ))}
                     </div>
@@ -68,7 +64,7 @@ const BoardMain = ({ id }) => {
                     </div>
 
                     <div className='TodoContent flex flex-col gap-5'>
-                        {inProgressBuckets?.list.map((item, id) => (
+                        {inProgressBucketList?.map((item, id) => (
                             <BoardCard key={id} cardData={item} />
                         ))}
                     </div>
@@ -82,7 +78,7 @@ const BoardMain = ({ id }) => {
                     </div>
 
                     <div className='TodoContent flex flex-col gap-5'>
-                        {doneBuckets?.list.map((item, id) => (
+                        {doneBucketList?.map((item, id) => (
                             <BoardCard key={id} cardData={item} />
                         ))}
                     </div>

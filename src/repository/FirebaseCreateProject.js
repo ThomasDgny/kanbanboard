@@ -13,7 +13,7 @@ const FirebaseCreateProject = async (user, projectName) => {
     const collectionRef = collection(db, 'users', user?.uid, 'projects')
     const docRef = await addDoc(collectionRef, defultProjectStart)
 
-    await updateDoc(docRef, { projectid: docRef.id })
+    await updateDoc(docRef, { id: docRef.id })
 
     return docRef
 }
