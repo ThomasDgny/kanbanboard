@@ -6,14 +6,13 @@ const FirebaseCreateProject = async (user, projectName) => {
     const defultProjectStart = {
         projectname: projectName,
         projectlogo: defultImg,
-        projectnotes: [],
         createddate: new Date().getTime(),
     }
 
     const collectionRef = collection(db, 'users', user?.uid, 'projects')
     const docRef = await addDoc(collectionRef, defultProjectStart)
 
-    await updateDoc(docRef, { id: docRef.id })
+    await updateDoc(docRef, { projectid: docRef.id })
 
     return docRef
 }

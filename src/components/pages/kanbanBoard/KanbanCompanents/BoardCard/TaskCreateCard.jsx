@@ -16,15 +16,15 @@ const TaskCreateCard = ({ id }) => {
     }
 
     return (
-        <div className='CreateCardPopUp absolute w-[80vh] h-[100vh] bg-slate-200 rounded-lg'>
+        <div className='CreateCardPopUp absolute z-50 w-[50vh] h-[100vh] bg-slate-200 rounded-lg'>
             <div className='CreateCardPopUp_Body p-6'>
 
                 <div>
                     <h1>Add a New Task</h1>
                 </div>
 
-                <div className='flex flex-col gap-6'>
-                    <form onSubmit={createNewTask}>
+                <div >
+                    <form className='flex flex-col gap-6' onSubmit={createNewTask}>
                         <input type="text" required placeholder='Title' onChange={(e) => setTitle(e.target.value)} />
                         <input type="text" required placeholder='Description' onChange={(e) => setDescription(e.target.value)} />
                         <input type="text" required placeholder='Status' onChange={(e) => setStatus(e.target.value)} />

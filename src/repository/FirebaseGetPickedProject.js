@@ -1,6 +1,6 @@
 import {doc, getDoc} from "firebase/firestore";
 
-export const getPickedProjects = async (user, db, id) => {
+export const getPickedProject = async (user, db, id) => {
     if (!user) {
         return []
     }

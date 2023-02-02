@@ -1,24 +1,26 @@
 import React from 'react'
-import { projectProgress as projectProgresBar } from '../../../../useCase/ProgressCal';
+import { projectProgresBar } from '../../../../useCase/ProgressCal';
 import { useNavigate } from 'react-router-dom';
 
-const ProjectCrad = (item, id) => {
+const ProjectCrad = ({ item }) => {
     const navigate = useNavigate()
-
+    //console.log(item.item.projectid);
 
     const handleOpenProject = () => {
-        navigate(`/Board/${item.item.projectid}`, { state: item.item.projectid })
+        navigate(`/Board/${item.projectid}`, { state: item.projectid })
     }
+    console.log(item);
+    console.log(item.projectid);
 
-    console.log('Project progress bar result', projectProgresBar(item));
+    //console.log('Project progress bar result', projectProgresBar(item));
+
     return (
-
-        <div key={id} onClick={handleOpenProject}>
+        <div onClick={handleOpenProject}>
             <div className='w-[100px]'>
-                <img src={item.item.projectlogo} className='w-full h-[100px] object-cover rounded-md' alt="" />
+                <img src={item.projectlogo} className='w-full h-[100px] object-cover rounded-md' alt="" />
                 <div>
-                    <h1>{item.item.projectname}</h1>
-                    <p>{item?.item?.projectnotes?.length} Notes</p>
+                    <h1>{item.projectname}</h1>
+                    {/* <p>{item?.projectnotes?.length} Notes</p> */}
                 </div>
 
             </div>
@@ -28,7 +30,6 @@ const ProjectCrad = (item, id) => {
             </div>
 
         </div>
-
     )
 }
 

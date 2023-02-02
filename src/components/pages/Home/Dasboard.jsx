@@ -28,7 +28,9 @@ const Dasboard = () => {
                 </div>
                 <div className='ProjectLsit flex gap-5'>
                     {projectsData.map((item, id) => (
-                        <ProjectCrad key={id} item={item} />
+                        <div key={id} className='ProjectCard'>
+                            <ProjectCrad item={item} />
+                        </div>
                     ))
                     }
                 </div>
