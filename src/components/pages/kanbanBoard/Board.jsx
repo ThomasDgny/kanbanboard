@@ -4,9 +4,11 @@ import { useLocation } from 'react-router-dom'
 import { getPickedProject } from '../../../repository/FirebaseGetPickedProject'
 import { db } from '../../../Firebase'
 import { UserAuth } from '../../../context/UserAuth'
+import BoardHeader from './boardElements/BoardHeader'
 
 const Board = () => {
     const [projectsData, setProjectsData] = useState([])
+
     const { state: id } = useLocation()
     const { user } = UserAuth()
     console.log(id);
@@ -17,10 +19,15 @@ const Board = () => {
     console.log(projectsData)
 
     return (
-        <div>
+        <div className='flex flex-col gap-5'>
+
+            <BoardHeader id={id} />
+            <hr className='border-[#D6E3EC]' />
+
             <div className='Board flex justify-center items-center w-full overflow-x-hidden'>
                 <BoardMain docRefId={id} />
             </div>
+
         </div>
     )
 }

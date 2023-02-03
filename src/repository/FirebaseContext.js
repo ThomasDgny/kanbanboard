@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import { collection, doc, getDoc, getDocs, getFirestore, query } from "firebase/firestore";
+import { doc, getDoc, getFirestore } from "firebase/firestore";
 import { UserAuth } from "../context/UserAuth";
 
 const FirebaseApi = createContext();
