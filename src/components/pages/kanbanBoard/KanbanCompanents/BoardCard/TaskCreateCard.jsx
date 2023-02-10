@@ -29,11 +29,11 @@ const TaskCreateCard = ({ id }) => {
     }
 
     return (
-        <div className='CreateCardPopUp absolute z-50 top-0 bottom-0 left-0 w-[80vh] bg-white drop-shadow-md'>
+        <div className='CreateCardPopUp fixed z-50 top-0 bottom-0 left-0 w-[80vh] bg-white drop-shadow-md'>
             <div className='CreateCardPopUp_Body p-6'>
                 <form className='flex flex-col w-full gap-6' onSubmit={createNewTask}>
 
-                    <textarea type="text" className='bg-transparent border-none outline-0 text-[32px] font-bold p-2 border-2 border-gray-300 bg-gray-200 text-gray-700 rounded-lg resize-none' required placeholder='Untitled' onChange={(e) => setTitle(e.target.value)} />
+                    <input type="text" className='bg-transparent border-none outline-0 text-[32px] font-bold p-2 border text-gray-700 rounded-lg resize-none' required placeholder='Untitled' onChange={(e) => setTitle(e.target.value)} />
 
 
                     <div className="Status">
@@ -47,9 +47,6 @@ const TaskCreateCard = ({ id }) => {
                             <option value="inProgress">In Progress</option>
                             <option value="done">Done</option>
                         </select>
-
-
-
                     </div>
 
                     <div className="Severity">
@@ -74,7 +71,7 @@ const TaskCreateCard = ({ id }) => {
 
                     <hr />
 
-                    <textarea type="text" required placeholder='Description' onChange={(e) => setDescription(e.target.value)} />
+                    <textarea type="text" className='bg-transparent h-[40vh] resize-none border-none outline-0 p-2' required placeholder='Description' onChange={(e) => setDescription(e.target.value)} />
 
                     <input type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2" value={'Create'} />
 

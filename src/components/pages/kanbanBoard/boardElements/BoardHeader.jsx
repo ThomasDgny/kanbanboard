@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import TaskCreateCard from '../KanbanCompanents/BoardCard/TaskCreateCard'
+import { dateConverter } from '../../../../useCase/DateConverter';
 
-const BoardHeader = ({id}) => {
+const BoardHeader = ({ id, projectData }) => {
     const [CreateTaskPopUp, setCreateTaskPopUp] = useState(false)
-
+    //console.log(projectData);
 
     const handleCreateTask = () => {
         if (!CreateTaskPopUp) {
@@ -13,16 +14,27 @@ const BoardHeader = ({id}) => {
         }
     }
 
-   
+    const createDate = dateConverter(projectData.createddate)
     return (
-        <div>
+        <div className='w-full'>
             {
                 CreateTaskPopUp &&
                 <TaskCreateCard id={id} />
             }
-            <div className='BoradHeader w-full flex justify-end'>
-                <h1>{''}</h1>
-                <button className='py-3 px-6 rounded-md border border-[#D6E3EC] text-[15px] ' onClick={() => handleCreateTask()}>Create | +</button>
+            <div className='BoradHeader w-full flex justify-between'>
+
+                <div className='ProjectInfo_BorderHeader flex gap-3'>
+                    <img src={projectData.projectlogo} alt="" className='w-[80px] h-[80px] rounded-md' />
+                    <div>
+                        <h1 className='text-[20px] font-semibold'>{projectData.projectname}</h1>
+                        <h1>{createDate}</h1>
+                    </div>
+                </div>
+
+                <div>
+                    <button className='py-3 px-6 rounded-md border border-[#D6E3EC] text-[15px] ' onClick={() => handleCreateTask()}>Create | +</button>
+                </div>
+
             </div>
         </div>
     )

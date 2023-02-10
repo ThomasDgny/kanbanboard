@@ -14,7 +14,7 @@ export const newTask = async (user, title, description, status, severity, id) =>
         }
 
 
-        const collectionRef = collection(db, 'users', user.uid, 'projects', id, 'bucket', status, 'list')
+        const collectionRef = collection(db, 'users', user.uid, 'projects', id, 'bucketlist')
         const docRef = await addDoc(collectionRef, newTask)
 
         await updateDoc(docRef, { id: docRef.id })

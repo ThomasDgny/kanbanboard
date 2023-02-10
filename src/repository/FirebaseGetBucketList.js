@@ -1,13 +1,12 @@
 import { collection, onSnapshot, query } from 'firebase/firestore'
 
 
-export const getBucketList = async (db, user, projectId, progress, setList) => {
+export const getBucketList = async (db, user, projectId, setList) => {
     if (!user) {
         return []
     }
 
-    // const collectionRef = collection(db, 'users', user.uid, 'projects', id, 'bucket', 'todo', 'list')
-    const q = query(collection(db, 'users', user.uid, 'projects', projectId, 'bucket', progress, 'list'));
+    const q = query(collection(db, 'users', user.uid, 'projects', projectId, 'bucketlist'));
 
     const unSubscribe = onSnapshot(q, (querySnapshot) => {
         const listItems = [];
