@@ -9,8 +9,6 @@ const BoardMain = ({ docRefId }) => {
     const inProgressBucketList = allBucketList.filter(bucket => bucket.status === 'inProgress')
     const doneBucketList = allBucketList.filter(bucket => bucket.status === 'done')
 
-    console.log(inProgressBucketList);
-
     const TaskListSections = [
         {
             name: 'Todo',
@@ -20,7 +18,6 @@ const BoardMain = ({ docRefId }) => {
             name: 'In Progress',
             arr: inProgressBucketList,
         },
-
         {
             name: 'Done',
             arr: doneBucketList,

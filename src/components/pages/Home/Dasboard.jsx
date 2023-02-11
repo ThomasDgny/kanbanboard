@@ -19,21 +19,45 @@ const Dasboard = () => {
 
 
     return (
-        <div>
+        <div className='flex'>
+            <div className='min-w-[12vh]'></div>
 
-            <div>
-                <div className='flex gap-10'>
-                    <h1>Projects</h1>
-                    <button onClick={() => navigate('/CreateProject')}>Create</button>
+            <div className='w-full flex-col flex gap-7'>
+
+                <div className='Dashboard_Header pt-7 h-[15vh] justify-center px-14 flex items-center'>
+
+                    <div className='Dashboard_Header_body w-full'>
+                        <h1 className='text-[24px] font-bold mb-[10px]'>{user?.email}</h1>
+                        <p className='text-[16px] font-medium'>Welcome Back</p>
+                    </div>
+
                 </div>
-                <div className='ProjectLsit flex gap-5'>
-                    {projectsData.map((item, id) => (
-                        <div key={id} className='ProjectCard'>
-                            <ProjectCrad item={item} />
+
+                <hr />
+
+                <div className='Dasboard_Main px-14'>
+                    <div className='Dasboard_Main_Body flex flex-col gap-8'>
+
+                        <div className='flex justify-between gap-10'>
+                            <h1 className='text-[24px] font-bold'>Projects</h1>
+                            <button className='text-[16px] font-medium' onClick={() => navigate('/CreateProject')}>Create</button>
                         </div>
-                    ))
-                    }
+
+                        <div className='ProjectLsit flex gap-5'>
+                            {projectsData.map((item, id) => (
+                                <div key={id} className='ProjectCard'>
+                                    <ProjectCrad item={item} />
+                                </div>
+                            ))
+                            }
+                        </div>
+
+                    </div>
                 </div>
+            </div>
+
+            <div className='w-[60vh] border-l-[1px]'>
+
             </div>
 
         </div>

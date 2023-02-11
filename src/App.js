@@ -3,10 +3,10 @@ import Board from "./components/pages/kanbanBoard/Board";
 import { AuthContextProvider } from "./context/UserAuth";
 import { ProjectContextProvider } from "./context/ProjectOp";
 import SignIn from "./components/pages/SignIn/SignIn";
-import Navbar from "./components/elements/navbar/Navbar";
 import SignUp from "./components/pages/SignUp/SignUpPage";
 import Dasboard from "./components/pages/Home/Dasboard";
 import CreateProject from "./components/pages/CreateProject/CreateProject";
+import SideBar from "./components/elements/sideBar/SideBar";
 
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       <AuthContextProvider>
         <ProjectContextProvider>
-          <Navbar />
+        <SideBar />
           <Routes>
             <Route path="/" element={<Dasboard />} />
             <Route path="/CreateProject" element={<CreateProject />} />

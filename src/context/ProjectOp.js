@@ -21,7 +21,7 @@ export function ProjectContextProvider({ children }) {
 
 
     return (
-        <ProjectContext.Provider value={{ allBucketList, setDocRefId }}>
+        <ProjectContext.Provider value={{ allBucketList, docRefId, setDocRefId }}>
             {children}
         </ProjectContext.Provider>
     )

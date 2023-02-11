@@ -12,7 +12,7 @@ const Board = () => {
 
     const { state: id } = useLocation()
     const { setDocRefId } = UserOp()
-   
+
     useEffect(() => {
         setDocRefId(id)
     }, [id, setDocRefId])
@@ -27,13 +27,14 @@ const Board = () => {
     console.log(projectData)
 
     return (
-        <div className='flex flex-col justify-center items-center'>
+        <div className='flex flex-col justify-center items-center overflow-x-hidden'>
+            <div className='min-w-[12vh]'></div>
 
-            <div className='Board flex flex-col gap-5 justify-center items-center w-[1400px] overflow-x-hidden'>
+            <div className='Board flex flex-col gap-5 justify-center items-center w-[1400px] '>
 
                 <BoardHeader id={id} projectData={projectData} />
 
-                <hr className='border-[#D6E3EC]' />
+                <hr className='border-2'/>
 
                 <BoardMain docRefId={id} />
 

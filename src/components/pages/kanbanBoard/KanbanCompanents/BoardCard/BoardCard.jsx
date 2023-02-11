@@ -4,32 +4,33 @@ import { dateConverter } from '../../../../../useCase/DateConverter'
 import { severityTag } from '../../../../../useCase/Tag'
 import { limit } from '../../../../../useCase/TextLimitor'
 import { RemoveTaskHandler } from '../../../../../repository/FirebaseRemoveTask'
+import { UserAuth } from '../../../../../context/UserAuth'
+import { collection, deleteDoc, doc } from 'firebase/firestore'
+import { db } from '../../../../../Firebase'
+import { UserOp } from '../../../../../context/ProjectOp'
+import { update} from "firebase/database";
 
 
-
-const BoardCard = ({ cardData, docRefId, bucketList }) => {
+const BoardCard = ({ cardData }) => {
     const desc = cardData.description
+    const { allBucketList, docRefId } = UserOp()
+    const { user } = UserAuth()
     const limitedDesc = limit(desc, 100)
 
-    console.log(bucketList);
-
-    // const showId = (passedId) => {
-    //     const picked = bucketList?.filter((item) => item.id !== passedId)
-    //     console.log(picked);
-    //     return picked
-    // }
+    //const removeHandler = (passedId) => RemoveTaskHandler(passedId, cardData.userId, docRefId)
 
 
-    const removeHandler = (passedId) => RemoveTaskHandler(passedId, bucketList, cardData.userId, docRefId)
+    const RemoveTaskHandler2 = async (passedId) => {
+        try {
+            const docRef = doc(db, 'users', user.uid, 'projects', docRefId, 'bucketlist', passedId)
+            await deleteDoc(docRef);
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
-    // const RemoveTaskHandler = async (passedId) => {
 
-    //     const collectionRef = collection(db, 'users', cardData.userId, 'projects', docRefId, 'bucketlist')
-    //     const picked = bucketList?.filter((item) => item.id !== passedId)
-    //     console.log(picked);
 
-    //     return await updateDoc(collectionRef, { bucketlist: picked });
-    // }
 
     return (
         <div>
@@ -42,9 +43,9 @@ const BoardCard = ({ cardData, docRefId, bucketList }) => {
                         </h5>
                         <div>
 
-                            <button className='py-2 px-6 border' onClick={() => removeHandler(cardData.id)}>Delete</button>
+                            <button className='py-2 px-6 border' onClick={() => RemoveTaskHandler(cardData.id)}>Delete</button>
 
-                            {/* <DropDownMenu taskInfo={cardData} docRefId={docRefId} /> */}
+                            <DropDownMenu />
                         </div>
                     </div>
 

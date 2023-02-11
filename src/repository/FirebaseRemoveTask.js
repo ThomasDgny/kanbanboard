@@ -1,10 +1,20 @@
-import { collection, updateDoc } from "firebase/firestore";
+import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "../Firebase";
+import { UserOp } from "../context/ProjectOp";
+import { UserAuth } from "../context/UserAuth";
 
 
-export const RemoveTaskHandler = async (passedId, bucketList, userid, docRefId) => {
+export const RemoveTaskHandler = async (passedId) => {
 
-    const collectionRef = collection(db, 'users', userid, 'projects', docRefId, 'bucketlist')
-    const picked = bucketList?.filter((item) => item.id !== passedId)
-    await updateDoc(collectionRef, { bucketlist: picked });
+    const { docRefId } = UserOp()
+    const { user } = UserAuth()
+
+    console.log(docRefId);
+
+    try {
+        const docRef = doc(db, 'users', user.uid, 'projects', docRefId, 'bucketlist', passedId)
+        await deleteDoc(docRef);
+    } catch (error) {
+        console.log(error);
+    }
 }

@@ -8,7 +8,7 @@ export default function Navbar() {
 
     const { LogOut } = UserAuth();
     const navigate = useNavigate();
-    
+
     const HandleSignOut = async () => {
         try {
             LogOut(auth)
@@ -21,6 +21,7 @@ export default function Navbar() {
     const userEmail = user?.email
     console.log(user);
     return (
+
         <div className="flex">
 
             <ul className="flex gap-4 items-center  w-full  p-3 text-[#212121]">
@@ -38,7 +39,7 @@ export default function Navbar() {
                 </li>
 
                 <li className="hover:text-[#ff51ae]">
-                   <button onClick={HandleSignOut}>Sign Out</button>
+                    <button onClick={HandleSignOut}>Sign Out</button>
                 </li>
 
 
@@ -48,6 +49,7 @@ export default function Navbar() {
                 </li>
 
             </ul>
+
         </div>
 
     )
