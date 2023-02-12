@@ -1,35 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import DropDownMenu from '../dropDownMenu/DropDownMenu'
 import { dateConverter } from '../../../../../useCase/DateConverter'
 import { severityTag } from '../../../../../useCase/Tag'
 import { limit } from '../../../../../useCase/TextLimitor'
 import { RemoveTaskHandler } from '../../../../../repository/FirebaseRemoveTask'
 import { UserAuth } from '../../../../../context/UserAuth'
-import { collection, deleteDoc, doc } from 'firebase/firestore'
-import { db } from '../../../../../Firebase'
 import { UserOp } from '../../../../../context/ProjectOp'
-import { update} from "firebase/database";
+import { FirebaseChangeTaskStatus } from '../../../../../repository/FirebaseChangeTaskStatus'
+
 
 
 const BoardCard = ({ cardData }) => {
-    const desc = cardData.description
-    const { allBucketList, docRefId } = UserOp()
+    const [status, setStatus] = useState(cardData.status)
+    const { docRefId } = UserOp()
     const { user } = UserAuth()
+
+    const desc = cardData.description
     const limitedDesc = limit(desc, 100)
 
-    //const removeHandler = (passedId) => RemoveTaskHandler(passedId, cardData.userId, docRefId)
+    const removeHandler = (passedId) => RemoveTaskHandler(passedId, user, docRefId)
 
-
-    const RemoveTaskHandler2 = async (passedId) => {
-        try {
-            const docRef = doc(db, 'users', user.uid, 'projects', docRefId, 'bucketlist', passedId)
-            await deleteDoc(docRef);
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-
+    useEffect(() => {
+        FirebaseChangeTaskStatus(cardData.id, user, docRefId, status)
+    }, [status])
 
 
     return (
@@ -43,9 +36,20 @@ const BoardCard = ({ cardData }) => {
                         </h5>
                         <div>
 
-                            <button className='py-2 px-6 border' onClick={() => RemoveTaskHandler(cardData.id)}>Delete</button>
+                            <button className='py-2 px-6 border' onClick={() => removeHandler(cardData.id)}>Delete</button>
 
-                            <DropDownMenu />
+                            <select
+                                className="form-select w-32 bg-white border border-gray-400 hover:border-gray-500 py-2 px-4 rounded-l"
+                                value={status}
+                                onChange={(event) => setStatus(event.target.value)}
+                            >
+                                <option value="todo">Todo</option>
+                                <option value="inProgress">In Progress</option>
+                                <option value="done">Done</option>
+                            </select>
+
+
+                            {/* <DropDownMenu /> */}
                         </div>
                     </div>
 
