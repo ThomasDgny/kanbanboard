@@ -1,37 +1,26 @@
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import '../../assets/textEditorStyle/TextEditorStyle.css'
+import { useEffect, useState } from 'react';
 
 
-const TextEditor = ({ content, setContent, readOnly, toolBarIsVisble }) => {
-
-
-  const toolBarToggle = (isTrue) => {
-    if (isTrue === true) {
-      const toolbars = document.getElementsByClassName("ql-toolbar");
-      for (let i = 0; i < toolbars.length; i++) {
-        if (toolbars) {
-          toolbars[i].style.display = "none";
-        }
-      }
-    }
-  }
-
-  toolBarToggle(toolBarIsVisble)
+const TextEditor = ({ content, setContent, readOnly, toolBarIsVisble, height }) => {
 
   const handleChange = (value) => {
     setContent(value);
   };
 
   const modules = {
-    toolbar: [
+
+    toolbar: toolBarIsVisble ? [
       [{ 'header': [1, 2, false] }],
       ['bold', 'italic', 'underline', 'strike', 'blockquote'],
       [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
       ['link'],
       [{ 'header': 1 }, { 'header': 2 }],
       ['code-block']
-    ]
+    ] : [],
+
   };
 
 
@@ -42,7 +31,7 @@ const TextEditor = ({ content, setContent, readOnly, toolBarIsVisble }) => {
         readOnly={readOnly}
         onChange={handleChange}
         modules={modules}
-        style={{ height: '35vh' }}
+        style={{ height: `${height}` }}
         placeholder='Description'
       />
     </div>

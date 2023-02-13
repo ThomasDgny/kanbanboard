@@ -29,8 +29,8 @@ const BoardCard = ({ cardData }) => {
 
 
     return (
-        <div>
-            <div className="w-full">
+        <div className='BoardCard'>
+            <div className="BoardCard_Body w-full">
                 <div className='rounded-lg border border-[#D6E3EC] p-[20px] flex flex-col gap-[15px]'>
                     <div>
 
@@ -56,7 +56,7 @@ const BoardCard = ({ cardData }) => {
 
                     </div>
 
-                    {cardData?.img && <img src={cardData?.img} className='rounded-lg h-full w-full' alt="" />}
+                    {cardData?.img && <img src={cardData?.img} className='rounded-lg h-full w-full ' alt="" />}
 
                     <div className='flex gap-3 items-center'>
                         <label className={severityTag(cardData)}>{cardData.severity}</label>
@@ -66,7 +66,13 @@ const BoardCard = ({ cardData }) => {
 
                     <div>
                         <h5 className="text-[18px] text-black font-bold">Note</h5>
-                        <TextEditor content={limitedDesc} setContent={settext} readOnly={true} toolBarIsVisble={true}/>
+                        <TextEditor 
+                        content={limitedDesc} 
+                        setContent={settext} 
+                        readOnly={true} 
+                        toolBarIsVisble={false}
+                        height={'max-h-max'}
+                        />
                     </div>
 
                 </div>

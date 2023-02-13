@@ -70,7 +70,12 @@ const TaskCreateCard = ({ id }) => {
                         <p className="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
                     </div>
 
-                    <TextEditor content={description} setContent={setDescription} readonly={false} toolBarIsVisble={false} />
+                    <TextEditor 
+                    content={description} 
+                    setContent={setDescription} 
+                    readonly={false} 
+                    toolBarIsVisble={true} 
+                    height={'h-[35vh]'} />
                     {/* <textarea type="text" className='bg-transparent h-[40vh] resize-none border-none outline-0 p-2' required placeholder='Description' onChange={(e) => setDescription(e.target.value)} /> */}
 
                     <input type="submit" className=" absolute text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-6 py-3 mr-2 mb-2 bottom-0 " value={'Create'} />
