@@ -3,14 +3,16 @@ import 'react-quill/dist/quill.snow.css';
 import '../../assets/textEditorStyle/TextEditorStyle.css'
 
 
-const TextEditor = ({ content, setContent, readOnly , toolBarIsVisble }) => {
+const TextEditor = ({ content, setContent, readOnly, toolBarIsVisble }) => {
 
 
   const toolBarToggle = (isTrue) => {
     if (isTrue === true) {
-      const toolbar = document.getElementsByClassName("ql-toolbar")[0];
-      if (toolbar) {
-        toolbar.style.display = "none";
+      const toolbars = document.getElementsByClassName("ql-toolbar");
+      for (let i = 0; i < toolbars.length; i++) {
+        if (toolbars) {
+          toolbars[i].style.display = "none";
+        }
       }
     }
   }

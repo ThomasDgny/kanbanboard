@@ -27,7 +27,7 @@ const Board = () => {
     console.log(projectData)
 
     return (
-        <div className='flex flex-col justify-center items-center overflow-x-hidden'>
+        <div className='Board flex flex-col justify-center items-center overflow-hidden'>
             <div className='min-w-[12vh]'></div>
 
             <div className='Board flex flex-col gap-5 justify-center items-center w-[1400px] '>
