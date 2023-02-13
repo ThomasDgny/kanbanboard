@@ -23,9 +23,6 @@ const BoardCard = ({ cardData }) => {
 
     //const removeHandler = (passedId) => RemoveTaskHandler(passedId, user, docRefId)
 
-
-    console.log(cardData.status);
-    console.log(status);
     useEffect(() => {
         FirebaseChangeTaskStatus(cardData.id, user, docRefId, status)
     }, [status])

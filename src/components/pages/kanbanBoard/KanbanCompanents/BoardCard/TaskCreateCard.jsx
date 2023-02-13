@@ -30,7 +30,7 @@ const TaskCreateCard = ({ id }) => {
     }
 
     return (
-        <div className='CreateCardPopUp fixed z-50 top-0 bottom-0 left-0 w-[80vh] bg-white drop-shadow-md'>
+        <div className='CreateCardPopUp fixed z-[100] top-0 bottom-0 left-0 w-[80vh] bg-white drop-shadow-md overflow-y-scroll scroll-smooth scrollbar-hide'>
             <div className='CreateCardPopUp_Body p-6'>
                 <form className='flex flex-col w-full gap-6' onSubmit={createNewTask}>
 
@@ -69,16 +69,15 @@ const TaskCreateCard = ({ id }) => {
                         <input className="block w-full text-sm text-gray-900  border border-gray-300 rounded-lg cursor-pointer bg-gray-50" aria-describedby="file_input_help" id="file_input" type="file" />
                         <p className="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
                     </div>
-
-                    <TextEditor 
-                    content={description} 
-                    setContent={setDescription} 
-                    readonly={false} 
-                    toolBarIsVisble={true} 
-                    height={'h-[35vh]'} />
-                    {/* <textarea type="text" className='bg-transparent h-[40vh] resize-none border-none outline-0 p-2' required placeholder='Description' onChange={(e) => setDescription(e.target.value)} /> */}
-
-                    <input type="submit" className=" absolute text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-6 py-3 mr-2 mb-2 bottom-0 " value={'Create'} />
+                    <div className='TextArea'>
+                        <TextEditor
+                            content={description}
+                            setContent={setDescription}
+                            readonly={false}
+                            toolBarIsVisble={true}
+                            height={'h-[35vh]'} />
+                    </div>
+                    <input type="submit" className="sticky cursor-pointer drop-shadow-lg shadow-[#1DA1F2] bottom-5 left-5 right-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-6 py-3 mr-2 mb-2" value={'Create'} />
 
                 </form>
 

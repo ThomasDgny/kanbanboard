@@ -25,7 +25,13 @@ const DropdownMenu = ({ defaultStatu, setStatus, cardDataid, userobj, RefId }) =
         setStatus(statusTask)
     }, [setStatus, statusTask])
 
-    const removeHandler = (passedId) => RemoveTaskHandler(passedId, userobj, RefId)
+    const removeHandler = (passedId) => {
+        let text = "Are you sure about that";
+        // eslint-disable-next-line no-restricted-globals
+        if (confirm(text) === true) {
+            RemoveTaskHandler(passedId, userobj, RefId)
+        }
+    }
 
     return (
         <div className="DropDownMen_CardOptions relative z-50">
@@ -39,21 +45,21 @@ const DropdownMenu = ({ defaultStatu, setStatus, cardDataid, userobj, RefId }) =
 
             {showMenu && (
                 <ul
-                    className="dropdown-menu absolute w-[12vh] bg-white rounded-xl shadow-lg mt-2"
+                    className="dropdown-menu absolute w-[15vh] bg-white rounded-xl shadow-lg mt-2"
                     ref={dropdownRef}
 
                 >
-                    <li value='todo' onClick={() => setStatusTask('todo')} className="dropdown-item cursor-pointer rounded-t-xl hover:bg-[#1DA1F2] px-2 py-1 hover:text-white">
+                    <li value='todo' onClick={() => setStatusTask('todo')} className="dropdown-item cursor-pointer rounded-t-xl hover:bg-[#1DA1F2] px-3 py-[6px] text-[18px] hover:text-white">
                         Todo
                     </li>
-                    <li onClick={() => setStatusTask('inProgress')} className="dropdown-item cursor-pointer  hover:bg-[#1DA1F2] px-2 py-1 hover:text-white">
+                    <li onClick={() => setStatusTask('inProgress')} className="dropdown-item cursor-pointer  hover:bg-[#1DA1F2] px-3 py-[6px] text-[18px] hover:text-white">
                         In Progress
                     </li>
-                    <li onClick={() => setStatusTask('done')} className="dropdown-item cursor-pointer  hover:bg-[#1DA1F2] px-2 py-1 hover:text-white">
+                    <li onClick={() => setStatusTask('done')} className="dropdown-item cursor-pointer  hover:bg-[#1DA1F2] px-3 py-[6px] text-[18px] hover:text-white">
                         Done
                     </li>
 
-                    <li onClick={() => removeHandler(cardDataid)} className="dropdown-item cursor-pointer rounded-b-xl hover:bg-[#1DA1F2] px-2 py-1 hover:text-white">
+                    <li onClick={() => removeHandler(cardDataid)} className="dropdown-item cursor-pointer rounded-b-xl hover:bg-[#f53232] px-3 py-[6px] text-[#f53232] text-[18px] hover:text-white">
                         Delete
                     </li>
                 </ul>
