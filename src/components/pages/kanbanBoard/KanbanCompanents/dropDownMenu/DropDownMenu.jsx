@@ -1,44 +1,65 @@
-import { Dropdown } from 'flowbite-react'
-import React, { useEffect, useState } from 'react'
-import { UserOp } from '../../../../../context/ProjectOp'
-import { UserAuth } from '../../../../../context/UserAuth'
-import { db } from '../../../../../Firebase'
+import React, { useState, useRef, useEffect } from "react";
+import OptionIcon from "../../../../../assets/icons/OptionsIcon";
+import { RemoveTaskHandler } from "../../../../../repository/FirebaseRemoveTask";
 
+const DropdownMenu = ({ defaultStatu, setStatus, cardDataid, userobj, RefId }) => {
+    const [statusTask, setStatusTask] = useState(defaultStatu)
 
-const DropDownMenu = ({ taskInfo, docRefId }) => {
-    const [bucketList, setBucketList] = useState([])
+    const [showMenu, setShowMenu] = useState(false);
+    const dropdownRef = useRef(null);
 
-    const { removeTaskHandler } = UserOp()
-    const { user } = UserAuth()
-    const { getBucketList } = UserOp()
+    const handleClickOutside = (event) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            setShowMenu(false);
+        }
+    };
 
     useEffect(() => {
-        getBucketList(db, user, docRefId, taskInfo.status, setBucketList)
-    }, [docRefId, getBucketList, taskInfo.status, user])
-    console.log(bucketList);
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    });
 
-    const removeHandler = (passedId) => removeTaskHandler(passedId, bucketList, user, docRefId, taskInfo.status)
+    useEffect(() => {
+        setStatus(statusTask)
+    }, [setStatus, statusTask])
 
-
+    const removeHandler = (passedId) => RemoveTaskHandler(passedId, userobj, RefId)
 
     return (
-        <div>
-            <Dropdown
-                inline={true}
+        <div className="DropDownMen_CardOptions relative z-50">
+            <div
+                className="dropdown-icon cursor-pointer"
+                onClick={() => setShowMenu(!showMenu)}
             >
-                <Dropdown.Item className='text-[16px]'>
-                    In Progress
-                </Dropdown.Item>
-                <Dropdown.Item className='text-[16px]'>
-                    Done
-                </Dropdown.Item>
-                <Dropdown.Item onClick={() => removeHandler(taskInfo.id)} className='text-[16px]'>
-                    Delete
-                </Dropdown.Item>
-            </Dropdown>
+                <OptionIcon />
+            </div>
 
+
+            {showMenu && (
+                <ul
+                    className="dropdown-menu absolute w-[12vh] bg-white rounded-xl shadow-lg mt-2"
+                    ref={dropdownRef}
+
+                >
+                    <li value='todo' onClick={() => setStatusTask('todo')} className="dropdown-item cursor-pointer rounded-t-xl hover:bg-[#1DA1F2] px-2 py-1 hover:text-white">
+                        Todo
+                    </li>
+                    <li onClick={() => setStatusTask('inProgress')} className="dropdown-item cursor-pointer  hover:bg-[#1DA1F2] px-2 py-1 hover:text-white">
+                        In Progress
+                    </li>
+                    <li onClick={() => setStatusTask('done')} className="dropdown-item cursor-pointer  hover:bg-[#1DA1F2] px-2 py-1 hover:text-white">
+                        Done
+                    </li>
+
+                    <li onClick={() => removeHandler(cardDataid)} className="dropdown-item cursor-pointer rounded-b-xl hover:bg-[#1DA1F2] px-2 py-1 hover:text-white">
+                        Delete
+                    </li>
+                </ul>
+            )}
         </div>
-    )
-}
+    );
+};
 
-export default DropDownMenu
+export default DropdownMenu;

@@ -1,8 +1,6 @@
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import '../../assets/textEditorStyle/TextEditorStyle.css'
-import { useEffect, useState } from 'react';
-
 
 const TextEditor = ({ content, setContent, readOnly, toolBarIsVisble, height }) => {
 

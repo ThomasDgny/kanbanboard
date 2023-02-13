@@ -7,6 +7,7 @@ import { UserAuth } from '../../../../../context/UserAuth'
 import { UserOp } from '../../../../../context/ProjectOp'
 import { FirebaseChangeTaskStatus } from '../../../../../repository/FirebaseChangeTaskStatus'
 import TextEditor from '../../../../elements/TextEditor'
+import DropdownMenu from '../dropDownMenu/DropDownMenu'
 
 
 
@@ -17,11 +18,14 @@ const BoardCard = ({ cardData }) => {
     const { user } = UserAuth()
 
     const desc = cardData.description
-    const limitedDesc = limit(desc, 200)
-    
+    const limitedDesc = limit(desc, 150)
 
-    const removeHandler = (passedId) => RemoveTaskHandler(passedId, user, docRefId)
 
+    //const removeHandler = (passedId) => RemoveTaskHandler(passedId, user, docRefId)
+
+
+    console.log(cardData.status);
+    console.log(status);
     useEffect(() => {
         FirebaseChangeTaskStatus(cardData.id, user, docRefId, status)
     }, [status])
@@ -31,28 +35,15 @@ const BoardCard = ({ cardData }) => {
     return (
         <div className='BoardCard'>
             <div className="BoardCard_Body w-full">
-                <div className='rounded-lg border border-[#D6E3EC] p-[20px] flex flex-col gap-[15px]'>
-                    <div>
-
-                        <button className='py-2 px-6 border' onClick={() => removeHandler(cardData.id)}>Delete</button>
-
-                        <select
-                            className="form-select w-32 bg-white border border-gray-400 hover:border-gray-500 py-2 px-4 rounded-l"
-                            value={status}
-                            onChange={(event) => setStatus(event.target.value)}
-                        >
-                            <option value="todo">Todo</option>
-                            <option value="inProgress">In Progress</option>
-                            <option value="done">Done</option>
-                        </select>
+                <div className='rounded-2xl border border-[#D6E3EC] p-[25px] flex flex-col gap-[15px]'>
 
 
-                        {/* <DropDownMenu /> */}
-                    </div>
                     <div className='CardHeader flex justify-between'>
-                        <h5 className="text-[20px] text-black font-bold">
+                        <h5 className="text-[24px] text-black font-bold">
                             {cardData.title}
                         </h5>
+
+                        <DropdownMenu defaultStatu={cardData.status} setStatus={setStatus} cardDataid={cardData.id} userobj={user} RefId={docRefId} />
 
                     </div>
 
@@ -60,18 +51,18 @@ const BoardCard = ({ cardData }) => {
 
                     <div className='flex gap-3 items-center'>
                         <label className={severityTag(cardData)}>{cardData.severity}</label>
-                        <label className='text-[16px]'>{dateConverter(cardData.creationDate)}</label>
-                        <span className="text-[16px] text-black font-medium">{cardData.createddate}</span>
+                        <label className='text-[16px] text-[#8393B9]  font-medium'>{dateConverter(cardData.creationDate)}</label>
                     </div>
 
-                    <div>
-                        <h5 className="text-[18px] text-black font-bold">Note</h5>
-                        <TextEditor 
-                        content={limitedDesc} 
-                        setContent={settext} 
-                        readOnly={true} 
-                        toolBarIsVisble={false}
-                        height={'max-h-max'}
+                    <div className='relative'>
+                        <h5 className="absolute text-[18px] top-4 text-black font-bold">Note</h5>
+                        <TextEditor
+                            className='top-0'
+                            content={limitedDesc}
+                            setContent={settext}
+                            readOnly={true}
+                            toolBarIsVisble={false}
+                            height={'max-h-max'}
                         />
                     </div>
 

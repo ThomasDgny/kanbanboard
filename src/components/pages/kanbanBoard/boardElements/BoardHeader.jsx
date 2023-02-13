@@ -23,10 +23,10 @@ const BoardHeader = ({ id, projectData }) => {
             }
             <div className='BoradHeader w-full flex justify-between'>
 
-                <div className='ProjectInfo_BorderHeader flex gap-3'>
+                <div className='ProjectInfo_BorderHeader flex gap-5'>
                     <img src={projectData.projectlogo} alt="" className='w-[80px] h-[80px] rounded-md' />
                     <div>
-                        <h1 className='text-[20px] font-semibold'>{projectData.projectname}</h1>
+                        <h1 className='text-[30px] font-bold'>{projectData.projectname}</h1>
                         <h1>{createDate}</h1>
                     </div>
                 </div>
