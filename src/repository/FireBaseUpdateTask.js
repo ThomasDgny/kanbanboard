@@ -6,7 +6,7 @@ export const fireBaseUpdateTask = async (passedId, user, docRefId, title, descri
     console.log(docRefId);
 
     try {
-        const docRef = doc(db, 'users', user.userId, 'projects', docRefId, 'bucketlist', passedId)
+        const docRef = doc(db, 'users', user.uid, 'projects', docRefId, 'bucketlist', passedId)
 
         const updatedTask = {
             title: title,
