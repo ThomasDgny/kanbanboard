@@ -31,8 +31,6 @@ const BoardCard = ({ cardData, setCardId, setIsTaskDetailOpen }) => {
     }
 
 
-
-
     return (
         <div className='BoardCard'>
             <div className="BoardCard_Body w-full">

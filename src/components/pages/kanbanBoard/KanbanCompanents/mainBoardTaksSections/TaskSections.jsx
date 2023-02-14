@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import BoardCard from '../BoardCard/BoardCard'
 import TaskDetailsCard from '../BoardCard/TaskDetailsCard'
 
-const TaskSections = ({ title, bucketList }) => {
+const TaskSections = ({ title, bucketList, docRefId }) => {
     const [isTaskDetailOpen, setIsTaskDetailOpen] = useState(false)
     const [cardId, setCardId] = useState('')
     const [taskInfo, setTaskInfo] = useState({})
@@ -12,6 +12,7 @@ const TaskSections = ({ title, bucketList }) => {
     const handleClickOutside = (event) => {
         if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
             setIsTaskDetailOpen(false);
+            setCardId()
         }
     };
 
@@ -36,7 +37,7 @@ const TaskSections = ({ title, bucketList }) => {
             {
                 isTaskDetailOpen && taskInfo ?
                     <div ref={dropdownRef}>
-                        <TaskDetailsCard cardInfo={taskInfo} />
+                        <TaskDetailsCard cardInfo={taskInfo} docRefId={docRefId}/>
                     </div>
                     : null
             }

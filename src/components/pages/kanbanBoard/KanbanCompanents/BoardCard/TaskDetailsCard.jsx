@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import { UserAuth } from '../../../../../context/UserAuth'
-import { newTask } from '../../../../../repository/FirebaseTaskCreater'
 import { severityTag } from '../../../../../useCase/Tag'
 import TextEditor from '../../../../elements/TextEditor'
+import { fireBaseUpdateTask } from '../../../../../repository/FireBaseUpdateTask'
 
-const TaskDetailsCard = ({ cardInfo }) => {
+const TaskDetailsCard = ({ cardInfo, docRefId }) => {
     const [title, setTitle] = useState(cardInfo.title)
     const [description, setDescription] = useState(cardInfo.description)
     const [status, setStatus] = useState(cardInfo.status)
@@ -13,7 +12,7 @@ const TaskDetailsCard = ({ cardInfo }) => {
     const createNewTask = (e) => {
         e.preventDefault()
         try {
-            // newTask(user, title, description, status, severity, id)
+            fireBaseUpdateTask(cardInfo.id, cardInfo, docRefId, title, description, status, severity)
         } catch (error) {
             console.log(error);
         }
