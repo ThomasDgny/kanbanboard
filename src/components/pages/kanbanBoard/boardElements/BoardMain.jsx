@@ -24,8 +24,11 @@ const BoardMain = ({ docRefId }) => {
         },
     ]
 
+
+
     return (
         <div className='Main w-full'>
+            
             <div className='MainBody'>
                 <div className='MainContent w-full grid grid-cols-3 gap-5'>
 

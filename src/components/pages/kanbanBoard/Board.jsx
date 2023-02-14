@@ -34,7 +34,7 @@ const Board = () => {
 
                 <BoardHeader id={id} projectData={projectData} />
 
-                <hr className='border-2'/>
+                <hr className='border-[1px] w-full'/>
 
                 <BoardMain docRefId={id} />
 

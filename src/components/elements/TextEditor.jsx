@@ -4,10 +4,6 @@ import '../../assets/textEditorStyle/TextEditorStyle.css'
 
 const TextEditor = ({ content, setContent, readOnly, toolBarIsVisble, height }) => {
 
-  const handleChange = (value) => {
-    setContent(value);
-  };
-
   const modules = {
 
     toolbar: toolBarIsVisble ? [
@@ -27,7 +23,7 @@ const TextEditor = ({ content, setContent, readOnly, toolBarIsVisble, height }) 
       <ReactQuill
         value={content}
         readOnly={readOnly}
-        onChange={handleChange}
+        onChange={(value) => setContent(value)}
         modules={modules}
         style={{ height: `${height}` }}
         placeholder='Description'

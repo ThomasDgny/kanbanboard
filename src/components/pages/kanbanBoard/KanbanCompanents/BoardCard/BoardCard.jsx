@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { dateConverter } from '../../../../../useCase/DateConverter'
 import { severityTag } from '../../../../../useCase/Tag'
 import { limit } from '../../../../../useCase/TextLimitor'
-import { RemoveTaskHandler } from '../../../../../repository/FirebaseRemoveTask'
 import { UserAuth } from '../../../../../context/UserAuth'
 import { UserOp } from '../../../../../context/ProjectOp'
 import { FirebaseChangeTaskStatus } from '../../../../../repository/FirebaseChangeTaskStatus'
@@ -11,7 +10,7 @@ import DropdownMenu from '../dropDownMenu/DropDownMenu'
 
 
 
-const BoardCard = ({ cardData }) => {
+const BoardCard = ({ cardData, setCardId, setIsTaskDetailOpen }) => {
     const [status, setStatus] = useState(cardData.status)
     const [text, settext] = useState()
     const { docRefId } = UserOp()
@@ -21,19 +20,23 @@ const BoardCard = ({ cardData }) => {
     const limitedDesc = limit(desc, 150)
 
 
-    //const removeHandler = (passedId) => RemoveTaskHandler(passedId, user, docRefId)
-
     useEffect(() => {
         FirebaseChangeTaskStatus(cardData.id, user, docRefId, status)
     }, [status])
+
+
+    const handlerTaskDetailInfo = () => {
+        setCardId(cardData.id)
+        setIsTaskDetailOpen(true)
+    }
+
 
 
 
     return (
         <div className='BoardCard'>
             <div className="BoardCard_Body w-full">
-                <div className='rounded-2xl border border-[#D6E3EC] p-[25px] flex flex-col gap-[15px]'>
-
+                <div className='relative rounded-2xl border border-[#D6E3EC] p-[25px] flex flex-col gap-[15px]'>
 
                     <div className='CardHeader flex justify-between'>
                         <h5 className="text-[24px] text-black font-bold">
@@ -43,6 +46,7 @@ const BoardCard = ({ cardData }) => {
                         <DropdownMenu defaultStatu={cardData.status} setStatus={setStatus} cardDataid={cardData.id} userobj={user} RefId={docRefId} />
 
                     </div>
+                    <div onClick={() => handlerTaskDetailInfo()} className='absolute bg-black opacity-0 rounded-2xl top-0 left-0 bottom-0 right-0 z-10'></div>
 
                     {cardData?.img && <img src={cardData?.img} className='rounded-lg h-full w-full ' alt="" />}
 
