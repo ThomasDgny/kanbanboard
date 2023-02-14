@@ -23,7 +23,7 @@ const TextEditor = ({ content, setContent, readOnly, toolBarIsVisble, height }) 
       <ReactQuill
         value={content}
         readOnly={readOnly}
-        onChange={(value) => setContent(value)}
+        onChange={(value) => setContent(value.trim())}
         modules={modules}
         style={{ height: `${height}` }}
         placeholder='Description'

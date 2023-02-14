@@ -7,6 +7,7 @@ import { UserOp } from '../../../../../context/ProjectOp'
 import { FirebaseChangeTaskStatus } from '../../../../../repository/FirebaseChangeTaskStatus'
 import TextEditor from '../../../../elements/TextEditor'
 import DropdownMenu from '../dropDownMenu/DropDownMenu'
+import { convert } from 'html-to-text'
 
 
 
@@ -30,6 +31,7 @@ const BoardCard = ({ cardData, setCardId, setIsTaskDetailOpen }) => {
         setIsTaskDetailOpen(true)
     }
 
+    const isDescActive = convert(limitedDesc).length
 
     return (
         <div className='BoardCard'>
@@ -53,7 +55,7 @@ const BoardCard = ({ cardData, setCardId, setIsTaskDetailOpen }) => {
                         <label className='text-[16px] text-[#8393B9]  font-medium'>{dateConverter(cardData.creationDate)}</label>
                     </div>
 
-                    <div className='relative'>
+                    {isDescActive !== 0 && <div className='relative'>
                         <h5 className="absolute text-[18px] top-4 text-black font-bold">Note</h5>
                         <TextEditor
                             className='top-0'
@@ -63,7 +65,8 @@ const BoardCard = ({ cardData, setCardId, setIsTaskDetailOpen }) => {
                             toolBarIsVisble={false}
                             height={'max-h-max'}
                         />
-                    </div>
+                    </div> }
+
 
                 </div>
             </div>
