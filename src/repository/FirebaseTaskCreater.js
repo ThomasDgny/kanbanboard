@@ -2,7 +2,7 @@ import { addDoc, collection, updateDoc } from 'firebase/firestore'
 import { db } from "../Firebase"
 
 
-export const newTask = async (user, title, description, status, severity, id) => {
+export const newTask = async (user, title, description, status, severity, fileurl, id) => {
     if (user) {
         const newTask = {
             title: title,
@@ -10,7 +10,8 @@ export const newTask = async (user, title, description, status, severity, id) =>
             userId: user.uid,
             creationDate: new Date().getTime(),
             status: status,
-            severity: severity
+            severity: severity,
+            fileurl: fileurl
         }
 
 

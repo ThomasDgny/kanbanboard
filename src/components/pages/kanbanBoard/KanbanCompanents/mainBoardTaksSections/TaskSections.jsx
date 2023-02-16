@@ -27,25 +27,18 @@ const TaskSections = ({ title, bucketList, docRefId }) => {
         console.log(cardId);
         const taskDetails = bucketList.find(item => item.id === cardId)
         setTaskInfo(taskDetails)
-    }, [cardId])
+    }, [bucketList, cardId])
     console.log(taskInfo);
 
 
 
     return (
         <div className='TaskSection flex w-full flex-col gap-5'>
-            {
-                isTaskDetailOpen && taskInfo ?
-                    <div ref={dropdownRef}>
-                        <TaskDetailsCard cardInfo={taskInfo} docRefId={docRefId}/>
-                    </div>
-                    : null
-            }
             <div className='TaskSectionHeader'>
                 <h1 className='text-[22px] py-4 px-4 rounded-lg border border-[#D6E3EC] w-full flex items-center justify-between'>{title}</h1>
             </div>
 
-            <div className='TaskSectionContent flex flex-col gap-5'>
+            <div className='TaskSectionContent flex flex-col gap-5 '>
                 {
                     bucketList?.map((item, id) => (
                         <BoardCard
@@ -57,6 +50,13 @@ const TaskSections = ({ title, bucketList, docRefId }) => {
                     ))
                 }
             </div>
+            {
+                isTaskDetailOpen && taskInfo ?
+                    <div ref={dropdownRef}>
+                        <TaskDetailsCard cardInfo={taskInfo} docRefId={docRefId} />
+                    </div>
+                    : null
+            }
         </div>
     )
 }

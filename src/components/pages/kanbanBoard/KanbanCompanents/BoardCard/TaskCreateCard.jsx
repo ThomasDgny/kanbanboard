@@ -3,12 +3,15 @@ import { UserAuth } from '../../../../../context/UserAuth'
 import { newTask } from '../../../../../repository/FirebaseTaskCreater'
 import { severityTag } from '../../../../../useCase/Tag'
 import TextEditor from '../../../../elements/TextEditor'
+import { handleFileUpload } from '../../../../../repository/FirebaseUploadFile'
 
 const TaskCreateCard = ({ id }) => {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [status, setStatus] = useState('todo')
     const [severity, setSeverity] = useState('low')
+    const [file, setFile] = useState(null);
+    const [downloadURL, setDownloadURL] = useState("");
 
     const { user } = UserAuth()
 
@@ -19,16 +22,22 @@ const TaskCreateCard = ({ id }) => {
         setSeverity('low')
     }
 
-    const createNewTask = (e) => {
+    const handleFileChange = (e) => {
+        if (e.target.files[0]) {
+            setFile(e.target.files[0])
+        }
+    };
+
+    const createNewTask = async (e) => {
         e.preventDefault()
         try {
-            newTask(user, title, description, status, severity, id)
+            await handleFileUpload(file, setDownloadURL, user)
+            newTask(user, title, description, status, severity, downloadURL, id)
             resetInputs()
         } catch (error) {
             console.log(error);
         }
     }
-
     return (
         <div className='CreateCardPopUp fixed z-[100] top-0 bottom-0 left-0 w-[80vh] bg-white drop-shadow-md overflow-y-scroll scroll-smooth scrollbar-hide'>
             <div className='CreateCardPopUp_Body p-6'>
@@ -66,7 +75,7 @@ const TaskCreateCard = ({ id }) => {
 
                     <div className='Upload file'>
                         <label className="block mb-2 text-sm font-medium text-gray-900" htmlFor="file_input">Upload file</label>
-                        <input className="block w-full text-sm text-gray-900  border border-gray-300 rounded-lg cursor-pointer bg-gray-50" aria-describedby="file_input_help" id="file_input" type="file" />
+                        <input onChange={handleFileChange} className="block w-full text-sm text-gray-900  border border-gray-300 rounded-lg cursor-pointer bg-gray-50" aria-describedby="file_input_help" id="file_input" type="file" />
                         <p className="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
                     </div>
                     <div className='TextArea'>

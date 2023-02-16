@@ -31,7 +31,7 @@ const SideBar = () => {
             <nav>
                 <ul className='flex flex-col items-center justify-center'>
                     <li className="hover:bg-slate-200 p-2">
-                        <button > <LogoIcon /> </button>
+                        <button onClick={() => navigate('/')}> <LogoIcon /> </button>
                     </li>
                     <li className="hover:bg-slate-200 p-2">
                         <button > <DasboardIcon /> </button>

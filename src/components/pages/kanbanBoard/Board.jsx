@@ -27,10 +27,10 @@ const Board = () => {
     console.log(projectData)
 
     return (
-        <div className='Board flex flex-col justify-center items-center overflow-hidden'>
-            <div className='min-w-[12vh]'></div>
+        <div className='Board flex overflow-x-scroll scrollbar-hide'>
+            <div className='min-w-[12vh] bg-red-700'></div>
 
-            <div className='Board flex flex-col gap-5 justify-center items-center w-[1400px] '>
+            <div className='Board flex flex-col gap-5 '>
 
                 <BoardHeader id={id} projectData={projectData} />
 

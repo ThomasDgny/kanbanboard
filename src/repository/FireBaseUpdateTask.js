@@ -13,7 +13,7 @@ export const fireBaseUpdateTask = async (passedId, user, docRefId, title, descri
             description: description,
             updatedDate: new Date().getTime(),
             status: status,
-            severity: severity
+            severity: severity,
         }
 
 

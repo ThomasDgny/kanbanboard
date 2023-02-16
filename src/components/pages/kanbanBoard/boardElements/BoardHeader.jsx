@@ -16,7 +16,7 @@ const BoardHeader = ({ id, projectData }) => {
 
     const createDate = dateConverter(projectData.createddate)
     return (
-        <div className='w-full pt-7 h-[15vh] justify-center px-14 flex items-center'>
+        <div className='min-w-[100px] pt-7 h-[15vh] justify-center px-14 flex items-center'>
             {
                 CreateTaskPopUp &&
                 <TaskCreateCard id={id} />

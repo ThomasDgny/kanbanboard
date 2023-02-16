@@ -48,7 +48,7 @@ const BoardCard = ({ cardData, setCardId, setIsTaskDetailOpen }) => {
                     </div>
                     <div onClick={() => handlerTaskDetailInfo()} className='absolute bg-black opacity-0 rounded-2xl top-0 left-0 bottom-0 right-0 z-10'></div>
 
-                    {cardData?.img && <img src={cardData?.img} className='rounded-lg h-full w-full ' alt="" />}
+                    {cardData?.fileurl && <img src={cardData?.fileurl} className='rounded-lg h-full w-full ' alt="" />}
 
                     <div className='flex gap-3 items-center'>
                         <label className={severityTag(cardData)}>{cardData.severity}</label>
