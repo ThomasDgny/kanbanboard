@@ -46,7 +46,7 @@ const Dasboard = () => {
                             <button className='text-[16px] font-medium' onClick={() => navigate('/CreateProject')}>Create</button>
                         </div>
 
-                        <div className='ProjectLsit flex gap-5'>
+                        <div className='ProjectLsit flex flex-wrap gap-5'>
                             {projectsData.map((item, id) => (
                                 <div key={id} className='ProjectCard'>
                                     <ProjectCrad item={item} />
