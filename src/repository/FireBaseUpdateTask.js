@@ -1,7 +1,7 @@
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../Firebase";
 
-export const fireBaseUpdateTask = async (passedId, user, docRefId, title, description, status, severity) => {
+export const fireBaseUpdateTask = async (passedId, user, docRefId, title, description, status, severity ,url) => {
 
     console.log(docRefId);
 
@@ -14,6 +14,7 @@ export const fireBaseUpdateTask = async (passedId, user, docRefId, title, descri
             updatedDate: new Date().getTime(),
             status: status,
             severity: severity,
+            fileurl: url || ''
         }
 
 

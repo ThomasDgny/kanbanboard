@@ -16,6 +16,9 @@ const Dasboard = () => {
     }, [user])
     console.log(projectsData)
 
+    const allDocRefIdArr = projectsData.map(item => item.projectid)
+    console.log(allDocRefIdArr);
+    console.log(projectsData)
 
 
     return (
@@ -27,7 +30,7 @@ const Dasboard = () => {
                 <div className='Dashboard_Header pt-7 h-[15vh] justify-center px-14 flex items-center'>
 
                     <div className='Dashboard_Header_body w-full'>
-                        <h1 className='text-[24px] font-bold mb-[10px]'>{user?.email}</h1>
+                        <h1 className='text-[30px] font-bold '>{user?.email}</h1>
                         <p className='text-[16px] font-medium'>Welcome Back</p>
                     </div>
 

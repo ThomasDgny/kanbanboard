@@ -37,7 +37,6 @@ const TaskCreateCard = ({ docRef }) => {
         console.log(imgUrl);
         newTask(user, title, description, status, severity, imgUrl, docRef)
         resetInputs()
-
     }
 
     useEffect(() => {
