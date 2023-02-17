@@ -30,14 +30,14 @@ const CreateProject = () => {
         <div className="flex flex-col md:flex-row h-screen">
             <div className="w-full md:w-1/2  flex items-center justify-center">
                 <div className="max-w-md py-12 px-6">
-                    <h2 className="text-4xl font-bold text-black mb-6">Create New Project</h2>
+                    <h2 className="text-[42px] font-bold text-black mb-6">Create New Project</h2>
                     <form>
 
                         <div className="mb-4">
-                            <label className="block text-black text-sm font-bold mb-2" htmlFor="project-name">
+                            <label className="block text-black text-sm font-medium mb-2" htmlFor="project-name">
                                 Project Name
                             </label>
-                            <input onChange={(e) => setProjectName(e.target.value.trim())} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="project-name" type="text" placeholder="Enter project name" />
+                            <input onChange={(e) => setProjectName(e.target.value.trim())} className="appearance-none border border-gray-300  rounded-lg w-full p-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="project-name" type="text" placeholder="Enter project name" />
                         </div>
 
 

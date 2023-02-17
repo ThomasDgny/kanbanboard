@@ -7,6 +7,7 @@ import SignUp from "./components/pages/SignUp/SignUpPage";
 import Dasboard from "./components/pages/Home/Dasboard";
 import CreateProject from "./components/pages/CreateProject/CreateProject";
 import SideBar from "./components/elements/sideBar/SideBar";
+import LnadingPage from "./components/pages/main/MainLandingPage";
 
 
 function App() {
@@ -14,9 +15,10 @@ function App() {
     <div className="App">
       <AuthContextProvider>
         <ProjectContextProvider>
-        <SideBar />
+          <SideBar />
           <Routes>
-            <Route path="/" element={<Dasboard />} />
+            <Route path="/LnadingPage" element={<LnadingPage />} />
+            <Route path="/" element={<Dasboard />}/>
             <Route path="/CreateProject" element={<CreateProject />} />
             <Route path="/Board/:id" element={<Board />} />
             <Route path="/SignIn" element={<SignIn />} />
