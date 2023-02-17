@@ -34,7 +34,7 @@ const BoardCard = ({ cardData, setCardId, setIsTaskDetailOpen }) => {
     const isDescActive = convert(limitedDesc).length
 
     return (
-        <div className='BoardCard'>
+        <div className='BoardCard cursor-pointer'>
             <div className="BoardCard_Body w-full">
                 <div className='relative rounded-2xl border border-[#D6E3EC] p-[25px] flex flex-col gap-[15px]'>
 

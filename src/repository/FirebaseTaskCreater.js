@@ -1,8 +1,7 @@
 import { addDoc, collection, updateDoc } from 'firebase/firestore'
 import { db } from "../Firebase"
 
-
-export const newTask = async (user, title, description, status, severity, fileurl, id) => {
+export const newTask = async (user, title, description, status, severity, url, DocRef) => {
     if (user) {
         const newTask = {
             title: title,
@@ -11,13 +10,12 @@ export const newTask = async (user, title, description, status, severity, fileur
             creationDate: new Date().getTime(),
             status: status,
             severity: severity,
-            fileurl: fileurl
+            fileurl: url
+
         }
 
-
-        const collectionRef = collection(db, 'users', user.uid, 'projects', id, 'bucketlist')
+        const collectionRef = collection(db, 'users', user.uid, 'projects', DocRef, 'bucketlist')
         const docRef = await addDoc(collectionRef, newTask)
-
         await updateDoc(docRef, { id: docRef.id })
     }
 }

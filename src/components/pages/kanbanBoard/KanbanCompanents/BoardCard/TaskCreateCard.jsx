@@ -1,19 +1,20 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { UserAuth } from '../../../../../context/UserAuth'
 import { newTask } from '../../../../../repository/FirebaseTaskCreater'
 import { severityTag } from '../../../../../useCase/Tag'
 import TextEditor from '../../../../elements/TextEditor'
 import { handleFileUpload } from '../../../../../repository/FirebaseUploadFile'
 
-const TaskCreateCard = ({ id }) => {
+const TaskCreateCard = ({ docRef }) => {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [status, setStatus] = useState('todo')
     const [severity, setSeverity] = useState('low')
     const [file, setFile] = useState(null);
-    const [downloadURL, setDownloadURL] = useState("");
+    const [imgUrl, setImgUrl] = useState('')
 
     const { user } = UserAuth()
+    console.log(docRef);
 
     function resetInputs() {
         setTitle('')
@@ -27,17 +28,24 @@ const TaskCreateCard = ({ id }) => {
             setFile(e.target.files[0])
         }
     };
+    console.log(file);
 
     const createNewTask = async (e) => {
         e.preventDefault()
-        try {
-            await handleFileUpload(file, setDownloadURL, user)
-            newTask(user, title, description, status, severity, downloadURL, id)
-            resetInputs()
-        } catch (error) {
-            console.log(error);
-        }
+        const imgUrl = await handleFileUpload(file, user, docRef)
+        setImgUrl(imgUrl);
+        console.log(imgUrl);
+        newTask(user, title, description, status, severity, imgUrl, docRef)
+        resetInputs()
+
     }
+
+    useEffect(() => {
+        console.log(imgUrl);
+    }, [imgUrl])
+
+
+
     return (
         <div className='CreateCardPopUp fixed z-[100] top-0 bottom-0 left-0 w-[80vh] bg-white drop-shadow-md overflow-y-scroll scroll-smooth scrollbar-hide'>
             <div className='CreateCardPopUp_Body p-6'>

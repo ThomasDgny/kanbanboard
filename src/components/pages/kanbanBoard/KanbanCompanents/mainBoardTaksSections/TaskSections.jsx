@@ -24,11 +24,11 @@ const TaskSections = ({ title, bucketList, docRefId }) => {
     });
 
     useEffect(() => {
-        console.log(cardId);
+      //  console.log(cardId);
         const taskDetails = bucketList.find(item => item.id === cardId)
-        setTaskInfo(taskDetails)
+        return setTaskInfo(taskDetails)
     }, [bucketList, cardId])
-    console.log(taskInfo);
+   // console.log(taskInfo);
 
 
 
