@@ -4,7 +4,7 @@ import { dateConverter } from '../../../../useCase/DateConverter';
 
 const BoardHeader = ({ id, projectData }) => {
     const [CreateTaskPopUp, setCreateTaskPopUp] = useState(false)
-    
+
     //console.log(projectData);
 
 
@@ -36,7 +36,7 @@ const BoardHeader = ({ id, projectData }) => {
             <div className='BoradHeader w-full flex justify-between'>
 
                 <div className='ProjectInfo_BorderHeader flex gap-5'>
-                    <img src={projectData.projectlogo} alt="" className='w-[80px] h-[80px] rounded-md' />
+                    <img src={projectData.projectlogo} alt="" className='w-[80px] h-[80px] object-cover rounded-md' />
                     <div>
                         <h1 className='text-[30px] font-bold'>{projectData.projectname}</h1>
                         <h1>{createDate}</h1>

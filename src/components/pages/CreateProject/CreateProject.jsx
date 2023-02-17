@@ -2,34 +2,72 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import FirebaseCreateProject from '../../../repository/FirebaseCreateProject'
 import { UserAuth } from '../../../context/UserAuth'
+import { handleFileUpload } from '../../../repository/FirebaseUploadFile'
 
 const CreateProject = () => {
     const [projectName, setProjectName] = useState('')
+    const [docId, setDocId] = useState('')
+    const [file, setFile] = useState(null);
     const { user } = UserAuth()
     const navigate = useNavigate()
 
-    const handleCreateProject = async (e) => {
-        try {
-            e.preventDefault()
-            FirebaseCreateProject(user, projectName)
-                .then((docId) => navigate(`/Board/${docId.id}` , { state: docId.id }))
-        } catch (error) {
-            console.log(error)
+    const handleFileChange = (e) => {
+        if (e.target.files[0]) {
+            setFile(e.target.files[0])
         }
+    };
+
+
+    const handleCreateProject = async (e) => {
+        e.preventDefault()
+        const imgUrl = await handleFileUpload(file, user, docId)
+        FirebaseCreateProject(user, projectName, imgUrl, setDocId)
+            .then((docId) => navigate(`/Board/${docId.id}`, { state: docId.id }))
     }
 
     return (
-        <div>
-            <form className='flex flex-col gap-3' onSubmit={handleCreateProject}>
-                <label>
-                    Project Name:
-                    <input required type="text" placeholder='Project Name' onChange={(e) => setProjectName(e.target.value.trim())} />
-                </label>
 
-                <input type="submit" value="Create" />
-            </form>
+        <div className="flex flex-col md:flex-row h-screen">
+            <div className="w-full md:w-1/2  flex items-center justify-center">
+                <div className="max-w-md py-12 px-6">
+                    <h2 className="text-4xl font-bold text-black mb-6">Create New Project</h2>
+                    <form>
+
+                        <div className="mb-4">
+                            <label className="block text-black text-sm font-bold mb-2" htmlFor="project-name">
+                                Project Name
+                            </label>
+                            <input onChange={(e) => setProjectName(e.target.value.trim())} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="project-name" type="text" placeholder="Enter project name" />
+                        </div>
+
+
+                        <div className='Upload file'>
+                            <label className="block mb-2 text-sm font-medium text-gray-900" htmlFor="file_input">Upload Cover Image</label>
+                            <input onChange={handleFileChange} className="block w-full text-sm text-gray-900  border border-gray-300 rounded-lg cursor-pointer bg-gray-50" aria-describedby="file_input_help" id="file_input" type="file" />
+                            <p className="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
+                        </div>
+
+                        <div className="flex items-center justify-between">
+                            <button onClick={handleCreateProject} className="bg-blue-500 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                                Create
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div className="w-full md:w-1/2">
+                <img className="object-cover w-full h-full" src="https://picsum.photos/1200/800" alt="Project Image" />
+            </div>
         </div>
+
     )
 }
 
 export default CreateProject
+
+
+
+
+
+

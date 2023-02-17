@@ -21,7 +21,7 @@ const ProjectCrad = ({ item }) => {
         <div className='ProjectCard cursor-pointer bg-slate-200 rounded-lg hover:drop-shadow-2xl hover:duration-300' onClick={handleOpenProject}>
             <div className='w-[40vh] h-[40vh] relative'>
 
-                {/* <img src={item.projectlogo} className=' absolute z-0 w-full h-full object-cover rounded-lg' alt="" /> */}
+                <img src={item.projectlogo} className='absolute z-0 w-full h-full object-cover rounded-lg' alt="" />
                 <div className='absolute bg-white px-5 py-5 opacity-[0%] bottom-0 top-[50%] w-full rounded-b-lg'></div>
                 <div className='absolute px-5 py-5 flex flex-col justify-between bottom-0 top-[40%] w-full rounded-b-lg'>
                     <div>
