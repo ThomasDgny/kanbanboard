@@ -10,7 +10,7 @@ export const newTask = async (user, title, description, status, severity, url, D
             creationDate: new Date().getTime(),
             status: status,
             severity: severity,
-            fileurl: url
+            fileurl: url || ''
 
         }
 
