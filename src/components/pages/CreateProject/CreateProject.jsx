@@ -14,13 +14,14 @@ const CreateProject = () => {
     const handleFileChange = (e) => {
         if (e.target.files[0]) {
             setFile(e.target.files[0])
+            console.log(file);
         }
     };
 
 
     const handleCreateProject = async (e) => {
         e.preventDefault()
-        const imgUrl = await handleFileUpload(file, user, docId)
+        const imgUrl = await handleFileUpload(file, user, docId, file.type)
         FirebaseCreateProject(user, projectName, imgUrl, setDocId)
             .then((docId) => navigate(`/Board/${docId.id}`, { state: docId.id }))
     }

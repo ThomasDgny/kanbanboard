@@ -32,7 +32,7 @@ const TaskCreateCard = ({ docRef }) => {
 
     const createNewTask = async (e) => {
         e.preventDefault()
-        const imgUrl = await handleFileUpload(file, user, docRef)
+        const imgUrl = await handleFileUpload(file, user, docRef ,file.type)
         setImgUrl(imgUrl);
         console.log(imgUrl);
         newTask(user, title, description, status, severity, imgUrl, docRef)

@@ -65,7 +65,7 @@ const BoardCard = ({ cardData, setCardId, setIsTaskDetailOpen }) => {
                             toolBarIsVisble={false}
                             height={'max-h-max'}
                         />
-                    </div> }
+                    </div>}
 
 
                 </div>

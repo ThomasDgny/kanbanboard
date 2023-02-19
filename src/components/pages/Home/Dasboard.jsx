@@ -4,6 +4,7 @@ import { UserAuth } from '../../../context/UserAuth';
 import { getAllProjects } from '../../../repository/FirebaseGetProjects';
 import { useNavigate } from 'react-router-dom';
 import ProjectCrad from './DashboardElements/ProjectCrad';
+import Notes from './DashboardElements/Notes';
 
 
 const Dasboard = () => {
@@ -15,11 +16,6 @@ const Dasboard = () => {
         getAllProjects(user, db).then((res) => setProjectsData(res))
     }, [user])
     console.log(projectsData)
-
-    const allDocRefIdArr = projectsData.map(item => item.projectid)
-    console.log(allDocRefIdArr);
-    console.log(projectsData)
-
 
     return (
         <div className='flex'>
@@ -59,8 +55,8 @@ const Dasboard = () => {
                 </div>
             </div>
 
-            <div className='w-[60vh] border-l-[1px]'>
-
+            <div className='Notes border-l-[1px]'>
+                <Notes />
             </div>
 
         </div>

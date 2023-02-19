@@ -24,7 +24,8 @@ const Board = () => {
     useEffect(() => {
         getPickedProject(user, db, id).then((res) => setProjectData(res))
     }, [id, user])
-   // console.log(projectData)
+    // console.log(projectData)
+
 
     return (
         <div className='Board flex overflow-x-scroll scrollbar-hide'>
@@ -34,7 +35,8 @@ const Board = () => {
 
                 <BoardHeader id={id} projectData={projectData} />
 
-                <hr className='w-full'/>
+                <hr className='w-full' />
+
 
                 <BoardMain docRefId={id} />
 
