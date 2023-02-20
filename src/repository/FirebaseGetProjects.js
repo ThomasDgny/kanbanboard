@@ -1,18 +1,18 @@
-import { collection, getDocs, query } from "firebase/firestore";
+import { collection, getDocs, onSnapshot, query } from "firebase/firestore";
 
-export const getAllProjects = async (user, db) => {
+export const getAllProjects = async (user, db, setList) => {
     if (!user) {
         return []
     }
-    const tracks = collection(db, 'users', user.uid, 'projects');
-    const tracksQuery = query(tracks)
-    const querySnapshot = await getDocs(tracksQuery);
-    console.log("read tracks")
-    const res = []
-    querySnapshot.forEach((doc) => {
-        const data = doc.data();
-        res.push(data)
+    const q = query(collection(db, 'users', user.uid, 'projects'));
+    const unSubscribe = onSnapshot(q, (querySnapshot) => {
+        const listItems = [];
+        querySnapshot.forEach((doc) => {
+            listItems.push({ ...doc.data(), id: doc.id });
+        });
+        setList(listItems)
     });
 
-    return res;
+    return () => unSubscribe
+
 }

@@ -7,7 +7,6 @@ export const getBucketList = async (db, user, projectId, setList) => {
     }
 
     const q = query(collection(db, 'users', user.uid, 'projects', projectId, 'bucketlist'));
-
     const unSubscribe = onSnapshot(q, (querySnapshot) => {
         const listItems = [];
         querySnapshot.forEach((doc) => {

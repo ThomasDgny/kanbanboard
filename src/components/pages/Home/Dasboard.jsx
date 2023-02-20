@@ -1,21 +1,16 @@
-import React, { useEffect, useState } from 'react'
-import { db } from '../../../Firebase';
+import React from 'react'
 import { UserAuth } from '../../../context/UserAuth';
-import { getAllProjects } from '../../../repository/FirebaseGetProjects';
 import { useNavigate } from 'react-router-dom';
 import ProjectCrad from './DashboardElements/ProjectCrad';
 import Notes from './DashboardElements/Notes';
+import { UserOp } from '../../../context/ProjectOp';
 
 
 const Dasboard = () => {
-    const [projectsData, setProjectsData] = useState([])
     const { user } = UserAuth()
     const navigate = useNavigate()
+    const {allProjects } = UserOp()
 
-    useEffect(() => {
-        getAllProjects(user, db).then((res) => setProjectsData(res))
-    }, [user])
-    console.log(projectsData)
 
     return (
         <div className='flex'>
@@ -43,7 +38,7 @@ const Dasboard = () => {
                         </div>
 
                         <div className='ProjectLsit flex flex-wrap gap-5'>
-                            {projectsData.map((item, id) => (
+                            {allProjects.map((item, id) => (
                                 <div key={id} className='ProjectCard'>
                                     <ProjectCrad item={item} />
                                 </div>

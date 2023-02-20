@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import TaskCreateCard from '../KanbanCompanents/BoardCard/TaskCreateCard'
 import { dateConverter } from '../../../../useCase/DateConverter';
 import ProjectSettings from '../KanbanCompanents/ProjectSettingsCard/ProjectSettings';
+import DefaultImgIcon from '../../../../assets/icons/DefaultImg';
 
 const BoardHeader = ({ id, projectData }) => {
     const [CreateTaskPopUp, setCreateTaskPopUp] = useState(false)
@@ -39,22 +40,24 @@ const BoardHeader = ({ id, projectData }) => {
             {
                 isProjectSettingsOpen &&
                 <div>
-                    <ProjectSettings docRef={id} projectData={projectData} setIsProjectSettingsOpen={setIsProjectSettingsOpen}/>
+                    <ProjectSettings docRef={id} projectData={projectData} setIsProjectSettingsOpen={setIsProjectSettingsOpen} />
                 </div>
             }
             <div className='BoradHeader w-full flex justify-between'>
 
                 <div className='ProjectInfo_BorderHeader flex gap-5'>
-                    <img src={projectData.projectlogo} alt="" className='w-[80px] h-[80px] object-cover rounded-md' />
+                    {projectData.projectlogo !== '' ? <img src={projectData.projectlogo} alt="" className='w-[12vh] h-[12vh] object-cover rounded-md' />
+                        :
+                        <div className='bg-slate-300 w-[80px] h-[80px] rounded-md flex justify-center items-center'> <DefaultImgIcon /> </div>}
                     <div>
                         <h1 className='text-[30px] font-bold'>{projectData.projectname}</h1>
                         <h1>{createDate}</h1>
-                        <button onClick={() => setIsProjectSettingsOpen(true)} className='py-2 rounded-md text-blue-600 font-semibold text-[16px]'>Project Settings</button>
+                        <button onClick={() => setIsProjectSettingsOpen(true)} className='py-2 rounded-md text-[#307EF3] font-semibold text-[16px] hover:underline duration-200'>Project Settings</button>
                     </div>
                 </div>
 
                 <div>
-                    <button className='py-3 px-6 rounded-md border border-[#D6E3EC] text-[15px] ' onClick={() => setCreateTaskPopUp(true)}>Create | +</button>
+                    <button className='py-3 px-6 rounded-md border hover:bg-[#307EF3] duration-200 hover:text-white border-[#D6E3EC] text-[15px] ' onClick={() => setCreateTaskPopUp(true)}>Create | +</button>
                 </div>
 
             </div>

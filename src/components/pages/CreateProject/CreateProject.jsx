@@ -7,6 +7,7 @@ import { handleFileUpload } from '../../../repository/FirebaseUploadFile'
 const CreateProject = () => {
     const [projectName, setProjectName] = useState('')
     const [docId, setDocId] = useState('')
+    const [imgUrl, setimgUrl] = useState('')
     const [file, setFile] = useState(null);
     const { user } = UserAuth()
     const navigate = useNavigate()
@@ -18,10 +19,13 @@ const CreateProject = () => {
         }
     };
 
+    console.log(docId);
+
 
     const handleCreateProject = async (e) => {
         e.preventDefault()
-        const imgUrl = await handleFileUpload(file, user, docId, file.type)
+        const imgUrl = await handleFileUpload(file, user, docId)
+        setimgUrl(imgUrl)
         FirebaseCreateProject(user, projectName, imgUrl, setDocId)
             .then((docId) => navigate(`/Board/${docId.id}`, { state: docId.id }))
     }
