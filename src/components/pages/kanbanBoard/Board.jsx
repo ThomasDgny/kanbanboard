@@ -1,30 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import BoardMain from './boardElements/BoardMain'
 import { useLocation } from 'react-router-dom'
-import { getPickedProject } from '../../../repository/FirebaseGetPickedProject'
-import { db } from '../../../Firebase'
-import { UserAuth } from '../../../context/UserAuth'
 import BoardHeader from './boardElements/BoardHeader'
 import { UserOp } from '../../../context/ProjectOp'
 
 const Board = () => {
-    const [projectData, setProjectData] = useState([])
-
     const { state: id } = useLocation()
-    const { setDocRefId } = UserOp()
+    const { projectData, setDocRefId } = UserOp()
+
+    console.log(projectData);
 
     useEffect(() => {
         setDocRefId(id)
     }, [id, setDocRefId])
 
-
-    const { user } = UserAuth()
-    console.log(id);
-
-    useEffect(() => {
-        getPickedProject(user, db, id).then((res) => setProjectData(res))
-    }, [id, user])
-    // console.log(projectData)
+    //console.log(projectData)
 
 
     return (

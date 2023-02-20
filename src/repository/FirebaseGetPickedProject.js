@@ -1,10 +1,13 @@
-import {doc, getDoc} from "firebase/firestore";
+import { doc, onSnapshot } from "firebase/firestore";
 
-export const getPickedProject = async (user, db, id) => {
+export const getPickedProject = async (user, db, id, setProjectData) => {
     if (!user) {
         return []
     }
-    const tracks = doc(db, 'users', user.uid, 'projects', `${id}`);
-    const docSnap = await getDoc(tracks);
-    return docSnap.data();
+    const docPath = doc(db, 'users', user.uid, 'projects', `${id}`)
+    const unSubscribe = onSnapshot(docPath, async (snapshot) => {
+        console.log(snapshot.data());
+        setProjectData(snapshot.data())
+    })
+    return () => unSubscribe
 }

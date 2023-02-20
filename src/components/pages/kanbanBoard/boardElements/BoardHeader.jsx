@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
 import TaskCreateCard from '../KanbanCompanents/BoardCard/TaskCreateCard'
 import { dateConverter } from '../../../../useCase/DateConverter';
+import ProjectSettings from '../KanbanCompanents/ProjectSettingsCard/ProjectSettings';
 
 const BoardHeader = ({ id, projectData }) => {
     const [CreateTaskPopUp, setCreateTaskPopUp] = useState(false)
+    const [isProjectSettingsOpen, setIsProjectSettingsOpen] = useState(false)
 
-    //console.log(projectData);
+    console.log(projectData);
 
 
     const tabCloserRef = useRef(null);
@@ -33,6 +35,13 @@ const BoardHeader = ({ id, projectData }) => {
                     <TaskCreateCard docRef={id} />
                 </div>
             }
+
+            {
+                isProjectSettingsOpen &&
+                <div>
+                    <ProjectSettings docRef={id} projectData={projectData} setIsProjectSettingsOpen={setIsProjectSettingsOpen}/>
+                </div>
+            }
             <div className='BoradHeader w-full flex justify-between'>
 
                 <div className='ProjectInfo_BorderHeader flex gap-5'>
@@ -40,6 +49,7 @@ const BoardHeader = ({ id, projectData }) => {
                     <div>
                         <h1 className='text-[30px] font-bold'>{projectData.projectname}</h1>
                         <h1>{createDate}</h1>
+                        <button onClick={() => setIsProjectSettingsOpen(true)} className='py-2 rounded-md text-blue-600 font-semibold text-[16px]'>Project Settings</button>
                     </div>
                 </div>
 

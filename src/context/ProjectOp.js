@@ -2,14 +2,15 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { getBucketList } from "../repository/FirebaseGetBucketList";
 import { UserAuth } from "./UserAuth";
 import { db } from "../Firebase";
+import { getPickedProject } from "../repository/FirebaseGetPickedProject";
 
 
 const ProjectContext = createContext();
 
-
 export function ProjectContextProvider({ children }) {
     const [allBucketList, setAllBucketList] = useState([])
     const [docRefId, setDocRefId] = useState('')
+    const [projectData, setProjectData] = useState([])
 
     const { user } = UserAuth()
 
@@ -18,10 +19,12 @@ export function ProjectContextProvider({ children }) {
     }, [docRefId, user])
     console.log(allBucketList);
 
-
+    useEffect(() => {
+        getPickedProject(user, db, docRefId ,setProjectData)
+    }, [docRefId, user])
 
     return (
-        <ProjectContext.Provider value={{ allBucketList, docRefId, setDocRefId }}>
+        <ProjectContext.Provider value={{ projectData, allBucketList, docRefId, setDocRefId }}>
             {children}
         </ProjectContext.Provider>
     )

@@ -43,7 +43,7 @@ const TaskDetailsCard = ({ cardInfo, docRefId }) => {
     const createNewTask = async (e) => {
         e.preventDefault()
         if (JSON.stringify(currentCardInfoObj) !== JSON.stringify(updatedCardInfoObj)) {
-            const imgUrl = await handleFileUpload(file, user, docRefId)
+            const imgUrl = await handleFileUpload(file, user, docRefId, file.type)
             setImgUrl(imgUrl);
             //console.log(imgUrl);
             fireBaseUpdateTask(cardInfo.id, user, docRefId, title, description, status, severity, imgUrl)
