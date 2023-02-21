@@ -1,7 +1,7 @@
 import { collection, onSnapshot, query } from 'firebase/firestore'
 
 
-export const getBucketList = async (db, user, projectId, setList) => {
+export const getBucketList = async (db, user, projectId, setList, setTaskCounter) => {
     if (!user) {
         return []
     }
@@ -12,6 +12,7 @@ export const getBucketList = async (db, user, projectId, setList) => {
         querySnapshot.forEach((doc) => {
             listItems.push({ ...doc.data(), id: doc.id });
         });
+        setTaskCounter(listItems?.length)
         setList(listItems)
     });
 

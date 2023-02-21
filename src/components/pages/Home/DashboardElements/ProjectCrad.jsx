@@ -13,7 +13,7 @@ const ProjectCrad = ({ item }) => {
         navigate(`/Board/${item.projectid}`, { state: item.projectid })
     }
     console.log(item);
-   // console.log(item.projectid);
+    // console.log(item.projectid);
 
     //console.log('Project progress bar result', projectProgresBar(item));
 
@@ -29,7 +29,7 @@ const ProjectCrad = ({ item }) => {
                         <h1 className='text-white text-[16px]'>{dateConverter(item.createddate)}</h1>
                     </div>
 
-                    <h1 className='py-2 px-4 text-[16px] bg-white text-gray-800 border border-slate-100 rounded-lg' >Total task: 352</h1>
+                    <h1 className='py-2 px-4 text-[16px] bg-white text-gray-800 border border-slate-100 rounded-lg' >Total task: {item.totaltask}</h1>
 
                 </div>
 

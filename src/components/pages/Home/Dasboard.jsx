@@ -12,22 +12,25 @@ const Dasboard = () => {
     const { allProjects, docRefId } = UserOp()
 
     console.log(docRefId);
+
+    const headerBgUrl = 'https://images.unsplash.com/photo-1676968986443-7f47aad7d993?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2072&q=80'
+
     return (
         <div className='Dasboard min-h-max flex'>
             <div className='min-w-[12vh]'></div>
 
             <div className='w-full flex-col flex gap-7'>
 
-                <div className='Dashboard_Header pt-7 h-[15vh] justify-center px-14 flex items-center'>
+                <div className='Dashboard_Header relative h-[30vh] justify-center px-14 flex items-center'>
 
-                    <div className='Dashboard_Header_body w-full'>
-                        <h1 className='text-[30px] font-bold '>{user?.email}</h1>
-                        <p className='text-[16px] font-medium'>Welcome Back</p>
+                    <div className='Dashboard_Header_body absolute px-14 z-10 w-full'>
+                        <h1 className='text-[50px] font-bold  text-white leading-[130%] mb-3'>Hello Tarik! <br /> Welcome Back</h1>
+                        <p className='text-[18px] text-white'>{user?.email}</p>
                     </div>
+                    <div className='Dashboard_Header_Bg absolute z-[1] w-full h-full bg-black opacity-30'></div>
+                    <img src={headerBgUrl} alt="" className='Dashboard_Header_Bg absolute z-0 w-full h-full object-cover' />
 
                 </div>
-
-                <hr />
 
                 <div className='Dasboard_Main px-14'>
                     <div className='Dasboard_Main_Body flex flex-col gap-8'>
@@ -48,7 +51,7 @@ const Dasboard = () => {
 
                     </div>
                 </div>
-          
+
             </div>
 
             <div className='Notes'>
