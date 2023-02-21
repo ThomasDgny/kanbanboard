@@ -56,7 +56,7 @@ const TaskDetailsCard = ({ cardInfo, docRefId }) => {
     }
 
     return (
-        <div className='CreateCardPopUp fixed z-[100] top-0 bottom-0 left-0 min-w-[20vh] w-[80vh] bg-white drop-shadow-md overflow-y-scroll scroll-smooth scrollbar-hide'>
+        <div className='CreateCardPopUp fixed z-[100] top-0 bottom-0 left-0 w-full max-w-[70vh] bg-white drop-shadow-md overflow-y-scroll scroll-smooth scrollbar-hide'>
             <ToastContainer />
             <div className='CreateCardPopUp_Body w-full h-full p-6'>
 

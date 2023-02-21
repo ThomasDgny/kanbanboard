@@ -11,7 +11,7 @@ const ProjectSettings = ({ docRef, setIsProjectSettingsOpen }) => {
     const [imgUrl, setImgUrl] = useState('')
     const [file, setFile] = useState(null);
 
-    const { projectData } = UserOp()
+    const { projectData, setDocRefId } = UserOp()
     const { user } = UserAuth()
 
     const navigate = useNavigate()
@@ -33,13 +33,14 @@ const ProjectSettings = ({ docRef, setIsProjectSettingsOpen }) => {
         e.preventDefault()
         const imgUrl = await handleFileUpload(file, user, docRef)
         setImgUrl(imgUrl);
-        console.log(imgUrl);
         updateProjectSettings(projectName, projectData.projectlogo, imgUrl, user, docRef)
         alert('Updated')
     }
 
     const handlerRemoveProject = async () => {
-        await removeProjectHandler(user, docRef).then(navigate('/'))
+        await removeProjectHandler(user, docRef)
+            .then(navigate('/'))
+            .then(setDocRefId(''))
     }
 
     return (

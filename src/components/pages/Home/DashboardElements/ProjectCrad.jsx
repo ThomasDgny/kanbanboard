@@ -3,6 +3,7 @@ import { projectProgresBar } from '../../../../useCase/ProgressCal';
 import { useNavigate } from 'react-router-dom';
 import { Progress } from 'flowbite-react';
 import { dateConverter } from '../../../../useCase/DateConverter';
+import DefaultImgIcon from '../../../../assets/icons/DefaultImg'
 
 const ProjectCrad = ({ item }) => {
     const navigate = useNavigate()
@@ -12,7 +13,7 @@ const ProjectCrad = ({ item }) => {
         navigate(`/Board/${item.projectid}`, { state: item.projectid })
     }
     console.log(item);
-    console.log(item.projectid);
+   // console.log(item.projectid);
 
     //console.log('Project progress bar result', projectProgresBar(item));
 
@@ -34,8 +35,10 @@ const ProjectCrad = ({ item }) => {
 
                 <div className='absolute bg-black px-5 z-10 py-5 opacity-[50%] h-full w-full rounded-lg'></div>
 
-                <img src={item.projectlogo} className='absolute z-0 w-full h-full object-cover rounded-lg' alt="" />
-
+                {item.projectlogo !== '' ?
+                    <img src={item.projectlogo} className='absolute z-0 w-full h-full object-cover rounded-lg' alt="" />
+                    :
+                    <div className='bg-slate-300 w-full h-full rounded-md flex justify-center items-center'> <DefaultImgIcon /> </div>}
             </div>
 
         </div>

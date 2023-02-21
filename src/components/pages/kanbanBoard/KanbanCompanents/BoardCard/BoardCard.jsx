@@ -10,7 +10,6 @@ import DropdownMenu from '../dropDownMenu/DropDownMenu'
 import { convert } from 'html-to-text'
 
 
-
 const BoardCard = ({ cardData, setCardId, setIsTaskDetailOpen }) => {
     const [status, setStatus] = useState(cardData.status)
     const [text, settext] = useState()
@@ -24,7 +23,6 @@ const BoardCard = ({ cardData, setCardId, setIsTaskDetailOpen }) => {
     useEffect(() => {
         FirebaseChangeTaskStatus(cardData.id, user, docRefId, status)
     }, [status])
-
 
     const handlerTaskDetailInfo = () => {
         setCardId(cardData.id)

@@ -8,7 +8,7 @@ const BoardHeader = ({ id, projectData }) => {
     const [CreateTaskPopUp, setCreateTaskPopUp] = useState(false)
     const [isProjectSettingsOpen, setIsProjectSettingsOpen] = useState(false)
 
-    console.log(projectData);
+   // console.log(projectData);
 
 
     const tabCloserRef = useRef(null);
@@ -48,7 +48,7 @@ const BoardHeader = ({ id, projectData }) => {
                 <div className='ProjectInfo_BorderHeader flex gap-5'>
                     {projectData.projectlogo !== '' ? <img src={projectData.projectlogo} alt="" className='w-[12vh] h-[12vh] object-cover rounded-md' />
                         :
-                        <div className='bg-slate-300 w-[80px] h-[80px] rounded-md flex justify-center items-center'> <DefaultImgIcon /> </div>}
+                        <div className='bg-slate-300 w-[12vh] h-[12vh] rounded-md flex justify-center items-center'> <DefaultImgIcon /> </div>}
                     <div>
                         <h1 className='text-[30px] font-bold'>{projectData.projectname}</h1>
                         <h1>{createDate}</h1>

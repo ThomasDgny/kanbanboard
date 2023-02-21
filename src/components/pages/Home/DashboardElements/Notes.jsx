@@ -2,7 +2,7 @@ import React from 'react'
 
 const Notes = () => {
     return (
-        <div className='Notes h-full w-[40vh] '>
+        <div className='Notes bottom-0 top-0 right-0 w-[40vh] border-l-[1px]'>
 
             <div className='Notes_Body'>
                 <div className='Notes_Body_Header pt-7 h-[15vh] px-14 flex items-center'>

@@ -36,13 +36,13 @@ const CreateProject = () => {
             <div className="w-full md:w-1/2  flex items-center justify-center">
                 <div className="max-w-md py-12 px-6">
                     <h2 className="text-[42px] font-bold text-black mb-6">Create New Project</h2>
-                    <form>
+                    <form onSubmit={handleCreateProject}>
 
                         <div className="mb-4">
                             <label className="block text-black text-sm font-medium mb-2" htmlFor="project-name">
                                 Project Name
                             </label>
-                            <input onChange={(e) => setProjectName(e.target.value.trim())} className="appearance-none border border-gray-300  rounded-lg w-full p-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="project-name" type="text" placeholder="Enter project name" />
+                            <input onChange={(e) => setProjectName(e.target.value.trim())} required className="appearance-none border border-gray-300  rounded-lg w-full p-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="project-name" type="text" placeholder="Enter project name" />
                         </div>
 
 
@@ -53,7 +53,7 @@ const CreateProject = () => {
                         </div>
 
                         <div className="flex items-center justify-between">
-                            <button onClick={handleCreateProject} className="bg-blue-500 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                            <button className="bg-blue-500 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                                 Create
                             </button>
                         </div>

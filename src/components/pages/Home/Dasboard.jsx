@@ -9,11 +9,11 @@ import { UserOp } from '../../../context/ProjectOp';
 const Dasboard = () => {
     const { user } = UserAuth()
     const navigate = useNavigate()
-    const {allProjects } = UserOp()
+    const { allProjects, docRefId } = UserOp()
 
-
+    console.log(docRefId);
     return (
-        <div className='flex'>
+        <div className='Dasboard min-h-max flex'>
             <div className='min-w-[12vh]'></div>
 
             <div className='w-full flex-col flex gap-7'>
@@ -48,9 +48,10 @@ const Dasboard = () => {
 
                     </div>
                 </div>
+          
             </div>
 
-            <div className='Notes border-l-[1px]'>
+            <div className='Notes'>
                 <Notes />
             </div>
 

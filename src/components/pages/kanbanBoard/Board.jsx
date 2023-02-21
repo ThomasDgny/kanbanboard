@@ -8,7 +8,7 @@ const Board = () => {
     const { state: id } = useLocation()
     const { projectData, setDocRefId } = UserOp()
     console.log(id);
-    console.log(projectData);
+   // console.log(projectData);
 
     useEffect(() => {
         setDocRefId(id)
@@ -26,7 +26,6 @@ const Board = () => {
                 <BoardHeader id={id} projectData={projectData} />
 
                 <hr className='w-full' />
-
 
                 <BoardMain docRefId={id} />
 

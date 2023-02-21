@@ -1,4 +1,4 @@
-import { collection, getDocs, onSnapshot, query } from "firebase/firestore";
+import { collection, onSnapshot, query } from "firebase/firestore";
 
 export const getAllProjects = async (user, db, setList) => {
     if (!user) {
@@ -8,7 +8,7 @@ export const getAllProjects = async (user, db, setList) => {
     const unSubscribe = onSnapshot(q, (querySnapshot) => {
         const listItems = [];
         querySnapshot.forEach((doc) => {
-            listItems.push({ ...doc.data(), id: doc.id });
+            listItems.push({ ...doc.data() });
         });
         setList(listItems)
     });
