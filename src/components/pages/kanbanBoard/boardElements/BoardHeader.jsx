@@ -27,7 +27,7 @@ const BoardHeader = ({ id, projectData }) => {
     });
 
 
-    const createDate = dateConverter(projectData.createddate)
+    const createDate = dateConverter(projectData?.createddate)
     return (
         <div className='w-full pt-7 h-[15vh] justify-center px-14 flex items-center'>
             {
@@ -46,11 +46,11 @@ const BoardHeader = ({ id, projectData }) => {
             <div className='BoradHeader w-full flex justify-between'>
 
                 <div className='ProjectInfo_BorderHeader flex gap-5'>
-                    {projectData.projectlogo !== '' ? <img src={projectData.projectlogo} alt="" className='w-[12vh] h-[12vh] object-cover rounded-md' />
+                    {projectData?.projectlogo !== '' ? <img src={projectData?.projectlogo} alt="" className='w-[12vh] h-[12vh] object-cover rounded-md' />
                         :
                         <div className='bg-slate-300 w-[12vh] h-[12vh] rounded-md flex justify-center items-center'> <DefaultImgIcon /> </div>}
                     <div>
-                        <h1 className='text-[30px] font-bold'>{projectData.projectname}</h1>
+                        <h1 className='text-[30px] font-bold'>{projectData?.projectname}</h1>
                         <h1>{createDate}</h1>
                         <button onClick={() => setIsProjectSettingsOpen(true)} className='py-2 rounded-md text-[#307EF3] font-semibold text-[16px] hover:underline duration-200'>Project Settings</button>
                     </div>
