@@ -1,7 +1,10 @@
 import { collection, onSnapshot, query } from 'firebase/firestore'
 
 
-export const getBucketList = async (db, user, projectId, setList, setTaskCounter) => {
+const todoBucketList = (todoArr) => todoArr?.filter(bucket => bucket.status === 'todo')
+const doneBucketList = (doneArr) => doneArr?.filter(bucket => bucket.status === 'done')
+
+export const getBucketList = async (db, user, projectId, setList, setTaskCounter, setTodoTaskCounter, setDoneTaskCounter) => {
     if (!user) {
         return []
     }
@@ -13,6 +16,8 @@ export const getBucketList = async (db, user, projectId, setList, setTaskCounter
             listItems.push({ ...doc.data(), id: doc.id });
         });
         setTaskCounter(listItems?.length)
+        setTodoTaskCounter(todoBucketList(listItems)?.length)
+        setDoneTaskCounter(doneBucketList(listItems)?.length)
         setList(listItems)
     });
 

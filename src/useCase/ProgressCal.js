@@ -1,7 +1,8 @@
-export const projectProgresBar = (array) => {
-    const itemBuckets = array.bucket
-    const todoLength = itemBuckets?.find(todo => todo.id === 'todo').list.length
-    const inProgressLength = itemBuckets?.find(todo => todo.id === 'inprogress').list.length
+export const projectProgresBar = (todoLength, doneLength) => {
+    if (todoLength === 0) {
+        return 100;
+    } else {
+        return (doneLength / todoLength) * 100;
+    }
 
-    return (todoLength / inProgressLength) * 100
 }

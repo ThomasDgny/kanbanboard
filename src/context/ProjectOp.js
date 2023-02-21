@@ -15,25 +15,28 @@ export function ProjectContextProvider({ children }) {
     const [projectData, setProjectData] = useState([])
     const [docRefId, setDocRefId] = useState('')
     const [taskCounter, setTaskCounter] = useState(0)
-
+    const [todoTaskCounter, setTodoTaskCounter] = useState(0)
+    const [doneTaskCounter, setDoneTaskCounter] = useState(0)
     const { user } = UserAuth()
 
     console.log(user);
     useEffect(() => {
         if (user) {
-            getBucketList(db, user, docRefId, setAllBucketList, setTaskCounter)
+            getBucketList(db, user, docRefId, setAllBucketList, setTaskCounter, setTodoTaskCounter, setDoneTaskCounter)
         }
     }, [docRefId, user])
     console.log(allBucketList);
-    console.log(taskCounter);
+    console.log('total task', taskCounter);
+    console.log('todo task', todoTaskCounter);
+    console.log('done task', doneTaskCounter);
 
     useEffect(() => {
         if (user) {
             getPickedProject(user, db, docRefId, setProjectData)
             getAllProjects(user, db, setAllProjects)
-            updateTaskCounter(user, docRefId, taskCounter)
+            updateTaskCounter(user, docRefId, taskCounter, todoTaskCounter, doneTaskCounter)
         }
-    }, [docRefId, user, taskCounter])
+    }, [docRefId, doneTaskCounter, taskCounter, todoTaskCounter, user])
 
 
     return (
