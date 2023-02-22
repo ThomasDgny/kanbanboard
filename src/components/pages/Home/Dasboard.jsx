@@ -1,20 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { UserAuth } from '../../../context/UserAuth';
 import { useNavigate } from 'react-router-dom';
 import ProjectCrad from './DashboardElements/ProjectCrad';
 import Notes from './DashboardElements/Notes';
 import { UserOp } from '../../../context/ProjectOp';
+import UserSettingsCard from './DashBoradComponentes/UserSettingsCard';
 
 
 const Dasboard = () => {
+    const [isUserSettingsOpen, setIsUserSettingsOpen] = useState(false)
     const { user, currentUserData } = UserAuth()
     const { allProjects } = UserOp()
     const navigate = useNavigate()
 
-    const headerBgUrl = 'https://images.unsplash.com/photo-1676968986443-7f47aad7d993?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2072&q=80'
-
     return (
         <div className='Dasboard min-h-max flex'>
+            {
+                isUserSettingsOpen &&
+                <div setIsUserSettingsOpen={setIsUserSettingsOpen}>
+                    <UserSettingsCard />
+                </div>
+            }
             <div className='min-w-[12vh]'></div>
 
             <div className='w-full flex-col flex gap-7'>
@@ -25,9 +31,11 @@ const Dasboard = () => {
                         <h1 className='text-[50px] font-bold  text-white leading-[130%] mb-3'>Hello {currentUserData.username}! <br /> Welcome Back</h1>
                         <p className='text-[18px] text-white'>{user?.email}</p>
                     </div>
-                    <div className='Dashboard_Header_Bg absolute z-[1] w-full h-full bg-black opacity-30'></div>
-                    <img src={headerBgUrl} alt="" className='Dashboard_Header_Bg absolute z-0 w-full h-full object-cover' />
 
+                    <button onClick={() => setIsUserSettingsOpen(true)} className='UserSettings_Edit_Btn absolute right-5 bottom-5 z-10 rounded-full py-2 px-6 bg-white'>Edit</button>
+
+                    <div className='Dashboard_Header_Bg absolute z-[1] w-full h-full bg-black opacity-30'></div>
+                    <img src={currentUserData.coverimgurl} alt="" className='Dashboard_Header_Bg absolute z-0 w-full h-full object-cover' />
                 </div>
 
                 <div className='Dasboard_Main px-14'>
