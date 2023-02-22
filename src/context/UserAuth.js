@@ -11,14 +11,16 @@ export function AuthContextProvider({ children }) {
 
     const [user, setUser] = useState(null)
 
-    function SignUp(email, password) {
+    function SignUp(email, password, userName) {
         createUserWithEmailAndPassword(auth, email, password)
             .then(async (res) => {
                 console.log(res.user)
                 const ref = doc(db, 'users', res.user.uid)
+                console.log(userName);
                 await setDoc(ref,
                     {
                         email: email,
+                        username: userName,
                         uid: res.user.uid
                     })
             })

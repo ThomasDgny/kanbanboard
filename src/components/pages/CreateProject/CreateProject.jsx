@@ -32,7 +32,8 @@ const CreateProject = () => {
 
     return (
 
-        <div className="flex flex-col md:flex-row h-screen">
+        <div className="CreateProject flex flex-col md:flex-row h-screen">
+          
             <div className="w-full md:w-1/2  flex items-center justify-center">
                 <div className="max-w-md py-12 px-6">
                     <h2 className="text-[42px] font-bold text-black mb-6">Create New Project</h2>
@@ -61,6 +62,7 @@ const CreateProject = () => {
                     </form>
                 </div>
             </div>
+            
             <div className="w-full md:w-1/2">
                 <img className="object-cover w-full h-full" src="https://picsum.photos/1200/800" alt="Project Image" />
             </div>
