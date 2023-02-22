@@ -7,11 +7,9 @@ import { UserOp } from '../../../context/ProjectOp';
 
 
 const Dasboard = () => {
-    const { user } = UserAuth()
+    const { user, currentUserData } = UserAuth()
+    const { allProjects } = UserOp()
     const navigate = useNavigate()
-    const { allProjects, docRefId } = UserOp()
-
-    console.log(docRefId);
 
     const headerBgUrl = 'https://images.unsplash.com/photo-1676968986443-7f47aad7d993?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2072&q=80'
 
@@ -24,7 +22,7 @@ const Dasboard = () => {
                 <div className='Dashboard_Header relative h-[30vh] justify-center px-14 flex items-center'>
 
                     <div className='Dashboard_Header_body absolute px-14 z-10 w-full'>
-                        <h1 className='text-[50px] font-bold  text-white leading-[130%] mb-3'>Hello Tarik! <br /> Welcome Back</h1>
+                        <h1 className='text-[50px] font-bold  text-white leading-[130%] mb-3'>Hello {currentUserData.username}! <br /> Welcome Back</h1>
                         <p className='text-[18px] text-white'>{user?.email}</p>
                     </div>
                     <div className='Dashboard_Header_Bg absolute z-[1] w-full h-full bg-black opacity-30'></div>
