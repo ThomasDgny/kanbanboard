@@ -7,7 +7,7 @@ export const resizeFile = (file, fileType) =>
             1500,
             1500,
             fileType,
-            100,
+            70,
             0,
             (uri) => {
                 resolve(uri);

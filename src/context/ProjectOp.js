@@ -26,9 +26,9 @@ export function ProjectContextProvider({ children }) {
         }
     }, [docRefId, user])
     console.log(allBucketList);
-    console.log('total task', taskCounter);
-    console.log('todo task', todoTaskCounter);
-    console.log('done task', doneTaskCounter);
+    // console.log('total task', taskCounter);
+    // console.log('todo task', todoTaskCounter);
+    // console.log('done task', doneTaskCounter);
 
     useEffect(() => {
         if (user) {

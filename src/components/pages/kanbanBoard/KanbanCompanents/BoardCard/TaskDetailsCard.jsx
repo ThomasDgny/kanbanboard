@@ -7,6 +7,11 @@ import { UserAuth } from '../../../../../context/UserAuth'
 import { toastMessage } from '../../../../../useCase/ToastMessages'
 import { ToastContainer } from 'react-toastify'
 import { handleFileUpload } from '../../../../../repository/FirebaseUploadFile'
+import { storage } from '../../../../../Firebase'
+import { deleteObject, getMetadata, ref } from 'firebase/storage'
+import path, { basename } from 'path-browserify';
+import { getFilenameFromUrl } from '../../../../../useCase/DecodeUrlToFileName'
+
 
 const TaskDetailsCard = ({ cardInfo, docRefId }) => {
     const [title, setTitle] = useState(cardInfo.title)
@@ -40,10 +45,11 @@ const TaskDetailsCard = ({ cardInfo, docRefId }) => {
         }
     };
 
-    const createNewTask = async (e) => {
+    const updateTask = async (e) => {
         e.preventDefault()
         if (JSON.stringify(currentCardInfoObj) !== JSON.stringify(updatedCardInfoObj)) {
-            const imgUrl = await handleFileUpload(file, user, docRefId, file.type)
+            const storageRef = ref(storage, `${user.uid}/${docRefId}/Taskimg/${file.name}`);
+            const imgUrl = await handleFileUpload(storageRef, file, file.type)
             setImgUrl(imgUrl);
             //console.log(imgUrl);
             fireBaseUpdateTask(cardInfo.id, user, docRefId, title, description, status, severity, imgUrl)
@@ -51,7 +57,14 @@ const TaskDetailsCard = ({ cardInfo, docRefId }) => {
         }
     }
 
-    const removeTask = () => {
+    const getFileName = getFilenameFromUrl(cardInfo.fileurl)
+    console.log(getFileName);
+    const removeTask = async () => {
+        if (cardInfo.fileurl) {
+            console.log(cardInfo.fileurl);
+            const storageRef = ref(storage, `${user.uid}/${docRefId}/Taskimg/${getFileName}`);
+            await deleteObject(storageRef)
+        }
         RemoveTaskHandler(cardInfo.id, user, docRefId)
     }
 
@@ -60,7 +73,7 @@ const TaskDetailsCard = ({ cardInfo, docRefId }) => {
             <ToastContainer />
             <div className='CreateCardPopUp_Body w-full h-full p-6'>
 
-                <form className='TaskForm relative h-full' onSubmit={createNewTask}>
+                <form className='TaskForm relative h-full' onSubmit={updateTask}>
                     <div className='h-full flex flex-col w-full gap-6'>
 
                         <div className='Title'>

@@ -1,19 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import { UserOp } from '../../../../context/ProjectOp';
+import React, { useState } from 'react'
 import { UserAuth } from '../../../../context/UserAuth';
-import { useNavigate } from 'react-router-dom';
 import { updateUserSettings } from '../../../../repository/FirebaseUpdateUserSettings';
 import { handleFileUpload } from '../../../../repository/FirebaseUploadFile.js'
+import { storage } from '../../../../Firebase';
+import { ref } from 'firebase/storage';
 
 
-const UserSettingsCard = ({ docRef, setIsUserSettingsOpen }) => {
-    const [userName, setUserName] = useState('')
-    const [imgUrl, setImgUrl] = useState('')
-    const [file, setFile] = useState(null);
-
+const UserSettingsCard = ({ setIsUserSettingsOpen }) => {
     const { user, currentUserData } = UserAuth()
-
-    const navigate = useNavigate()
+    const [userName, setUserName] = useState(currentUserData.username)
+    const [imgUrl, setImgUrl] = useState(currentUserData.coverimgurl)
+    const [file, setFile] = useState(null);
+    console.log(currentUserData);
 
     const handleFileChange = (e) => {
         if (e.target.files[0]) {
@@ -21,22 +19,15 @@ const UserSettingsCard = ({ docRef, setIsUserSettingsOpen }) => {
         }
     };
 
-    useEffect(() => {
-        if (currentUserData) {
-            setUserName(currentUserData.username)
-            setImgUrl(currentUserData.imgurl)
-        }
-    }, [currentUserData])
-
     const handleCreateProject = async (e) => {
         e.preventDefault()
-        const imgUrl = await handleFileUpload(file, user, docRef)
-        setImgUrl(imgUrl);
-        updateUserSettings(userName, imgUrl, user)
+        const storageRef = ref(storage, `${user.uid}/coverimg/${file.name}`);
+        const updatedImgUrl = await handleFileUpload(storageRef, file, file.type)
+        console.log(updatedImgUrl);
+        setImgUrl(updatedImgUrl);
+        updateUserSettings(userName, imgUrl, updatedImgUrl, user)
         alert('Updated')
     }
-
-    console.log(currentUserData);
 
     const handlerRemoveProject = async () => {
         // await removeProjectHandler(user, docRef)
@@ -71,7 +62,7 @@ const UserSettingsCard = ({ docRef, setIsUserSettingsOpen }) => {
                             Update
                         </button>
                         <button onClick={handlerRemoveProject} className=" hover:text-white hover:bg-red-700 text-red-700 font-medium py-2 w-full duration-200 rounded focus:outline-none focus:shadow-outline" type="button">
-                            Delete This User
+                            Delete Account
                         </button>
                     </div>
                 </div>

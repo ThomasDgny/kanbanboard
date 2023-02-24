@@ -5,20 +5,22 @@ import ProjectCrad from './DashboardElements/ProjectCrad';
 import Notes from './DashboardElements/Notes';
 import { UserOp } from '../../../context/ProjectOp';
 import UserSettingsCard from './DashBoradComponentes/UserSettingsCard';
+import { dateConverter } from '../../../useCase/DateConverter';
 
 
 const Dasboard = () => {
     const [isUserSettingsOpen, setIsUserSettingsOpen] = useState(false)
-    const { user, currentUserData } = UserAuth()
+    const { currentUserData } = UserAuth()
     const { allProjects } = UserOp()
     const navigate = useNavigate()
+    //console.log(currentUserData);
 
     return (
         <div className='Dasboard min-h-max flex'>
             {
                 isUserSettingsOpen &&
-                <div setIsUserSettingsOpen={setIsUserSettingsOpen}>
-                    <UserSettingsCard />
+                <div >
+                    <UserSettingsCard setIsUserSettingsOpen={setIsUserSettingsOpen} />
                 </div>
             }
             <div className='min-w-[12vh]'></div>
@@ -29,10 +31,14 @@ const Dasboard = () => {
 
                     <div className='Dashboard_Header_body absolute px-14 z-10 w-full'>
                         <h1 className='text-[50px] font-bold  text-white leading-[130%] mb-3'>Hello {currentUserData.username}! <br /> Welcome Back</h1>
-                        <p className='text-[18px] text-white'>{user?.email}</p>
+                        <div className='flex gap-3'>
+                            <p className='text-[18px] text-white'>{currentUserData.email}</p>
+                            <p className='text-white'>&#8226;</p>
+                            <p className='text-[18px] text-white'>{dateConverter(currentUserData.joindate)}</p>
+                        </div>
                     </div>
 
-                    <button onClick={() => setIsUserSettingsOpen(true)} className='UserSettings_Edit_Btn absolute right-5 bottom-5 z-10 rounded-full py-2 px-6 bg-white'>Edit</button>
+                    <button onClick={() => setIsUserSettingsOpen(true)} className='UserSettings_Edit_Btn absolute right-5 bottom-5 z-10 rounded-full py-2 px-6 bg-white text-[14px] font-medium'>Edit</button>
 
                     <div className='Dashboard_Header_Bg absolute z-[1] w-full h-full bg-black opacity-30'></div>
                     <img src={currentUserData.coverimgurl} alt="" className='Dashboard_Header_Bg absolute z-0 w-full h-full object-cover' />

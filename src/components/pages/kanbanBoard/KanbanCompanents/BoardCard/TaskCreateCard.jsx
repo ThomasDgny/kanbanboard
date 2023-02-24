@@ -4,6 +4,8 @@ import { newTask } from '../../../../../repository/FirebaseTaskCreater'
 import { severityTag } from '../../../../../useCase/Tag'
 import TextEditor from '../../../../elements/TextEditor'
 import { handleFileUpload } from '../../../../../repository/FirebaseUploadFile'
+import { storage } from '../../../../../Firebase'
+import { ref } from 'firebase/storage'
 
 const TaskCreateCard = ({ docRef }) => {
     const [title, setTitle] = useState('')
@@ -32,12 +34,14 @@ const TaskCreateCard = ({ docRef }) => {
 
     const createNewTask = async (e) => {
         e.preventDefault()
-        const imgUrl = await handleFileUpload(file, user, docRef)
+        const storageRef = ref(storage, `${user.uid}/${docRef}/Taskimg/${file.name}`);
+        const imgUrl = await handleFileUpload(storageRef, file, file.type)
         setImgUrl(imgUrl);
         console.log(imgUrl);
-        newTask(user, title, description, status, severity, imgUrl, docRef)
+        await newTask(user, title, description, status, severity, imgUrl, docRef)
         resetInputs()
     }
+
 
     useEffect(() => {
         console.log(imgUrl);

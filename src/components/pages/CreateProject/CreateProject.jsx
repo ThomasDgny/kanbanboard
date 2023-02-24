@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import FirebaseCreateProject from '../../../repository/FirebaseCreateProject'
 import { UserAuth } from '../../../context/UserAuth'
 import { handleFileUpload } from '../../../repository/FirebaseUploadFile'
+import { storage } from '../../../Firebase'
+import { ref } from 'firebase/storage'
 
 const CreateProject = () => {
     const [projectName, setProjectName] = useState('')
@@ -15,25 +17,26 @@ const CreateProject = () => {
     const handleFileChange = (e) => {
         if (e.target.files[0]) {
             setFile(e.target.files[0])
-            console.log(file);
         }
     };
+    console.log(file);
 
-    console.log(docId);
 
 
     const handleCreateProject = async (e) => {
         e.preventDefault()
-        const imgUrl = await handleFileUpload(file, user, docId)
+        const storageRef = ref(storage, `${user.uid}/${docId}/ProjectLogo/${file.name}`);
+        console.log(docId);
+        const imgUrl = await handleFileUpload(storageRef, file, file.type)
         setimgUrl(imgUrl)
-        FirebaseCreateProject(user, projectName, imgUrl, setDocId)
+        await FirebaseCreateProject(user, projectName, imgUrl, setDocId)
             .then((docId) => navigate(`/Board/${docId.id}`, { state: docId.id }))
     }
 
     return (
 
         <div className="CreateProject flex flex-col md:flex-row h-screen">
-          
+
             <div className="w-full md:w-1/2  flex items-center justify-center">
                 <div className="max-w-md py-12 px-6">
                     <h2 className="text-[42px] font-bold text-black mb-6">Create New Project</h2>
@@ -62,7 +65,7 @@ const CreateProject = () => {
                     </form>
                 </div>
             </div>
-            
+
             <div className="w-full md:w-1/2">
                 <img className="object-cover w-full h-full" src="https://picsum.photos/1200/800" alt="Project Image" />
             </div>

@@ -23,6 +23,7 @@ export function AuthContextProvider({ children }) {
 
                 const userData = {
                     email: email,
+                    joindate: new Date().getTime(),
                     coverimgurl: headerBgUrl,
                     username: userName,
                     uid: res.user.uid

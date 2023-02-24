@@ -5,6 +5,8 @@ import { handleFileUpload } from '../../../../../repository/FirebaseUploadFile.j
 import { UserOp } from '../../../../../context/ProjectOp';
 import { removeProjectHandler } from '../../../../../repository/FirebaseRemoveProject';
 import { useNavigate } from 'react-router-dom';
+import { storage } from '../../../../../Firebase';
+import { ref } from 'firebase/storage';
 
 const ProjectSettings = ({ docRef, setIsProjectSettingsOpen }) => {
     const [projectName, setProjectName] = useState('')
@@ -31,7 +33,8 @@ const ProjectSettings = ({ docRef, setIsProjectSettingsOpen }) => {
 
     const handleCreateProject = async (e) => {
         e.preventDefault()
-        const imgUrl = await handleFileUpload(file, user, docRef)
+        const storageRef = ref(storage, `${user.uid}/${docRef}/ProjectLogo/${file.name}`);
+        const imgUrl = await handleFileUpload(storageRef, file, file.type)
         setImgUrl(imgUrl);
         updateProjectSettings(projectName, projectData.projectlogo, imgUrl, user, docRef)
         alert('Updated')
