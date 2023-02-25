@@ -8,8 +8,6 @@ import { ref } from 'firebase/storage'
 
 const CreateProject = () => {
     const [projectName, setProjectName] = useState('')
-    const [docId, setDocId] = useState('')
-    const [imgUrl, setimgUrl] = useState('')
     const [file, setFile] = useState(null);
     const { user } = UserAuth()
     const navigate = useNavigate()
@@ -22,14 +20,11 @@ const CreateProject = () => {
     console.log(file);
 
 
-
     const handleCreateProject = async (e) => {
         e.preventDefault()
-        const storageRef = ref(storage, `${user.uid}/${docId}/ProjectLogo/${file.name}`);
-        console.log(docId);
-        const imgUrl = await handleFileUpload(storageRef, file, file.type)
-        setimgUrl(imgUrl)
-        await FirebaseCreateProject(user, projectName, imgUrl, setDocId)
+        const storageRef = ref(storage, `${user.uid}/ProjectLogo/${file?.name}`);
+        const imgUrl = file ? await handleFileUpload(storageRef, file, file.type) : '';
+        await FirebaseCreateProject(user, projectName, imgUrl)
             .then((docId) => navigate(`/Board/${docId.id}`, { state: docId.id }))
     }
 
