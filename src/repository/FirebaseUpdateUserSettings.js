@@ -1,11 +1,11 @@
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../Firebase";
 
-export const updateUserSettings = async (userName, previousImgUrl, imgUrl, user) => {
+export const updateUserSettings = async (userName, imgUrl, user) => {
     const docRef = doc(db, 'users', user.uid)
-    const updatedTask = {
+    const updateUserData = {
         username: userName,
-        coverimgurl: imgUrl || previousImgUrl,
+        coverimgurl: imgUrl,
     }
-    await updateDoc(docRef, updatedTask);
+    await updateDoc(docRef, updateUserData);
 }

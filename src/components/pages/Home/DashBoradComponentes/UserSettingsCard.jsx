@@ -1,17 +1,15 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { UserAuth } from '../../../../context/UserAuth';
 import { updateUserSettings } from '../../../../repository/FirebaseUpdateUserSettings';
 import { handleFileUpload } from '../../../../repository/FirebaseUploadFile.js'
 import { storage } from '../../../../Firebase';
 import { ref } from 'firebase/storage';
 
-
 const UserSettingsCard = ({ setIsUserSettingsOpen }) => {
-    const { user, currentUserData } = UserAuth()
-    const [userName, setUserName] = useState(currentUserData.username)
-    const [imgUrl, setImgUrl] = useState(currentUserData.coverimgurl)
+    const { user, currentUserData } = UserAuth();
+    const [userName, setUserName] = useState(currentUserData.username);
+    const [currentImgUrl, setCurrentImgUrl] = useState(currentUserData.coverimgurl);
     const [file, setFile] = useState(null);
-    console.log(currentUserData);
 
     const handleFileChange = (e) => {
         if (e.target.files[0]) {
@@ -19,20 +17,27 @@ const UserSettingsCard = ({ setIsUserSettingsOpen }) => {
         }
     };
 
-    const handleCreateProject = async (e) => {
+    const handleUserUpdate = async (e) => {
         e.preventDefault()
-        const storageRef = ref(storage, `${user.uid}/coverimg/${file.name}`);
-        const updatedImgUrl = await handleFileUpload(storageRef, file, file.type)
-        console.log(updatedImgUrl);
-        setImgUrl(updatedImgUrl);
-        updateUserSettings(userName, imgUrl, updatedImgUrl, user)
-        alert('Updated')
+        if (file) {
+            const storageRef = ref(storage, `${user.uid}/ProjectLogo/${file.name}`);
+            const updatedUrl = await handleFileUpload(storageRef, file, file.type)
+            setCurrentImgUrl(updatedUrl)
+            console.log('Updated img url: ', updatedUrl);
+        }
+        console.log('updated');
     }
 
-    const handlerRemoveProject = async () => {
-        // await removeProjectHandler(user, docRef)
-        //     .then(navigate('/'))
-        //     .then(setDocRefId(''))
+    useEffect(() => {
+        async function update() {
+            await updateUserSettings(userName, currentImgUrl, user);
+            console.log('Current img url: ', currentImgUrl);
+        }
+        update()
+    }, [currentImgUrl, user, userName])
+
+    const handleUserRemove = async () => {
+        return alert('hehe kandirdim hesabini silemezzsin')
     }
 
     return (
@@ -58,10 +63,10 @@ const UserSettingsCard = ({ setIsUserSettingsOpen }) => {
                     </div>
 
                     <div className="flex flex-col items-center w-full gap-5">
-                        <button onClick={handleCreateProject} className="bg-blue-500 hover:bg-blue-700 text-white font-medium py-2 w-full rounded focus:outline-none focus:shadow-outline" type="button">
+                        <button onClick={handleUserUpdate} className="bg-blue-500 hover:bg-blue-700 text-white font-medium py-2 w-full rounded focus:outline-none focus:shadow-outline" type="button">
                             Update
                         </button>
-                        <button onClick={handlerRemoveProject} className=" hover:text-white hover:bg-red-700 text-red-700 font-medium py-2 w-full duration-200 rounded focus:outline-none focus:shadow-outline" type="button">
+                        <button onClick={handleUserRemove} className=" hover:text-white hover:bg-red-700 text-red-700 font-medium py-2 w-full duration-200 rounded focus:outline-none focus:shadow-outline" type="button">
                             Delete Account
                         </button>
                     </div>
