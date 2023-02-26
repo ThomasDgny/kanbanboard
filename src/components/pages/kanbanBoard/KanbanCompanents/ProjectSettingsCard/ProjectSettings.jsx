@@ -7,6 +7,7 @@ import { removeProjectHandler } from '../../../../../repository/FirebaseRemovePr
 import { useNavigate } from 'react-router-dom';
 import { storage } from '../../../../../Firebase';
 import { ref } from 'firebase/storage';
+import DefaultImgIcon from '../../../../../assets/icons/DefaultImg';
 
 const ProjectSettings = ({ docRef, setIsProjectSettingsOpen }) => {
     const [projectName, setProjectName] = useState('')
@@ -33,11 +34,15 @@ const ProjectSettings = ({ docRef, setIsProjectSettingsOpen }) => {
 
     const handleCreateProject = async (e) => {
         e.preventDefault()
-        const storageRef = ref(storage, `${user.uid}/${docRef}/ProjectLogo/${file.name}`);
-        const imgUrl = await handleFileUpload(storageRef, file, file.type)
-        setImgUrl(imgUrl);
-        updateProjectSettings(projectName, projectData.projectlogo, imgUrl, user, docRef)
-        alert('Updated')
+        let imgUrl;
+        if (file) {
+            const storageRef = ref(storage, `${user.uid}/${docRef}/ProjectLogo/${file?.name}`);
+            imgUrl = await handleFileUpload(storageRef, file, file?.type)
+            updateProjectSettings(projectName, projectData.projectlogo, imgUrl, user, docRef)
+        }
+        await updateProjectSettings(projectName, projectData.projectlogo, imgUrl, user, docRef)
+        console.log('updated');
+        setFile(null)
     }
 
     const handlerRemoveProject = async () => {
@@ -51,8 +56,9 @@ const ProjectSettings = ({ docRef, setIsProjectSettingsOpen }) => {
             <div className='ProjectSettingsPopUp_Card absolute z-[100] h-[60vh] w-[50vh] bg-white rounded-lg p-10'>
 
                 <div className='ProjectSettingsPopUp_Card_Body w-full h-full flex flex-col gap-10'>
-                    <img src={projectData.projectlogo} alt="" className='w-[80px] h-[80px] object-cover rounded-md' />
-
+                    {projectData.projectlogo !== '' ? <img src={projectData.projectlogo} alt="" className='w-[12vh] h-[12vh] object-cover rounded-md' />
+                        :
+                        <div className='bg-slate-300 w-[12vh] h-[12vh] rounded-md flex justify-center items-center'> <DefaultImgIcon /> </div>}
                     <div className='flex flex-col gap-3'>
                         <div className="mb-4">
                             <label className="block text-black text-sm font-medium mb-2" htmlFor="project-name">

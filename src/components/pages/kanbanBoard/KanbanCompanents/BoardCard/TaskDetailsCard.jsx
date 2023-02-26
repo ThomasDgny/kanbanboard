@@ -8,8 +8,7 @@ import { toastMessage } from '../../../../../useCase/ToastMessages'
 import { ToastContainer } from 'react-toastify'
 import { handleFileUpload } from '../../../../../repository/FirebaseUploadFile'
 import { storage } from '../../../../../Firebase'
-import { deleteObject, getMetadata, ref } from 'firebase/storage'
-import path, { basename } from 'path-browserify';
+import { deleteObject, ref } from 'firebase/storage'
 import { getFilenameFromUrl } from '../../../../../useCase/DecodeUrlToFileName'
 
 
@@ -19,25 +18,8 @@ const TaskDetailsCard = ({ cardInfo, docRefId }) => {
     const [status, setStatus] = useState(cardInfo.status)
     const [severity, setSeverity] = useState(cardInfo.severity)
     const [file, setFile] = useState(null);
-    const [imgUrl, setImgUrl] = useState('')
 
     const { user } = UserAuth()
-
-    const currentCardInfoObj = {
-        title: cardInfo.title,
-        description: cardInfo.description,
-        status: cardInfo.status,
-        severity: cardInfo.severity,
-        fileurl: cardInfo.fileurl
-    }
-
-    const updatedCardInfoObj = {
-        title: title,
-        description: description,
-        status: status,
-        severity: severity,
-        fileurl: imgUrl
-    }
 
     const handleFileChange = (e) => {
         if (e.target.files[0]) {
@@ -47,15 +29,15 @@ const TaskDetailsCard = ({ cardInfo, docRefId }) => {
 
     const updateTask = async (e) => {
         e.preventDefault()
-        if (JSON.stringify(currentCardInfoObj) !== JSON.stringify(updatedCardInfoObj)) {
+        let imgUrl = cardInfo.fileurl;
+        if (file) {
             const storageRef = ref(storage, `${user.uid}/${docRefId}/Taskimg/${file.name}`);
-            const imgUrl = await handleFileUpload(storageRef, file, file.type)
-            setImgUrl(imgUrl);
-            //console.log(imgUrl);
-            fireBaseUpdateTask(cardInfo.id, user, docRefId, title, description, status, severity, imgUrl)
-            alert('Updated')
+            imgUrl = await handleFileUpload(storageRef, file, file.type)
         }
+        fireBaseUpdateTask(cardInfo.id, user, docRefId, title, description, status, severity, imgUrl)
+        console.log('Updated')
     }
+
 
     const getFileName = getFilenameFromUrl(cardInfo.fileurl)
     console.log(getFileName);

@@ -2,6 +2,8 @@ import { getDownloadURL, uploadBytes } from "firebase/storage";
 import { resizeFile } from "./ImageResizer";
 import { base64SToImage } from "../useCase/Base64ToImg";
 
+
+
 //const storageRef = ref(storage, `${user.uid}/${docRef}/${file.name}`);
 
 export const handleFileUpload = async (path, file, fileType) => {
