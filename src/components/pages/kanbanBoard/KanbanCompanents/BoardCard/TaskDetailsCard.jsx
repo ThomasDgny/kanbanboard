@@ -31,7 +31,7 @@ const TaskDetailsCard = ({ cardInfo, docRefId }) => {
         e.preventDefault()
         let imgUrl = cardInfo.fileurl;
         if (file) {
-            const storageRef = ref(storage, `${user.uid}/${docRefId}/Taskimg/${file.name}`);
+            const storageRef = ref(storage, `${user.uid}/Projects/${docRefId}/Taskimg/${file.name}`)
             imgUrl = await handleFileUpload(storageRef, file, file.type)
         }
         fireBaseUpdateTask(cardInfo.id, user, docRefId, title, description, status, severity, imgUrl)
@@ -39,12 +39,10 @@ const TaskDetailsCard = ({ cardInfo, docRefId }) => {
     }
 
 
-    const getFileName = getFilenameFromUrl(cardInfo.fileurl)
-    console.log(getFileName);
     const removeTask = async () => {
         if (cardInfo.fileurl) {
-            console.log(cardInfo.fileurl);
-            const storageRef = ref(storage, `${user.uid}/${docRefId}/Taskimg/${getFileName}`);
+            const getFileName = getFilenameFromUrl(cardInfo.fileurl)
+            const storageRef = ref(storage, `${user.uid}/Projects/${docRefId}/Taskimg/${getFileName}`)
             await deleteObject(storageRef)
         }
         RemoveTaskHandler(cardInfo.id, user, docRefId)

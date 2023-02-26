@@ -36,7 +36,7 @@ const TaskCreateCard = ({ docRef }) => {
         e.preventDefault()
         let imgUrl;
         if (file) {
-            const storageRef = ref(storage, `${user.uid}/${docRef}/Taskimg/${file.name}`)
+            const storageRef = ref(storage, `${user.uid}/Projects/${docRef}/Taskimg/${file.name}`)
             imgUrl = await handleFileUpload(storageRef, file, file.type)
         }
         await newTask(user, title, description, status, severity, imgUrl, docRef)

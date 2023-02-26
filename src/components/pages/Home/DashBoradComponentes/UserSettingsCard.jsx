@@ -20,7 +20,7 @@ const UserSettingsCard = ({ setIsUserSettingsOpen }) => {
     const handleUserUpdate = async (e) => {
         e.preventDefault()
         if (file) {
-            const storageRef = ref(storage, `${user.uid}/ProjectLogo/${file.name}`);
+            const storageRef = ref(storage, `${user.uid}/UserCoverImg/${file.name}`);
             const updatedUrl = await handleFileUpload(storageRef, file, file.type)
             setCurrentImgUrl(updatedUrl)
             console.log('Updated img url: ', updatedUrl);

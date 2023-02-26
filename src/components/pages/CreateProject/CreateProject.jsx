@@ -22,7 +22,7 @@ const CreateProject = () => {
 
     const handleCreateProject = async (e) => {
         e.preventDefault()
-        const storageRef = ref(storage, `${user.uid}/ProjectLogo/${file?.name}`);
+        const storageRef = ref(storage, `${user.uid}/Projects/ProjecstLogo/${file?.name}`);
         const imgUrl = file ? await handleFileUpload(storageRef, file, file.type) : '';
         await FirebaseCreateProject(user, projectName, imgUrl)
             .then((docId) => navigate(`/Board/${docId.id}`, { state: docId.id }))

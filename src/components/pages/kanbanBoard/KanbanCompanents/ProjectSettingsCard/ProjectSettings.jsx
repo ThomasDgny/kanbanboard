@@ -6,8 +6,9 @@ import { UserOp } from '../../../../../context/ProjectOp';
 import { removeProjectHandler } from '../../../../../repository/FirebaseRemoveProject';
 import { useNavigate } from 'react-router-dom';
 import { storage } from '../../../../../Firebase';
-import { ref } from 'firebase/storage';
+import { deleteObject, ref } from 'firebase/storage';
 import DefaultImgIcon from '../../../../../assets/icons/DefaultImg';
+import { getFilenameFromUrl } from '../../../../../useCase/DecodeUrlToFileName';
 
 const ProjectSettings = ({ docRef, setIsProjectSettingsOpen }) => {
     const [projectName, setProjectName] = useState('')
@@ -46,14 +47,19 @@ const ProjectSettings = ({ docRef, setIsProjectSettingsOpen }) => {
     }
 
     const handlerRemoveProject = async () => {
+        if (docRef) {
+            // const getFileName = getFilenameFromUrl(projectData.projectname)
+            const storageRef = ref(storage, `${user.uid}/Projects/${docRef}`);
+            await deleteObject(storageRef)
+        }
         await removeProjectHandler(user, docRef)
-            .then(navigate('/'))
-            .then(setDocRefId(''))
+        navigate('/')
+        setDocRefId('')
     }
 
     return (
         <div className='ProjectSettingsPopUp fixed z-[100] top-0 left-0 bottom-0 right-0 overflow-hidden flex justify-center items-center '>
-            <div className='ProjectSettingsPopUp_Card absolute z-[100] h-[60vh] w-[50vh] bg-white rounded-lg p-10'>
+            <div className='ProjectSettingsPopUp_Card absolute z-[100] max-h-max w-[50vh] bg-white rounded-lg p-10'>
 
                 <div className='ProjectSettingsPopUp_Card_Body w-full h-full flex flex-col gap-10'>
                     {projectData.projectlogo !== '' ? <img src={projectData.projectlogo} alt="" className='w-[12vh] h-[12vh] object-cover rounded-md' />
