@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { comments } from '../../../../mockdata/Comments'
 import TwitterCard from '../mainComponents/TwitterCard'
 import '../../../../assets/css/AnimatonStyle.css'
@@ -9,7 +9,11 @@ const commentRow2 = comments.slice(5, 10)
 const commentRow3 = comments.slice(10, 15)
 const commentRow4 = comments.slice(15, 20)
 
+
 const CoommentsSection = () => {
+
+
+
     return (
         <div className="CommentsSection_Body">
             <div className="CommentsSection_Header text-center py-24">
