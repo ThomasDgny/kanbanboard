@@ -5,8 +5,7 @@ function TasksSectionSvg() {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      width="1256"
-      height="1128"
+      height="1200"
       fill="none"
       viewBox="0 0 856 728"
     >
