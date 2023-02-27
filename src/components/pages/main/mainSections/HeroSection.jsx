@@ -18,6 +18,7 @@ const HeroSection = () => {
             <div class="absolute z-0 from-white  opacity-[80%] h-full flex justify-center overflow-hidden w-full">
                 <div className=' Comments_Main w-full flex justify-center h-[100vh] overflow-hidden'>
                     <div className='Comments_Main_Body flex gap-5 scroll-container overflow-hidden'>
+
                         <div className='commentRow1 flex flex-col gap-4'>
                             {
                                 mockTaskRow1.map((item, id) => (
@@ -57,6 +58,7 @@ const HeroSection = () => {
                                 ))
                             }
                         </div>
+
                         <div className='commentRow3 flex flex-col gap-4'>
                             {
                                 mockTaskRow5.map((item, id) => (
@@ -66,11 +68,12 @@ const HeroSection = () => {
                                 ))
                             }
                         </div>
+
                     </div>
                 </div>
             </div>
-           
-           
+
+
             <div className="absolute z-20 w-full h-full">
                 <div className="HeroSection_Body max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 flex h-full items-end py-20">
                     <div className="text-center">

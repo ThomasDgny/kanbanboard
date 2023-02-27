@@ -8,7 +8,7 @@ const BoardHeader = ({ id, projectData }) => {
     const [CreateTaskPopUp, setCreateTaskPopUp] = useState(false)
     const [isProjectSettingsOpen, setIsProjectSettingsOpen] = useState(false)
 
-   // console.log(projectData);
+    // console.log(projectData);
 
 
     const tabCloserRef = useRef(null);
@@ -32,7 +32,7 @@ const BoardHeader = ({ id, projectData }) => {
         <div className='w-full pt-7 h-[15vh] justify-center px-14 flex items-center'>
             {
                 CreateTaskPopUp &&
-                <div ref={tabCloserRef}>
+                <div ref={tabCloserRef} className='fixed'>
                     <TaskCreateCard docRef={id} />
                 </div>
             }
