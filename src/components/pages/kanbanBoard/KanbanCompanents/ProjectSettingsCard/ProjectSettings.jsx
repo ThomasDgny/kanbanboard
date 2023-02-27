@@ -8,7 +8,6 @@ import { useNavigate } from 'react-router-dom';
 import { storage } from '../../../../../Firebase';
 import { deleteObject, ref } from 'firebase/storage';
 import DefaultImgIcon from '../../../../../assets/icons/DefaultImg';
-import { getFilenameFromUrl } from '../../../../../useCase/DecodeUrlToFileName';
 
 const ProjectSettings = ({ docRef, setIsProjectSettingsOpen }) => {
     const [projectName, setProjectName] = useState('')

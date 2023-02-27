@@ -19,7 +19,7 @@ const SignUp = () => {
 
         try {
             await SignUp(email, password, userName)
-            navigate('/');
+            navigate('/dashboard');
         } catch (error) {
             console.log(error)
             setError('Something went wrong')

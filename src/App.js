@@ -6,8 +6,8 @@ import SignIn from "./components/pages/SignIn/SignIn";
 import SignUp from "./components/pages/SignUp/SignUpPage";
 import Dasboard from "./components/pages/Home/Dasboard";
 import CreateProject from "./components/pages/CreateProject/CreateProject";
-import SideBar from "./components/elements/sideBar/SideBar";
-import LnadingPage from "./components/pages/main/MainLandingPage";
+import LandingPage from "./components/pages/main/MainLandingPage";
+import NavbarSwitched from "./components/elements/navSwitch/NavbarSwitched";
 
 
 function App() {
@@ -15,14 +15,14 @@ function App() {
     <div className="App">
       <AuthContextProvider>
         <ProjectContextProvider>
-          <SideBar />
+          <NavbarSwitched />
           <Routes>
-            <Route path="/LnadingPage" element={<LnadingPage />} />
-            <Route path="/" element={<Dasboard />}/>
-            <Route path="/CreateProject" element={<CreateProject />} />
-            <Route path="/Board/:id" element={<Board />} />
-            <Route path="/SignIn" element={<SignIn />} />
-            <Route path="/SignUp" element={<SignUp />} />
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/dashboard" element={<Dasboard />} />
+            <Route path="/create-project" element={<CreateProject />} />
+            <Route path="/board/:id" element={<Board />} />
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signUp" element={<SignUp />} />
           </Routes>
         </ProjectContextProvider>
       </AuthContextProvider>

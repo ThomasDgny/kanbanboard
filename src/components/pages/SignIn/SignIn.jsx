@@ -15,7 +15,7 @@ const SignIn = () => {
         event.preventDefault()
         try {
             await SignIn(email, password)
-            navigate('/');
+            navigate('/dashboard');
         } catch (error) {
             console.log(error)
             setError(error.message);

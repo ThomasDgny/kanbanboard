@@ -1,0 +1,51 @@
+@keyframes scrollUp {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes scrollDown {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes scrollHoriz {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+.CompanyLogos {
+    animation: scrollHoriz 50s linear infinite;
+}
+
+.commentRow1 {
+    animation: scrollUp 50s linear infinite;
+}
+
+
+.commentRow2 {
+    animation: scrollDown 50s linear infinite;
+}
+
+.commentRow3 {
+    animation: scrollUp 50s linear infinite;
+}
+
+.commentRow4 {
+    animation: scrollDown 50s linear infinite;
+}
