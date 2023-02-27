@@ -44,15 +44,14 @@ function LnadingPage() {
                         </p>
                     </div>
                     <div className="mt-5 max-w-md mx-auto flex justify-center space-x-4">
-                        <button className="inline-flex text-[28px] items-center justify-center px-12 py-6 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-blue-600 hover:bg-blue-500 duration-200 focus:outline-double focus:ring-2 focus:ring-offset-2 focus:ring-blue-600">
+                        <button className="inline-flex text-[24px] items-center justify-center px-12 py-6 border border-transparent rounded-md shadow-sm font-medium text-white bg-blue-600 hover:bg-blue-500 duration-200 focus:outline-double focus:ring-2 focus:ring-offset-2 focus:ring-blue-600">
                             Get Started
                         </button>
                     </div>
+
+
                 </div>
-
-
             </div>
-
         </div>
     );
 }
