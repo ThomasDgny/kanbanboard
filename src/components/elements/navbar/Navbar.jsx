@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { auth } from '../../../Firebase';
 import { UserAuth } from '../../../context/UserAuth';
 import { Link, useNavigate } from 'react-router-dom';
+import SiteLogoIcon from '../../../assets/siteLogo/SiteLogo';
 
 
 export default function Navbar() {
@@ -30,7 +31,11 @@ export default function Navbar() {
         <nav className="flex items-center justify-between flex-wrap bg-transparent p-6">
             <div className="flex items-center flex-shrink-0 text-black mr-6">
                 <Link to="/">
-                    <img src={''} alt="Logo" className="h-8 w-8" />
+                    <div className="relative bg-gradient-to-tr from-blue-700 to-blue-900 w-[7vh] h-[7vh] rounded-lg shadow-lg">
+                        <div className="absolute h-full w-full top-[25%] left-[25%]">
+                            <SiteLogoIcon height={"30"} />
+                        </div>
+                    </div>
                 </Link>
             </div>
             <div className="block lg:hidden">
@@ -57,39 +62,39 @@ export default function Navbar() {
                 <div className="text-sm lg:flex-grow">
                     <Link
                         to="/"
-                        className="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-4"
+                        className="text-[18px] font-medium block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-4"
                     >
                         Home
                     </Link>
                     <Link
                         to="/about"
-                        className="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-4"
+                        className="text-[18px] font-medium block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-4"
                     >
                         About
                     </Link>
                     <Link
                         to="/services"
-                        className="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-4"
+                        className="text-[18px] font-medium block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-4"
                     >
                         Services
                     </Link>
                     <Link
                         to="/contact"
-                        className="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white"
+                        className="text-[18px] font-medium block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white"
                     >
                         Contact
                     </Link>
                 </div>
-                <div>
+                <div className='flex gap-5'>
                     <Link
                         to="/signin"
-                        className="inline-block text-sm px-4 py-2 leading-none border rounded text-black border-black hover:text-white hover:border-white mt-4 lg:mt-0"
+                        className="text-[18px] font-medium inline-block text-sm px-8 py-4 leading-none border rounded-lg text-white bg-blue-600 mt-4 lg:mt-0 shadow-lg"
                     >
                         Sign In
                     </Link>
                     <Link
                         to="/signup"
-                        className="inline-block text-sm px-4 py-2 leading-none border rounded text-black border-black hover:text-white hover:border-white mt-4 lg:mt-0 ml-2"
+                        className="text-[18px] font-medium inline-block text-sm px-8 py-4 leading-none border rounded-lg text-black bg-white mt-4 lg:mt-0"
                     >
                         Sign Up
                     </Link>

@@ -25,13 +25,13 @@ const FeaturesSection = () => {
                     <div className=" col-span-1 bg-gradient-to-tr h-full from-slate-200 to-slate-100 sm:col-span-8 p-1 rounded-2xl">
                         <div className='relative bg-gradient-to-tr h-full from-[#f2f2f2] via-[#a9d2f8] to-[#ffffff] rounded-2xl w-ful overflow-hidden '>
                             <div className='absolute z-[5] h-full w-full flex flex-col justify-between gap-5'>
-                                <div className='p-10'>
+                                <div className='py-10 px-24'>
                                     <h1 className='text-[32px] text-slate-800 font-bold'>Everything is possible</h1>
                                     <p className='text-slate-500 text-[18px] font-medium max-w-xl'>Fly through your tasks with rapid-fire keyboard shortcuts for everything. Literally everything.</p>
                                 </div>
 
-                                <div className='overflow-hidden w-full h-96  md:scale-125 md:flex md:justify-center pt-[3vh]'>
-                                    <div className='h-full w-[65%] TextArea scale-100 bg-white rounded-lg p-5 overflow-hidden drop-shadow-md'>
+                                <div className='overflow-hidden w-full h-96 scale-125 flex justify-center pt-[3vh]'>
+                                    <div className='h-full w-[65%] TextArea bg-white rounded-lg p-5 overflow-hidden drop-shadow-md'>
                                         <TextEditor
                                             content={''}
                                             setContent={''}
@@ -42,8 +42,8 @@ const FeaturesSection = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div class="absolute z-10 bg-gradient-to-t bottom-0 from-[#a9d2f8] opacity-[100%] h-[20%] w-full"></div>
-                            <div class="absolute z-[0]  opacity-[30%] h-full w-full overflow-hidden">
+                            <div className="absolute z-10 bg-gradient-to-t bottom-0 from-[#a9d2f8] opacity-[100%] h-[20%] w-full"></div>
+                            <div className="absolute z-[0]  opacity-[30%] h-full w-full overflow-hidden">
                                 <GridSvg />
                             </div>
                         </div>

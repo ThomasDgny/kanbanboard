@@ -1,10 +1,10 @@
 import React from "react";
 
-function SiteLogoIcon() {
+function SiteLogoIcon({ height }) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            height="50"
+            height={height}
             fill="none"
             viewBox="0 0 37 41"
         >
