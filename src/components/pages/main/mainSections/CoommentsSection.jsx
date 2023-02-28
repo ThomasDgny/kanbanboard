@@ -24,7 +24,7 @@ const CoommentsSection = () => {
                     Our community loves how easy it is to design and publish a professional site in Framer.
                 </p>
             </div>
-            <div class="absolute z-10 bg-gradient-to-b from-white opacity-[100%] h-[20%] w-full"></div>
+            <div className="absolute z-10 bg-gradient-to-b from-white opacity-[100%] h-[20%] w-full"></div>
             <div className=' Comments_Main w-full flex justify-center h-[100vh] overflow-hidden'>
                 <div className='Comments_Main_Body flex gap-5 scroll-container overflow-hidden'>
                     <div className='commentRow1 flex flex-col gap-4'>
@@ -68,7 +68,7 @@ const CoommentsSection = () => {
                     </div>
                 </div>
             </div>
-            <div class="absolute z-10 bottom-0 bg-gradient-to-t from-white opacity-[100%] h-[30%] w-full"></div>
+            <div className="absolute z-10 bottom-0 bg-gradient-to-t from-white opacity-[100%] h-[30%] w-full"></div>
         </div>
     )
 }

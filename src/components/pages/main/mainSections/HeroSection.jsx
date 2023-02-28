@@ -14,8 +14,8 @@ const mockTaskRow5 = mockTask.slice(20, 25)
 const HeroSection = () => {
     return (
         <div className='w-full h-full'>
-            <div class="absolute z-10 bg-gradient-to-t bottom-0 from-white opacity-[100%] h-[100%] w-full"></div>
-            <div class="absolute z-0 from-white  opacity-[80%] h-full flex justify-center overflow-hidden w-full">
+            <div className="absolute z-10 bg-gradient-to-t bottom-0 from-white opacity-[100%] h-[100%] w-full"></div>
+            <div className="absolute z-0 from-white  opacity-[80%] h-full flex justify-center overflow-hidden w-full">
                 <div className=' Comments_Main w-full flex justify-center h-[100vh] overflow-hidden'>
                     <div className='Comments_Main_Body flex gap-5 scroll-container overflow-hidden'>
 

@@ -20,7 +20,7 @@ const FeaturesSection = () => {
 
             <div className="FeaturesSection_Main flex flex-col gap-6 max-w-[90rem] w-full">
 
-                <div class="h-[70vh] w-full grid grid-rows-1 sm:grid-cols-2 md:grid-cols-12 gap-6 overflow-hidden">
+                <div className="h-[70vh] w-full grid grid-rows-1 sm:grid-cols-2 md:grid-cols-12 gap-6 overflow-hidden">
 
                     <div className=" col-span-1 bg-gradient-to-tr h-full from-slate-200 to-slate-100 sm:col-span-8 p-1 rounded-2xl">
                         <div className='relative bg-gradient-to-tr h-full from-[#f2f2f2] via-[#a9d2f8] to-[#ffffff] rounded-2xl w-ful overflow-hidden '>
@@ -53,7 +53,7 @@ const FeaturesSection = () => {
 
 
 
-                    <div class="col-span-1 sm:col-span-4 bg-gradient-to-tr  from-slate-200 to-slate-100 p-1 rounded-2xl">
+                    <div className="col-span-1 sm:col-span-4 bg-gradient-to-tr  from-slate-200 to-slate-100 p-1 rounded-2xl">
                         <div className=' bg-gradient-to-r h-full from-[#0d113b] to-[#000212] rounded-2xl w-ful overflow-hidden flex flex-col justify-between gap-20'>
                             <div className='p-10'>
                                 <h1 className='text-[32px] text-white font-bold'>Create Task</h1>
@@ -67,9 +67,9 @@ const FeaturesSection = () => {
 
                 </div>
 
-                <div class="h-[70vh] w-full grid grid-rows-1 sm:grid-cols-2 md:grid-cols-12 gap-6 overflow-hidden">
+                <div className="h-[70vh] w-full grid grid-rows-1 sm:grid-cols-2 md:grid-cols-12 gap-6 overflow-hidden">
 
-                    <div class="col-span-1 sm:col-span-4 bg-gradient-to-tr  from-slate-200 to-slate-100 p-1 rounded-2xl">
+                    <div className="col-span-1 sm:col-span-4 bg-gradient-to-tr  from-slate-200 to-slate-100 p-1 rounded-2xl">
                         <div className=' bg-gradient-to-r h-full from-[#0d113b] to-[#000212] rounded-2xl w-ful overflow-hidden flex flex-col justify-between gap-20'>
                             <div className='p-10'>
                                 <h1 className='text-[32px] text-white font-bold'>Create Task</h1>
@@ -92,8 +92,8 @@ const FeaturesSection = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div class="absolute z-10 bg-gradient-to-t bottom-0 from-[#a9d2f8] opacity-[100%] h-[20%] w-full"></div>
-                            <div class="absolute z-[0]  opacity-[30%] h-full w-full overflow-hidden">
+                            <div className="absolute z-10 bg-gradient-to-t bottom-0 from-[#a9d2f8] opacity-[100%] h-[20%] w-full"></div>
+                            <div className="absolute z-[0]  opacity-[30%] h-full w-full overflow-hidden">
                                 <GridSvg />
                             </div>
                         </div>
@@ -114,7 +114,7 @@ const FeaturesSection = () => {
                             </div>
                         </div>
 
-                        <div class="absolute z-10 bg-gradient-to-t bottom-0 from-[#cad3ff] opacity-[100%] h-[20%] w-full"></div>
+                        <div className="absolute z-10 bg-gradient-to-t bottom-0 from-[#cad3ff] opacity-[100%] h-[20%] w-full"></div>
 
                     </div>
                 </div>
