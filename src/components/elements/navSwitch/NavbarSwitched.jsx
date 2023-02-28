@@ -1,7 +1,7 @@
 import React from 'react'
-import Navbar from '../navbar/Navbar'
 import SideBar from '../sideBar/SideBar'
 import { UserAuth } from '../../../context/UserAuth';
+import PublicNavbar from '../navbar/Navbar';
 
 const NavbarSwitched = () => {
 
@@ -9,7 +9,7 @@ const NavbarSwitched = () => {
     return (
         <div>
             {!user ?
-                <Navbar />
+                <PublicNavbar />
                 :
                 <SideBar />
             }

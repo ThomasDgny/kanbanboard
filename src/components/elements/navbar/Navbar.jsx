@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import SiteLogoIcon from '../../../assets/siteLogo/SiteLogo';
 
 
-export default function Navbar() {
+export default function PublicNavbar() {
     const [isOpen, setIsOpen] = useState(false);
     const { user } = UserAuth();
 
@@ -40,7 +40,7 @@ export default function Navbar() {
             </div>
             <div className="block lg:hidden">
                 <button
-                    className="flex items-center px-3 py-2 border rounded text-black border-black hover:text-white hover:border-white"
+                    className="flex duration-500 items-center px-3 py-2 border rounded text-black border-black hover:text-white hover:bg-slate-800"
                     onClick={toggleMenu}
                 >
                     <svg
