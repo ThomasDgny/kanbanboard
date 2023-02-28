@@ -88,7 +88,7 @@ const FeaturesSection = () => {
 
                                 <div className='overflow-hidden w-full h-96 scale-100 md:scale-125 md:flex md:justify-center'>
                                     <div className='h-full'>
-                                        <TaskCreateCard />
+
                                     </div>
                                 </div>
                             </div>
@@ -110,7 +110,7 @@ const FeaturesSection = () => {
 
                         <div className='overflow-hidden w-full h-96 scale-100 md:scale-125 md:flex md:justify-center'>
                             <div className='h-full'>
-                                <TaskCreateCard />
+
                             </div>
                         </div>
 

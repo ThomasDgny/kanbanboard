@@ -24,12 +24,12 @@ const SignIn = () => {
     const bannerImg = `https://images.unsplash.com/photo-1544194215-541c2d3561a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80`
 
     return (
-        <div className=' h-[88vh] overflow-hidden scrollbar-hide w-full'>
+        <div className=' h-full overflow-hidden scrollbar-hide w-full'>
 
             <div className='SignInPage md:flex gap-4 items-center justify-center h-full overflow-y-hidden'>
 
                 <div className='signinEventContainer h-full w-full md:w-1/2 flex flex-col items-center justify-center ' >
-                    <div className='SignINleftbody flex w-full max-w-[50vh] px-3 flex-col gap-10'>
+                    <div className='SignINleftbody flex h-full w-full max-w-[50vh] px-3 flex-col gap-10'>
                         <div className='text-left'>
                             <h1 className='text-black font-bold text-[42px] mb-2'>SignIn</h1>
                             <p className='text-[#0007] text-[16px]'>Welcome please enter your deatil</p>

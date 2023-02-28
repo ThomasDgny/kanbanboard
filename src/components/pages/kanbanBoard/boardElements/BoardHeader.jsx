@@ -32,7 +32,7 @@ const BoardHeader = ({ id, projectData }) => {
         <div className='w-full pt-7 h-[15vh] justify-center px-14 flex items-center'>
             {
                 CreateTaskPopUp &&
-                <div ref={tabCloserRef} className='fixed'>
+                <div ref={tabCloserRef}>
                     <TaskCreateCard docRef={id} />
                 </div>
             }

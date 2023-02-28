@@ -8,7 +8,7 @@ const Board = () => {
     const { state: id } = useLocation()
     const { projectData, setDocRefId } = UserOp()
     console.log(id);
-   // console.log(projectData);
+    // console.log(projectData);
 
     useEffect(() => {
         setDocRefId(id)
@@ -19,8 +19,6 @@ const Board = () => {
 
     return (
         <div className='Board flex overflow-x-scroll scrollbar-hide'>
-            <div className='min-w-[12vh] bg-red-700'></div>
-
             <div className='Board w-full flex flex-col gap-5 '>
 
                 <BoardHeader id={id} projectData={projectData} />

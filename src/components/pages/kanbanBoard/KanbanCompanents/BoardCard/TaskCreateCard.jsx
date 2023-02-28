@@ -34,7 +34,7 @@ const TaskCreateCard = ({ docRef }) => {
 
     const createNewTask = async (e) => {
         e.preventDefault()
-        let imgUrl;
+        let imgUrl = '';
         if (file) {
             const storageRef = ref(storage, `${user.uid}/Projects/${docRef}/Taskimg/${file.name}`)
             imgUrl = await handleFileUpload(storageRef, file, file.type)
@@ -44,7 +44,7 @@ const TaskCreateCard = ({ docRef }) => {
     }
 
     return (
-        <div className='CreateCardPopUp z-[100] top-0 bottom-0 left-0 w-full max-w-[70vh] bg-white drop-shadow-md overflow-y-scroll scroll-smooth scrollbar-hide'>
+        <div className='CreateCardPopUp fixed z-[500] top-0 bottom-0 left-0 w-full max-w-[70vh] bg-white drop-shadow-md overflow-y-scroll scroll-smooth scrollbar-hide'>
             <div className='CreateCardPopUp_Body p-6'>
                 <form className='flex flex-col w-full gap-6' onSubmit={createNewTask}>
                     <input type="text" className='bg-transparent border-none outline-0 text-[32px] font-bold p-2 border text-gray-700 rounded-lg resize-none' required placeholder='Untitled' onChange={(e) => setTitle(e.target.value)} />

@@ -27,7 +27,7 @@ const Dasboard = () => {
 
             <div className='w-full flex-col flex gap-7'>
 
-                <div className='Dashboard_Header relative h-[30vh] justify-center px-14 flex items-center'>
+                <div className='Dashboard_Header relative h-[35vh] justify-center px-14 flex items-center'>
 
                     <div className='Dashboard_Header_body absolute px-14 z-10 w-full'>
                         <h1 className='text-[50px] font-bold  text-white leading-[130%] mb-3'>Hello {currentUserData.username}! <br /> Welcome Back</h1>
@@ -49,7 +49,7 @@ const Dasboard = () => {
 
                         <div className='flex justify-between gap-10'>
                             <h1 className='text-[24px] font-bold'>Projects</h1>
-                            <button className='text-[16px] font-medium' onClick={() => navigate('/CreateProject')}>Create</button>
+                            <button className='text-[16px] font-medium' onClick={() => navigate('/create-project')}>Create</button>
                         </div>
 
                         <div className='ProjectLsit flex flex-wrap gap-5'>
