@@ -37,7 +37,7 @@ const SignIn = () => {
                         </div>
                         <form className='flex flex-col gap-5 text-center'>
                             <input onChange={(e) => setEmail(e.target.value.toLocaleLowerCase())} type="text" placeholder='Email' className='p-3 border rounded-md border-[#2227] w-full text-black' />
-                            <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder='Password' className='p-3 border rounded-md border-[#2227] w-full text-black' />
+                            <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder='Password' autoComplete="true" className='p-3 border rounded-md border-[#2227] w-full text-black' />
                             <button onClick={HandleSubmit} className='bg-[#ff4fad] text-white py-3 hover:duration-300 hover:bg-[#ff74be]'>Sign In</button>
 
                             <Link className='text-slate-400 underline hover:duration-300 hover:text-slate-800' to={'/SignUp'}>Don't you have an account</Link>

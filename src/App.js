@@ -21,9 +21,9 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signUp" element={<SignUp />} />
-            <Route path="/dashboard" element={ProtectedRoute(<Dasboard />)} />
-            <Route path="/create-project" element={ProtectedRoute(<CreateProject />)} />
-            <Route path="/board/:id" element={ProtectedRoute(<Board />)} />
+            <Route path="/dashboard" element={<ProtectedRoute child={<Dasboard />} />} />
+            <Route path="/create-project" element={<ProtectedRoute child={<CreateProject />} />} />
+            <Route path="/board/:id" element={<ProtectedRoute child={<Board />} />} />
           </Routes>
         </ProjectContextProvider>
       </AuthContextProvider>

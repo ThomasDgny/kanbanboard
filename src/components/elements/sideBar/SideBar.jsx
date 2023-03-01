@@ -29,7 +29,7 @@ const SideBar = () => {
         <nav className="flex items-center justify-between flex-wrap bg-transparent p-6">
             <div className="flex items-center flex-shrink-0 text-black mr-6">
                 <Link
-                    to='/dashboard'
+                    to='/'
                 >
                     <div className="relative bg-gradient-to-tr from-blue-700 to-blue-900 w-[7vh] h-[7vh] rounded-lg shadow-lg">
                         <div className="absolute h-full w-full top-[25%] left-[25%]">
@@ -61,7 +61,7 @@ const SideBar = () => {
             >
                 <div className="text-sm lg:flex-grow">
                     <Link
-                        onClick={() => navigate('/dashboard')}
+                        to='/dashboard'
                         className="text-[18px] font-medium block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-4"
                     >
                         Dash Board
