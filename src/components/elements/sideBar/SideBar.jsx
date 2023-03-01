@@ -64,7 +64,7 @@ const SideBar = () => {
                         onClick={() => navigate('/dashboard')}
                         className="text-[18px] font-medium block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-4"
                     >
-                        Home
+                        Dash Board
                     </Link>
 
                 </div>

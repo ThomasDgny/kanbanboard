@@ -9,23 +9,9 @@ export default function PublicNavbar() {
     const [isOpen, setIsOpen] = useState(false);
     const { user } = UserAuth();
 
-    const { LogOut } = UserAuth();
-    const navigate = useNavigate();
-
-    const HandleSignOut = async () => {
-        try {
-            LogOut(auth)
-            navigate('/')
-        } catch (error) {
-
-        }
-    };
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
-
-
-    const userEmail = user?.email
     console.log(user);
     return (
         <nav className="flex items-center justify-between flex-wrap bg-transparent p-6">
@@ -62,25 +48,13 @@ export default function PublicNavbar() {
                 <div className="text-sm lg:flex-grow">
                     <Link
                         to="/"
-                        className="text-[18px] font-medium block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-4"
+                        className="text-[18px] font-medium block mt-4 lg:inline-block lg:mt-0 text-slate-800 hover:text-slate-500 duration-300 mr-4"
                     >
-                        Home
-                    </Link>
-                    <Link
-                        to="/about"
-                        className="text-[18px] font-medium block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-4"
-                    >
-                        About
-                    </Link>
-                    <Link
-                        to="/services"
-                        className="text-[18px] font-medium block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-4"
-                    >
-                        Services
+                        DashBoard
                     </Link>
                     <Link
                         to="/contact"
-                        className="text-[18px] font-medium block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white"
+                        className="text-[18px] font-medium block mt-4 lg:inline-block lg:mt-0 text-slate-800 hover:text-slate-500 duration-300"
                     >
                         Contact
                     </Link>
