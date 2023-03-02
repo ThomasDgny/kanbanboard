@@ -25,10 +25,13 @@ const TaskCreateCard = ({ docRef }) => {
         // setImgUrl('');
     }
 
+
     const handleFileChange = (e) => {
-        if (e.target.files[0]) {
-            setFile(e.target.files[0])
+        if (e.target.files[0].size > 2097152) {
+            alert('dude this file is too big. Max file size 2mb')
+            e.target.value = ''
         }
+        setFile(e.target.files[0])
     };
     console.log(file);
 
@@ -49,7 +52,7 @@ const TaskCreateCard = ({ docRef }) => {
                 <form className='flex flex-col w-full gap-6' onSubmit={createNewTask}>
                     <input type="text" className='bg-transparent border-none outline-0 text-[32px] font-bold p-2 border text-gray-700 rounded-lg resize-none' required placeholder='Untitled' onChange={(e) => setTitle(e.target.value)} />
                     <div className="Status">
-                        <label className="block mb-2 text-sm font-medium text-gray-900" htmlFor="file_input">Status</label>
+                        <label className="block mb-2 text-sm font-medium text-gray-900">Status</label>
                         <select
                             className="form-select w-32 bg-white border border-gray-400 hover:border-gray-500 py-2 px-4 rounded-l"
                             value={status}
@@ -62,7 +65,7 @@ const TaskCreateCard = ({ docRef }) => {
                     </div>
 
                     <div className="Severity">
-                        <label className="block mb-2 text-sm font-medium text-gray-900" htmlFor="file_input">Severity</label>
+                        <label className="block mb-2 text-sm font-medium text-gray-900">Severity</label>
                         <select
                             className="form-select w-32 bg-white border border-gray-400 hover:border-gray-500 py-2 px-4 rounded-l"
                             value={severity}

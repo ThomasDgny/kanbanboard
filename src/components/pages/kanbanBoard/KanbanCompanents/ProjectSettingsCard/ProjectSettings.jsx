@@ -6,7 +6,7 @@ import { UserOp } from '../../../../../context/ProjectOp';
 import { removeProjectHandler } from '../../../../../repository/FirebaseRemoveProject';
 import { useNavigate } from 'react-router-dom';
 import { storage } from '../../../../../Firebase';
-import { deleteObject, ref } from 'firebase/storage';
+import {  ref } from 'firebase/storage';
 import DefaultImgIcon from '../../../../../assets/icons/DefaultImg';
 
 const ProjectSettings = ({ docRef, setIsProjectSettingsOpen }) => {
@@ -21,7 +21,7 @@ const ProjectSettings = ({ docRef, setIsProjectSettingsOpen }) => {
 
     const handleFileChange = (e) => {
         if (e.target.files[0]) {
-            setFile(e.target.files[0])
+            setFile(e.target.files[0]?.size > 2000)
         }
     };
 
@@ -46,13 +46,8 @@ const ProjectSettings = ({ docRef, setIsProjectSettingsOpen }) => {
     }
 
     const handlerRemoveProject = async () => {
-        if (docRef) {
-            // const getFileName = getFilenameFromUrl(projectData.projectname)
-            const storageRef = ref(storage, `${user.uid}/Projects/${docRef}`);
-            await deleteObject(storageRef)
-        }
         await removeProjectHandler(user, docRef)
-        navigate('/')
+        navigate('/dashboard')
         setDocRefId('')
     }
 

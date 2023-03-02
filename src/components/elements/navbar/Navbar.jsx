@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import { auth } from '../../../Firebase';
 import { UserAuth } from '../../../context/UserAuth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import SiteLogoIcon from '../../../assets/siteLogo/SiteLogo';
 
 
@@ -45,16 +44,16 @@ export default function PublicNavbar() {
                 className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${isOpen ? 'block' : 'hidden'
                     }`}
             >
-                <div className="text-sm lg:flex-grow">
+                <div className="text-sm lg:flex-grow flex gap-10">
                     <Link
-                        to="/"
-                        className="text-[18px] font-medium block mt-4 lg:inline-block lg:mt-0 text-slate-800 hover:text-slate-500 duration-300 mr-4"
+                        to="/contact"
+                        className="text-[18px] font-medium block mt-4 lg:inline-block lg:mt-0 text-slate-800 hover:text-slate-400 duration-200"
                     >
-                        DashBoard
+                        Features
                     </Link>
                     <Link
                         to="/contact"
-                        className="text-[18px] font-medium block mt-4 lg:inline-block lg:mt-0 text-slate-800 hover:text-slate-500 duration-300"
+                        className="text-[18px] font-medium block mt-4 lg:inline-block lg:mt-0 text-slate-800 hover:text-slate-400 duration-200"
                     >
                         Contact
                     </Link>

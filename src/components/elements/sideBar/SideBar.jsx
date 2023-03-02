@@ -62,19 +62,19 @@ const SideBar = () => {
                 <div className="text-sm lg:flex-grow">
                     <Link
                         to='/dashboard'
-                        className="text-[18px] font-medium block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-4"
+                        className="text-[18px] font-medium block mt-4 lg:inline-block lg:mt-0 text-slate-800 hover:text-slate-500 duration-200 mr-4"
                     >
                         Dash Board
                     </Link>
 
                 </div>
                 <div className='flex gap-5'>
-                    <Link
+                    <button
                         onClick={HandleSignOut}
                         className="text-[18px] font-medium inline-block text-sm px-8 py-4 leading-none border rounded-lg text-white bg-blue-600 mt-4 lg:mt-0 shadow-lg"
                     >
                         Logout
-                    </Link>
+                    </button>
                 </div>
             </div>
         </nav>
