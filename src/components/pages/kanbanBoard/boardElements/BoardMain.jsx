@@ -27,10 +27,10 @@ const BoardMain = ({ docRefId }) => {
 
 
     return (
-        <div className='Main px-14 w-full'>
+        <div className='Main  w-full'>
 
-            <div className='MainBody overflow-x-scroll scrollbar-hide'>
-                <div className='MainContent w-full gap-5 grid-cols-3 grid'>
+            <div className='MainBody overflow-x-scroll scrollbar-hide flex justify-center'>
+                <div className='MainContent w-[90%] gap-5 grid-cols-3 grid'>
 
                     {
                         TaskListSections.map((item, id) => (

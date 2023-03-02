@@ -21,7 +21,7 @@ const ProjectSettings = ({ docRef, setIsProjectSettingsOpen }) => {
 
     const handleFileChange = (e) => {
         if (e.target.files[0]) {
-            setFile(e.target.files[0]?.size > 2000)
+            setFile(e.target.files[0])
         }
     };
 

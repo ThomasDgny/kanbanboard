@@ -8,6 +8,7 @@ import { FirebaseChangeTaskStatus } from '../../../../../repository/FirebaseChan
 import TextEditor from '../../../../elements/TextEditor'
 import DropdownMenu from '../dropDownMenu/DropDownMenu'
 import { convert } from 'html-to-text'
+import ClanderIcon from '../../../../../assets/icons/ClanderIcon'
 
 
 const BoardCard = ({ cardData, setCardId, setIsTaskDetailOpen }) => {
@@ -46,11 +47,11 @@ const BoardCard = ({ cardData, setCardId, setIsTaskDetailOpen }) => {
                     </div>
                     <div onClick={() => handlerTaskDetailInfo()} className='absolute bg-black opacity-0 rounded-2xl top-0 left-0 bottom-0 right-0 z-10'></div>
 
-                    {cardData?.fileurl && <img src={cardData?.fileurl} className='rounded-lg h-[50vh] object-cover w-full ' alt="" />}
+                    {cardData?.fileurl && <img src={cardData?.fileurl} className='rounded-2xl h-[50vh] object-cover w-full ' alt="" />}
 
                     <div className='flex gap-3 items-center'>
                         <label className={severityTag(cardData)}>{cardData.severity}</label>
-                        <label className='text-[16px] text-[#8393B9]  font-medium'>{dateConverter(cardData.creationDate)}</label>
+                        <label className='text-[16px] text-[#8393B9] flex items-center gap-1 font-medium'> <ClanderIcon /> <span className='mt-1'>{dateConverter(cardData.creationDate)}</span></label>
                     </div>
 
                     {isDescActive !== 0 && <div className='relative'>
