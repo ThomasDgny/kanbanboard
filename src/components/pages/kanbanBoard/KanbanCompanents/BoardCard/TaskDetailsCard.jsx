@@ -45,7 +45,12 @@ const TaskDetailsCard = ({ cardInfo, docRefId }) => {
             const storageRef = ref(storage, `${user.uid}/Projects/${docRefId}/Taskimg/${getFileName}`)
             await deleteObject(storageRef)
         }
-        RemoveTaskHandler(cardInfo.id, user, docRefId)
+        let text = "Are you sure about that";
+        // eslint-disable-next-line no-restricted-globals
+        if (confirm(text) === true) {
+            RemoveTaskHandler(cardInfo.id, user, docRefId)
+        }
+
     }
 
     return (

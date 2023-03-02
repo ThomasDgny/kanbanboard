@@ -6,7 +6,7 @@ import { UserOp } from '../../../../../context/ProjectOp';
 import { removeProjectHandler } from '../../../../../repository/FirebaseRemoveProject';
 import { useNavigate } from 'react-router-dom';
 import { storage } from '../../../../../Firebase';
-import {  ref } from 'firebase/storage';
+import { ref } from 'firebase/storage';
 import DefaultImgIcon from '../../../../../assets/icons/DefaultImg';
 
 const ProjectSettings = ({ docRef, setIsProjectSettingsOpen }) => {
@@ -56,7 +56,7 @@ const ProjectSettings = ({ docRef, setIsProjectSettingsOpen }) => {
             <div className='ProjectSettingsPopUp_Card absolute z-[100] max-h-max w-[50vh] bg-white rounded-lg p-10'>
 
                 <div className='ProjectSettingsPopUp_Card_Body w-full h-full flex flex-col gap-10'>
-                    {projectData.projectlogo !== '' ? <img src={projectData.projectlogo} alt="" className='w-[12vh] h-[12vh] object-cover rounded-md' />
+                    {projectData?.projectlogo !== '' ? <img src={projectData?.projectlogo} alt="" className='w-[12vh] h-[12vh] object-cover rounded-md' />
                         :
                         <div className='bg-slate-300 w-[12vh] h-[12vh] rounded-md flex justify-center items-center'> <DefaultImgIcon /> </div>}
                     <div className='flex flex-col gap-3'>
