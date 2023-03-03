@@ -1,11 +1,11 @@
 import React from 'react';
 
-const CostumeProgressBar = ({ percentage, color }) => {
+const CostumeProgressBar = ({ percentage, color, height, borderRadius }) => {
   const containerStyles = {
-    height: 20,
+    height: height,
     width: '100%',
     backgroundColor: '#e0e0de',
-    borderRadius: 0,
+    borderRadius: borderRadius,
   }
 
   const fillerStyles = {

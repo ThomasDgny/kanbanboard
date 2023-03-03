@@ -1,17 +1,26 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { UserAuth } from '../../../../context/UserAuth';
 import { mockTask } from '../../../../mockdata/Tasks';
 import BoardCard from '../../kanbanBoard/KanbanCompanents/BoardCard/BoardCard';
 
 
-const mockTaskRow1 = mockTask.slice(0, 5)
-const mockTaskRow2 = mockTask.slice(5, 10)
-const mockTaskRow3 = mockTask.slice(10, 15)
-const mockTaskRow4 = mockTask.slice(15, 20)
-const mockTaskRow5 = mockTask.slice(20, 25)
-
 
 
 const HeroSection = () => {
+    const navigate = useNavigate()
+    const user = UserAuth()
+
+    const mockTaskRow1 = mockTask.slice(0, 5)
+    const mockTaskRow2 = mockTask.slice(5, 10)
+    const mockTaskRow3 = mockTask.slice(10, 15)
+    const mockTaskRow4 = mockTask.slice(15, 20)
+    const mockTaskRow5 = mockTask.slice(20, 25)
+
+    const handleCtaBtn = () => {
+        user ? navigate('/dashboard') : navigate('/signin')
+    }
+
     return (
         <div className='w-full h-full'>
             <div className="absolute z-10 bg-gradient-to-t bottom-0 from-white opacity-[100%] h-[100%] w-full"></div>
@@ -84,7 +93,7 @@ const HeroSection = () => {
                             Here you can find all the information you need
                         </p>
                         <div className="mt-5 max-w-md mx-auto flex justify-center space-x-4">
-                            <button className="inline-flex text-[24px] items-center justify-center px-12 py-4 border border-transparent rounded-md shadow-sm font-medium text-white bg-blue-600 hover:bg-blue-500 duration-200 focus:outline-double focus:ring-2 focus:ring-offset-2 focus:ring-blue-600">
+                            <button onClick={handleCtaBtn} className="inline-flex text-[24px] items-center justify-center px-12 py-4 border border-transparent rounded-md shadow-sm font-medium text-white bg-blue-600 hover:bg-blue-500 duration-200 focus:outline-double focus:ring-2 focus:ring-offset-2 focus:ring-blue-600">
                                 Get Started
                             </button>
                         </div>
