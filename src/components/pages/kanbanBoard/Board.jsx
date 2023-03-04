@@ -7,7 +7,7 @@ import { UserOp } from '../../../context/ProjectOp'
 const Board = () => {
     const { state: id } = useLocation()
     const { projectData, setDocRefId } = UserOp()
-    console.log(id);
+    // console.log(id);
     // console.log(projectData);
 
     useEffect(() => {

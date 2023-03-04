@@ -23,20 +23,27 @@ const Dasboard = () => {
                     <UserSettingsCard setIsUserSettingsOpen={setIsUserSettingsOpen} />
                 </div>
             }
-            <div className='min-w-[12vh]'></div>
-
             <div className='w-full flex-col flex gap-7'>
 
-                <div className='Dashboard_Header relative h-[35vh] justify-center px-14 flex items-center'>
+                <div className='Dashboard_Header relative h-[35vh] flex justify-center items-center'>
 
-                    <div className='Dashboard_Header_body absolute px-14 z-10 w-full'>
-                        <h1 className='text-[50px] font-bold  text-white leading-[130%] mb-3'>Hello {currentUserData.username}! <br /> Welcome Back</h1>
-                        <div className='flex gap-3'>
-                            <p className='text-[18px] text-white'>{currentUserData.email}</p>
-                            <p className='text-white'>&#8226;</p>
-                            <p className='text-[18px] text-white'>{dateConverter(currentUserData.joindate)}</p>
+                    <div className='Dashboard_Header_body absolute px-14 z-10 w-full flex items-center justify-between'>
+                        <div>
+                            <h1 className='text-[50px] font-bold  text-white leading-[130%] mb-3'>Hello {currentUserData.username}! <br /> Welcome Back</h1>
+                            <div className='flex gap-3'>
+                                <p className='text-[18px] text-white'>{currentUserData.email}</p>
+                                <p className='text-white'>&#8226;</p>
+                                <p className='text-[18px] text-white'>{dateConverter(currentUserData.joindate)}</p>
+                            </div>
                         </div>
+
+                        <div className=''>
+                            <Notes />
+                        </div>
+
                     </div>
+
+
 
                     <button onClick={() => setIsUserSettingsOpen(true)} className='UserSettings_Edit_Btn absolute right-5 bottom-5 z-10 rounded-full py-2 px-6 bg-white text-[14px] font-medium'>Edit</button>
 
@@ -66,9 +73,7 @@ const Dasboard = () => {
 
             </div>
 
-            <div className='Notes'>
-                <Notes />
-            </div>
+
 
         </div>
     )

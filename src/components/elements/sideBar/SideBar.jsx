@@ -7,7 +7,6 @@ import SiteLogoIcon from '../../../assets/siteLogo/SiteLogo';
 
 const SideBar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const { user } = UserAuth();
 
     const { LogOut } = UserAuth();
     const navigate = useNavigate();
@@ -24,7 +23,7 @@ const SideBar = () => {
         setIsOpen(!isOpen);
     };
 
-    console.log(user);
+    //  console.log(user);
     return (
         <nav className="flex items-center justify-between flex-wrap bg-transparent p-6">
             <div className="flex items-center flex-shrink-0 text-black mr-6">

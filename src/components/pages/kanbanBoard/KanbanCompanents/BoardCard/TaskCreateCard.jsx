@@ -14,7 +14,7 @@ const TaskCreateCard = ({ docRef }) => {
     const [severity, setSeverity] = useState('low')
     const [file, setFile] = useState(null);
     const { user } = UserAuth()
-    console.log(docRef);
+   // console.log(docRef);
 
     function resetInputs() {
         setTitle('');
@@ -33,7 +33,7 @@ const TaskCreateCard = ({ docRef }) => {
         }
         setFile(e.target.files[0])
     };
-    console.log(file);
+    //console.log(file);
 
     const createNewTask = async (e) => {
         e.preventDefault()

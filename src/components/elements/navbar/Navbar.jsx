@@ -1,17 +1,14 @@
 import React, { useState } from 'react'
-import { UserAuth } from '../../../context/UserAuth';
 import { Link } from 'react-router-dom';
 import SiteLogoIcon from '../../../assets/siteLogo/SiteLogo';
 
 
 export default function PublicNavbar() {
     const [isOpen, setIsOpen] = useState(false);
-    const { user } = UserAuth();
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
-    console.log(user);
     return (
         <nav className="flex items-center justify-between flex-wrap bg-transparent p-6">
             <div className="flex items-center flex-shrink-0 text-black mr-6">
