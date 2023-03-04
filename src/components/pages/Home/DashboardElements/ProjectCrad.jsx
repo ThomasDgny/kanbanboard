@@ -7,16 +7,12 @@ import CostumeProgressBar from '../../../elements/progressBar/ProgressBar';
 
 const ProjectCrad = ({ item }) => {
     const navigate = useNavigate()
-    //console.log(item.item.projectid);
 
     const handleOpenProject = () => {
         navigate(`/Board/${item.projectid}`, { state: item.projectid })
     }
-    console.log(item);
-    // console.log(item.projectid);
-
-    //console.log('Project progress bar result', projectProgresBar(item?.todo, item?.done));
-    const progress = projectProgresBar(item.totaltask, item?.done)
+    const taskNum = item.generalStats
+    const progress = projectProgresBar(taskNum.totaltask, taskNum?.done)
 
     return (
         <div className='ProjectCard cursor-pointer bg-slate-200 rounded-lg hover:drop-shadow-2xl hover:duration-300' onClick={handleOpenProject}>
@@ -28,7 +24,7 @@ const ProjectCrad = ({ item }) => {
                         <h1 className='text-white text-[32px] font-semibold mb-1 leading-[130%]'>{item.projectname}</h1>
                         <div className='flex gap-4 items-center'>
                             <label className='text-white text-[16px]'>{dateConverter(item.createddate)}</label>
-                            <label className='py-1 px-4 text-[15px] bg-white text-gray-800 border border-slate-100 rounded-lg' >Total task: {item.totaltask}</label>
+                            <label className='py-1 px-4 text-[15px] bg-white text-gray-800 border border-slate-100 rounded-lg' >Total task: {taskNum.totaltask}</label>
                         </div>
                     </div>
                     <div className='py-3'>

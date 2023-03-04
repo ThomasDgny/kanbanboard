@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { UserAuth } from '../../../context/UserAuth';
 import { useNavigate } from 'react-router-dom';
 import ProjectCrad from './DashboardElements/ProjectCrad';
-import Notes from './DashboardElements/Notes';
+import GenerelStats from './DashboardElements/Notes';
 import { UserOp } from '../../../context/ProjectOp';
 import UserSettingsCard from './DashBoradComponentes/UserSettingsCard';
 import { dateConverter } from '../../../useCase/DateConverter';
@@ -35,17 +35,16 @@ const Dasboard = () => {
                                 <p className='text-white'>&#8226;</p>
                                 <p className='text-[18px] text-white'>{dateConverter(currentUserData.joindate)}</p>
                             </div>
+
+                            <button onClick={() => setIsUserSettingsOpen(true)} className='UserSettings_Edit_Btn mt-5 rounded-full py-2 px-6 hover:bg-white text-white hover:text-black duration-300  border-[2px] text-[14px] font-medium'>Edit Profile</button>
+
                         </div>
 
-                        <div className=''>
-                            <Notes />
+                        <div className='GenerelStats_Card'>
+                            <GenerelStats />
                         </div>
 
                     </div>
-
-
-
-                    <button onClick={() => setIsUserSettingsOpen(true)} className='UserSettings_Edit_Btn absolute right-5 bottom-5 z-10 rounded-full py-2 px-6 bg-white text-[14px] font-medium'>Edit</button>
 
                     <div className='Dashboard_Header_Bg absolute z-[1] w-full h-full bg-black opacity-30'></div>
                     <img src={currentUserData.coverimgurl} alt="" className='Dashboard_Header_Bg absolute z-0 w-full h-full object-cover' />

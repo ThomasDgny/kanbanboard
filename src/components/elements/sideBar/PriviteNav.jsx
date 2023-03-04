@@ -5,7 +5,7 @@ import { auth } from '../../../Firebase';
 import SiteLogoIcon from '../../../assets/siteLogo/SiteLogo';
 
 
-const SideBar = () => {
+const PriviteNav = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const { LogOut } = UserAuth();
@@ -19,11 +19,8 @@ const SideBar = () => {
 
         }
     };
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
+    const toggleMenu = () => setIsOpen(!isOpen)
 
-    //  console.log(user);
     return (
         <nav className="flex items-center justify-between flex-wrap bg-transparent p-6">
             <div className="flex items-center flex-shrink-0 text-black mr-6">
@@ -80,4 +77,4 @@ const SideBar = () => {
     );
 }
 
-export default SideBar
+export default PriviteNav

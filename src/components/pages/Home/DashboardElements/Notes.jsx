@@ -3,12 +3,11 @@ import { UserOp } from '../../../../context/ProjectOp'
 import { projectProgresBar } from '../../../../useCase/ProgressCal';
 import CostumeProgressBar from '../../../elements/progressBar/ProgressBar';
 
-const Notes = () => {
+const GenerelStats = () => {
     const projectData = UserOp()
     const allProjects = UserOp()
     console.log(allProjects);
 
-    //console.log(projectData);
 
     const generalStats = projectData.allProjects
 
@@ -18,8 +17,7 @@ const Notes = () => {
     const totalDone = stats.map(item => item.done).reduce((accumulator, value) => { return accumulator + value; }, 0);
     const totalTask = stats.map(item => item.totaltask).reduce((accumulator, value) => { return accumulator + value; }, 0);
 
-
-
+    //console.log(projectData);
     // console.log(generalStats);
     // console.log(totalTodo);
     // console.log(totalDone);
@@ -78,4 +76,4 @@ const Notes = () => {
     )
 }
 
-export default Notes
+export default GenerelStats

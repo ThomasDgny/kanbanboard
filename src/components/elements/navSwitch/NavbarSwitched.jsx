@@ -1,5 +1,5 @@
 import React from 'react'
-import SideBar from '../sideBar/SideBar'
+import PriviteNav from '../sideBar/PriviteNav'
 import { UserAuth } from '../../../context/UserAuth';
 import PublicNavbar from '../navbar/Navbar';
 
@@ -11,7 +11,7 @@ const NavbarSwitched = () => {
             {!user ?
                 <PublicNavbar />
                 :
-                <SideBar />
+                <PriviteNav />
             }
         </div>
     )
