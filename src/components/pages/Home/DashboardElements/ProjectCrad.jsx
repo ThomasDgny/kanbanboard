@@ -15,8 +15,8 @@ const ProjectCrad = ({ item }) => {
     const progress = projectProgresBar(taskNum.totaltask, taskNum?.done)
 
     return (
-        <div className='ProjectCard cursor-pointer bg-slate-200 rounded-lg hover:drop-shadow-2xl hover:duration-300' onClick={handleOpenProject}>
-            <div className='w-[40vh] h-[40vh] relative flex flex-col gap'>
+        <div className='ProjectCard w-full cursor-pointer bg-slate-200 rounded-lg hover:drop-shadow-2xl hover:duration-300' onClick={handleOpenProject}>
+            <div className='w-full md:w-[40vh] h-[40vh] relative flex flex-col gap'>
                 <p className='absolute right-4 top-4 z-20 text-slate-300 text-[16px]'>#{item.projectid}</p>
 
                 <div className='absolute z-20 px-5 py-5 flex flex-col justify-between bottom-0 w-full rounded-b-lg'>

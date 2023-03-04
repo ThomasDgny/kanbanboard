@@ -26,7 +26,8 @@ export default function PublicNavbar() {
                     onClick={toggleMenu}
                 >
                     <svg
-                        className="fill-current h-3 w-3"
+                        className="fill-current"
+                        width='20'
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
                     >

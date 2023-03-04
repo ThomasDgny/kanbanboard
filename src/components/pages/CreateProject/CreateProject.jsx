@@ -17,7 +17,7 @@ const CreateProject = () => {
             setFile(e.target.files[0])
         }
     };
-    console.log(file);
+   // console.log(file);
 
 
     const handleCreateProject = async (e) => {
