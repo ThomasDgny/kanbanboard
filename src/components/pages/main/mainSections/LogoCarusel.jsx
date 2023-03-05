@@ -12,10 +12,10 @@ const LogoCarusel = () => {
         <div className='LogoCarusel max-w-[70rem] mx-auto px-4 sm:px-6 lg:px-8 flex h-full py-20'>
             <div className='w-full flex flex-col gap-20'>
 
-                <h1 className='text-[2rem] text-center text-slate-800'>
+                <h2 className='text-center max-w-4xl mx-auto text-xl text-slate-800 sm:text-2xl md:mt-5 md:text-3xl'>
                     <span className='text-slate-500'>Powering the world’s best product teams.</span> <br />
                     From next-gen startups to established enterprises.
-                </h1>
+                </h2>
 
                 <div className='relative overflow-hidden w-full '>
                     <div className="absolute z-10 right-0 bg-gradient-to-l from-white opacity-[100%] h-full w-[20%]"></div>

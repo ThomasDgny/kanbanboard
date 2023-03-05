@@ -11,10 +11,10 @@ const FeaturesSection = () => {
         <div className="FeaturesSection_Body px-4 sm:px-6 lg:px-8 flex flex-col gap-20 h-full items-center justify-center py-20 w-full">
 
             <div className="FeaturesSection_Header text-center">
-                <h1 className="text-[5rem] leading-[130%] font-bold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500 select-none">
+                <h2 className="leading-[130%] font-bold text-transparent text-8xl text-[3rem] sm:text-[4rem] md:text-[6rem] bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500 select-none">
                     Powerfully simple.
 
-                </h1>
+                </h2>
                 <p className="mt-3 max-w-4xl mx-auto text-xl text-slate-800 sm:text-2xl md:mt-5 md:text-3xl select-none">
                     Framer makes building professional sites easy, fast and fun while delivering best-in-class SEO, performance, and hosting.
                 </p>

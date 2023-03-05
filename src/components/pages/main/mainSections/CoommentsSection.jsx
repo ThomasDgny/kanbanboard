@@ -17,9 +17,9 @@ const CoommentsSection = () => {
     return (
         <div className="CommentsSection_Body">
             <div className="CommentsSection_Header text-center py-24">
-                <h1 className="text-[5rem] leading-[130%] font-bold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500">
+                <h2 className="text-8xl text-[3rem] sm:text-[4rem] md:text-[6rem] leading-[130%] font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500">
                     “It’s like magic.”
-                </h1>
+                </h2>
                 <p className="mt-3 text-slate-800 max-w-4xl mx-auto text-xl sm:text-2xl md:mt-5 md:text-3xl">
                     Our community loves how easy it is to design and publish a professional site in Framer.
                 </p>
