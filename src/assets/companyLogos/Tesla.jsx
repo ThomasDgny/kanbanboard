@@ -1,11 +1,10 @@
 import React from "react";
 
-function TeslaIcon() {
+function TeslaIcon({height}) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="141"
-            height="19"
+            height={height}
             fill="none"
             viewBox="0 0 141 19"
         >

@@ -1,10 +1,10 @@
 import React from "react";
 
-function TheGuardianIcon() {
+function TheGuardianIcon({height}) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            height="55"
+            height={height}
             fill="none"
             viewBox="0 0 133 44"
         >

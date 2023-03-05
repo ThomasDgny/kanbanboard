@@ -1,11 +1,10 @@
 import React from "react";
 
-function FigmaIcon() {
+function FigmaIcon({height}) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="141"
-      height="39"
+      height={height}
       fill="none"
       viewBox="0 0 141 39"
     >

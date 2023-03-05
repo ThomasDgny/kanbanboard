@@ -12,9 +12,10 @@ const TaskCreateCard = ({ docRef }) => {
     const [description, setDescription] = useState('')
     const [status, setStatus] = useState('todo')
     const [severity, setSeverity] = useState('low')
+    const [uploading, setUploading] = useState(false);
     const [file, setFile] = useState(null);
     const { user } = UserAuth()
-   // console.log(docRef);
+    // console.log(docRef);
 
     function resetInputs() {
         setTitle('');
@@ -22,16 +23,16 @@ const TaskCreateCard = ({ docRef }) => {
         setStatus('todo');
         setSeverity('low');
         setFile(null);
-        // setImgUrl('');
     }
 
 
     const handleFileChange = (e) => {
-        if (e.target.files[0].size > 2097152) {
-            alert('dude this file is too big. Max file size 2mb')
+        if (e.target.files[0].size > 3019066) {
+            alert('Dude this file is waaay to big. Size limit is 3mb')
             e.target.value = ''
+        } else {
+            setFile(e.target.files[0])
         }
-        setFile(e.target.files[0])
     };
     //console.log(file);
 
@@ -39,11 +40,14 @@ const TaskCreateCard = ({ docRef }) => {
         e.preventDefault()
         let imgUrl = '';
         if (file) {
+            setUploading(true)
             const storageRef = ref(storage, `${user.uid}/Projects/${docRef}/Taskimg/${file.name}`)
             imgUrl = await handleFileUpload(storageRef, file, file.type)
+
         }
         await newTask(user, title, description, status, severity, imgUrl, docRef)
         resetInputs()
+        setUploading(file)
     }
 
     return (
@@ -91,6 +95,7 @@ const TaskCreateCard = ({ docRef }) => {
                             toolBarIsVisble={true}
                             height={'h-[35vh]'} />
                     </div>
+                    {uploading && <h2 className='py-3 px-6 border'>Image uploading</h2>}
                     <input type="submit" className="sticky cursor-pointer drop-shadow-lg shadow-[#1DA1F2] bottom-5 left-5 right-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-6 py-3 mr-2 mb-2" value={'Create'} />
 
                 </form>

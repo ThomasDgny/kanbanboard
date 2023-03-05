@@ -1,10 +1,10 @@
 import React from "react";
 
-function MicrosoftIcon() {
+function MicrosoftIcon({height}) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      height="45"
+      height={height}
       fill="none"
       viewBox="0 0 142 31"
     >

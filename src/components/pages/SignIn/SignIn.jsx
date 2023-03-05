@@ -24,7 +24,7 @@ const SignIn = () => {
     const bannerImg = `https://images.unsplash.com/photo-1544194215-541c2d3561a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80`
 
     return (
-        <div className=' h-[100vh] overflow-hidden scrollbar-hide w-full'>
+        <div className='h-[87.5vh] overflow-hidden scrollbar-hide w-full'>
 
             <div className='SignInPage md:flex gap-4 items-center justify-center h-full overflow-y-hidden'>
 

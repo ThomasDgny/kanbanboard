@@ -1,11 +1,10 @@
 import React from "react";
 
-function SlackIcon() {
+function SlackIcon({height}) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="141"
-            height="36"
+            height={height}
             fill="none"
             viewBox="0 0 141 36"
         >

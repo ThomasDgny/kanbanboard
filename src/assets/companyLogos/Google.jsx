@@ -1,11 +1,10 @@
 import React from "react";
 
-function GoogleIcon() {
+function GoogleIcon({height}) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="141"
-      height="46"
+      height={height}
       fill="none"
       viewBox="0 0 141 46"
     >

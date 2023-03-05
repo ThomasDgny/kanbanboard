@@ -8,29 +8,36 @@ import { ref } from 'firebase/storage'
 
 const CreateProject = () => {
     const [projectName, setProjectName] = useState('')
+    const [uploading, setUploading] = useState(false);
     const [file, setFile] = useState(null);
+
     const { user } = UserAuth()
     const navigate = useNavigate()
 
     const handleFileChange = (e) => {
-        if (e.target.files[0]) {
+        if (e.target.files[0].size > 2019066) {
+            alert('Dude this file is waaay to big. Size limit is 2mb')
+            e.target.value = ''
+        } else {
             setFile(e.target.files[0])
         }
     };
-   // console.log(file);
+    // console.log(file);
 
 
     const handleCreateProject = async (e) => {
         e.preventDefault()
         const storageRef = ref(storage, `${user.uid}/Projects/ProjecstLogo/${file?.name}`);
+        setUploading(true);
         const imgUrl = file ? await handleFileUpload(storageRef, file, file.type) : '';
+        setUploading(false);
         await FirebaseCreateProject(user, projectName, imgUrl)
             .then((docId) => navigate(`/board/${docId.id}`, { state: docId.id }))
     }
 
     return (
 
-        <div className="CreateProject flex flex-col md:flex-row h-screen">
+        <div className="CreateProject h-[87.5vh] flex flex-col md:flex-row overflow-hidden">
 
             <div className="w-full md:w-1/2  flex items-center justify-center">
                 <div className="max-w-md py-12 px-6">
@@ -51,7 +58,8 @@ const CreateProject = () => {
                             <p className="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
                         </div>
 
-                        <div className="flex items-center justify-between">
+                        <div className="flex items-center">
+                            {uploading && <h2 className='py-3 px-6 border'>Image uploading</h2>}
                             <button className="bg-blue-500 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                                 Create
                             </button>
@@ -61,7 +69,7 @@ const CreateProject = () => {
                 </div>
             </div>
 
-            <div className="w-full md:w-1/2">
+            <div className="w-full  md:w-1/2 ">
                 <img className="object-cover w-full h-full" src="https://picsum.photos/1200/800" alt="Project Image" />
             </div>
         </div>

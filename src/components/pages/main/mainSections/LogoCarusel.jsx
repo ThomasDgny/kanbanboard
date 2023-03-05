@@ -19,14 +19,28 @@ const LogoCarusel = () => {
 
                 <div className='relative overflow-hidden w-full '>
                     <div className="absolute z-10 right-0 bg-gradient-to-l from-white opacity-[100%] h-full w-[20%]"></div>
-                    <div className="CompanyLogos flex gap-10 items-center">
-                        <FigmaIcon />
-                        <GoogleIcon />
-                        <MetaIcon />
-                        <MicrosoftIcon />
-                        <SlackIcon />
-                        <TeslaIcon />
-                        <TheGuardianIcon />
+                    <div className="CompanyLogos w-full flex gap-16 items-center">
+                        <div className='FigmaIcon'>
+                            <FigmaIcon height={'50'} />
+                        </div>
+                        <div className='GoogleIcon'>
+                            <GoogleIcon height={'50'} />
+                        </div>
+                        <div className='MetaIcon'>
+                            <MetaIcon height={'50'} />
+                        </div>
+                        <div className='MicrosoftIcon'>
+                            <MicrosoftIcon height={'50'} />
+                        </div>
+                        <div className='SlackIcon'>
+                            <SlackIcon height={'45'} />
+                        </div>
+                        <div className='TeslaIcon'>
+                            <TeslaIcon height={'35'} />
+                        </div>
+                        <div className='TheGuardianIcon'>
+                            <TheGuardianIcon height={'60'} />
+                        </div>
                     </div>
                     <div className="absolute z-10 top-0 bg-gradient-to-r from-white opacity-[100%] h-full w-[20%]"></div>
                 </div>
