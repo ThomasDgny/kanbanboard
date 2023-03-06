@@ -17,6 +17,7 @@ const TaskDetailsCard = ({ cardInfo, docRefId }) => {
     const [description, setDescription] = useState(cardInfo.description)
     const [status, setStatus] = useState(cardInfo.status)
     const [severity, setSeverity] = useState(cardInfo.severity)
+    const [uploading, setUploading] = useState(false);
     const [file, setFile] = useState(null);
 
     const { user } = UserAuth()
@@ -31,16 +32,19 @@ const TaskDetailsCard = ({ cardInfo, docRefId }) => {
         e.preventDefault()
         let imgUrl = cardInfo.fileurl;
         if (file) {
+            setUploading(true)
             const storageRef = ref(storage, `${user.uid}/Projects/${docRefId}/Taskimg/${file.name}`)
             imgUrl = await handleFileUpload(storageRef, file, file.type)
         }
         fireBaseUpdateTask(cardInfo.id, user, docRefId, title, description, status, severity, imgUrl)
-        console.log('Updated')
+        setUploading(false)
+        // console.log('Updated')
     }
 
 
     const removeTask = async () => {
         if (cardInfo.fileurl) {
+
             const getFileName = getFilenameFromUrl(cardInfo.fileurl)
             const storageRef = ref(storage, `${user.uid}/Projects/${docRefId}/Taskimg/${getFileName}`)
             await deleteObject(storageRef)
@@ -113,8 +117,8 @@ const TaskDetailsCard = ({ cardInfo, docRefId }) => {
                         </div>
 
                         <div className='FormBtns pb-7 w-full flex flex-col'>
+                            {uploading && <h2 className='py-3 px-6 border'>Image uploading...</h2>}
                             <input type="submit" className="cursor-pointer w-full drop-shadow-lg shadow-[#1DA1F2] bottom-5 left-5 right-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-6 py-3 mr-2 mb-2" value={'Update Task'} />
-
                             <input type="button" onClick={() => removeTask()} className="cursor-pointer w-full drop-shadow-lg shadow-[#d57373] left-5 right-5 text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-6 py-3 mr-2 mb-2" value={'Delete Task'} />
                         </div>
                     </div>

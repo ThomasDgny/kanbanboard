@@ -1,8 +1,8 @@
-export const projectProgresBar = (todoLength, doneLength) => {
-    if (todoLength === 0) {
-        return 100;
+export const projectProgresBar = (totalTaskLenght, doneLength) => {
+    if (totalTaskLenght === 0) {
+        return 0;
     } else {
-        return (doneLength / todoLength) * 100;
+        return (doneLength / totalTaskLenght) * 100;
     }
 
 }
