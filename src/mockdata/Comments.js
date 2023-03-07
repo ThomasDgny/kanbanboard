@@ -30,25 +30,25 @@ export const comments = [
         "comment": "I've been using this task manager app for a few weeks now and I'm already seeing an improvement in my productivity! The private workspace feature is a game-changer. #taskmanager #workfromhome"
     },
     {
-        "profile_img": "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        "profile_img": "https://images.unsplash.com/photo-1528892952291-009c663ce843?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=344&q=80",
         "name": "Andrew Park",
         "username": "andrewpark99",
         "comment": "This task manager app is exactly what I needed to stay on top of my tasks! The private workspace feature keeps me focused and organized. #taskmanager #productivity"
     },
     {
-        "profile_img": "https://images.unsplash.com/photo-1528892952291-009c663ce843?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=344&q=80",
+        "profile_img": "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
         "name": "Olivia Lee",
         "username": "olivialee92",
         "comment": "I love how customizable this task manager app is! The private workspace feature allows me to create the perfect setup for my needs. #taskmanager #organization"
     },
     {
-        "profile_img": "https://images.unsplash.com/photo-1519895609939-d2a6491c1196?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80",
+        "profile_img": "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
         "name": "William Kim",
         "username": "williamkim88",
         "comment": "This task manager app is a game-changer! The private workspace feature keeps me focused and on track with my tasks. #taskmanager #productivity"
     },
     {
-        "profile_img": "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+        "profile_img": "https://images.unsplash.com/photo-1519895609939-d2a6491c1196?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80",
         "name": "Sophia Park",
         "username": "sophiapark22",
         "comment": "I've tried other task manager apps before, but this one is by far the best! The private workspace feature allows me to separate my work from my personal life. #taskmanager #workfromhome"

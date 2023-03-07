@@ -32,7 +32,7 @@ const CreateProject = () => {
             const newFilename = Date.now() + '_' + Math.random().toString(36).substr(2, 9);
             const storageRef = ref(storage, `${user.uid}/Projects/ProjecstLogo/${newFilename}`);
             setUploading(true)
-            imgUrl = await handleFileUpload(storageRef, file, file.type)
+            imgUrl = await handleFileUpload(storageRef, file, file.type, 500, 500)
         }
         await FirebaseCreateProject(user, projectName, imgUrl)
             .then((docId) => navigate(`/board/${docId.id}`, { state: docId.id }))

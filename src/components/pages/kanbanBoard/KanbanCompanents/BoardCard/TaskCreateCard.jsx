@@ -43,7 +43,7 @@ const TaskCreateCard = ({ docRef }) => {
             const newFilename = Date.now() + '_' + Math.random().toString(36).substr(2, 9);
             const storageRef = ref(storage, `${user.uid}/Projects/${docRef}/Taskimg/${newFilename}`)
             setUploading(true)
-            imgUrl = await handleFileUpload(storageRef, file, file.type)
+            imgUrl = await handleFileUpload(storageRef, file, file.type, 1000, 1000)
         }
         await newTask(user, title, description, status, severity, imgUrl, docRef)
         resetInputs()

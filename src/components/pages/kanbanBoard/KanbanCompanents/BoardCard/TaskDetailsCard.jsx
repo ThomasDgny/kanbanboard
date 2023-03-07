@@ -35,7 +35,7 @@ const TaskDetailsCard = ({ cardInfo, docRefId }) => {
             setUploading(true)
             const fileName = getFilenameFromUrl(imgUrl)
             const storageRef = ref(storage, `${user.uid}/Projects/${docRefId}/Taskimg/${fileName}`)
-            imgUrl = await handleFileUpload(storageRef, file, file.type)
+            imgUrl = await handleFileUpload(storageRef, file, file.type, 1000, 1000)
         }
         fireBaseUpdateTask(cardInfo.id, user, docRefId, title, description, status, severity, imgUrl)
         setUploading(false)

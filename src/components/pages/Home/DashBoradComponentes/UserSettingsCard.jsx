@@ -25,7 +25,7 @@ const UserSettingsCard = ({ setIsUserSettingsOpen }) => {
             const getFileName = getFilenameFromUrl(currentUserData.coverimgurl)
             const storageRef = ref(storage, `${user.uid}/UserCoverImg/${getFileName}`);
             setUploading(true)
-            const updatedUrl = await handleFileUpload(storageRef, file, file.type)
+            const updatedUrl = await handleFileUpload(storageRef, file, file.type, 1500, 1500)
             setCurrentImgUrl(updatedUrl)
             // console.log('Updated img url: ', updatedUrl);
         }

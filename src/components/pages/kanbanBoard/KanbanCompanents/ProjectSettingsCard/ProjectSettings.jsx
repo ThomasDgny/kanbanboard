@@ -37,9 +37,6 @@ const ProjectSettings = ({ docRef, setIsProjectSettingsOpen }) => {
         }
     }, [projectData])
 
-    // const fileName = getFilenameFromUrl(projectData.projectlogo)
-    // console.log(fileName);
-
     const handleUpdateProject = async (e) => {
         e.preventDefault()
         let imgUrl;
@@ -49,7 +46,7 @@ const ProjectSettings = ({ docRef, setIsProjectSettingsOpen }) => {
             const optionalFileName = fileName !== '' ? fileName : newFilename
             const storageRef = ref(storage, `${user.uid}/Projects/ProjecstLogo/${optionalFileName}`);
             setUploading(true)
-            imgUrl = await handleFileUpload(storageRef, file, file?.type)
+            imgUrl = await handleFileUpload(storageRef, file, file.type, 500, 500)
         }
         await updateProjectSettings(projectName, projectData.projectlogo, imgUrl, user, docRef)
         setUploading(false)
