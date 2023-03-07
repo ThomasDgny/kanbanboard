@@ -37,8 +37,8 @@ const ProjectSettings = ({ docRef, setIsProjectSettingsOpen }) => {
         }
     }, [projectData])
 
-    const fileName = getFilenameFromUrl(projectData.projectlogo)
-    console.log(fileName);
+    // const fileName = getFilenameFromUrl(projectData.projectlogo)
+    // console.log(fileName);
 
     const handleUpdateProject = async (e) => {
         e.preventDefault()
@@ -60,17 +60,15 @@ const ProjectSettings = ({ docRef, setIsProjectSettingsOpen }) => {
         let text = "Are you sure about that";
         // eslint-disable-next-line no-restricted-globals
         if (confirm(text) === true) {
-            await removeProjectHandler(user, docRef)
-            navigate('/dashboard')
-            setDocRefId('')
-
-            if (projectData.projectlogo) {
-                const fileName = getFilenameFromUrl(projectData.projectlogo)
+            const fileName = getFilenameFromUrl(projectData.projectlogo)
+            if (fileName) {
                 console.log(fileName);
                 const storageRef = ref(storage, `${user.uid}/Projects/ProjecstLogo/${fileName}`);
                 await deleteObject(storageRef)
             }
-
+            await removeProjectHandler(user, docRef)
+            navigate('/dashboard')
+            setDocRefId('')
         }
     }
 
