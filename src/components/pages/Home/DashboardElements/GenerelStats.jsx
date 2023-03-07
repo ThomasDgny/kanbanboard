@@ -20,17 +20,16 @@ const GenerelStats = () => {
 
             <div className='Notes_Body p-5 flex flex-col gap-5 h-full'>
                 <div className='Notes_Body_Header flex items-center'>
-                    <h1 className='text-[24px] text-slate-800 font-bold'>Generela Stats</h1>
+                    <h1 className='text-[24px] text-slate-800 font-bold'>Generela Progress</h1>
                 </div>
 
                 <div className='Notes_Body_Main flex flex-col gap-5'>
                     <div className='flex flex-col gap-3'>
                         <div className='CostumeProgressBar'>
-                            <label className='text-slate-800 font-medium'>Progress</label>
                             <CostumeProgressBar
                                 percentage={progress}
                                 color={'#307EF3'}
-                                height={'30px'}
+                                height={'40px'}
                                 borderRadius={5}
                             />
                         </div>

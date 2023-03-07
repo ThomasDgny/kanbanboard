@@ -4,11 +4,13 @@ import { updateUserSettings } from '../../../../repository/FirebaseUpdateUserSet
 import { handleFileUpload } from '../../../../repository/FirebaseUploadFile.js'
 import { storage } from '../../../../Firebase';
 import { ref } from 'firebase/storage';
+import { getFilenameFromUrl } from '../../../../useCase/DecodeUrlToFileName';
 
 const UserSettingsCard = ({ setIsUserSettingsOpen }) => {
     const { user, currentUserData } = UserAuth();
     const [userName, setUserName] = useState(currentUserData.username);
     const [currentImgUrl, setCurrentImgUrl] = useState(currentUserData.coverimgurl);
+    const [uploading, setUploading] = useState(false);
     const [file, setFile] = useState(null);
 
     const handleFileChange = (e) => {
@@ -19,13 +21,16 @@ const UserSettingsCard = ({ setIsUserSettingsOpen }) => {
 
     const handleUserUpdate = async (e) => {
         e.preventDefault()
-        if (file) {
-            const storageRef = ref(storage, `${user.uid}/UserCoverImg/${file.name}`);
+        if (file && currentUserData.coverimgurl) {
+            const getFileName = getFilenameFromUrl(currentUserData.coverimgurl)
+            const storageRef = ref(storage, `${user.uid}/UserCoverImg/${getFileName}`);
+            setUploading(true)
             const updatedUrl = await handleFileUpload(storageRef, file, file.type)
             setCurrentImgUrl(updatedUrl)
-            console.log('Updated img url: ', updatedUrl);
+            // console.log('Updated img url: ', updatedUrl);
         }
-        console.log('updated');
+        //console.log('updated');
+        setUploading(false)
     }
 
     useEffect(() => {
@@ -42,10 +47,10 @@ const UserSettingsCard = ({ setIsUserSettingsOpen }) => {
 
     return (
         <div className='ProjectSettingsPopUp fixed z-[100] top-0 left-0 bottom-0 right-0 overflow-hidden flex justify-center items-center '>
-            <div className='ProjectSettingsPopUp_Card absolute z-[100] h-[70vh] w-[50vh] bg-white rounded-lg p-10'>
+            <div className='ProjectSettingsPopUp_Card absolute z-[100] max-h-max w-[50vh] bg-white rounded-lg p-10'>
 
                 <div className='ProjectSettingsPopUp_Card_Body w-full h-full flex flex-col gap-10'>
-                    <img src={currentUserData.coverimgurl} alt="" className='w-full h-[30%] object-cover rounded-md' />
+                    <img src={currentUserData.coverimgurl} alt="" className='w-full h-[20vh] object-cover rounded-md' />
 
                     <div className='flex flex-col gap-3'>
                         <div className="mb-4">
@@ -63,6 +68,7 @@ const UserSettingsCard = ({ setIsUserSettingsOpen }) => {
                     </div>
 
                     <div className="flex flex-col items-center w-full gap-5">
+                        {uploading && <h2 className='py-3 px-6 border rounded-lg bg-slate-100'>Image uploading...</h2>}
                         <button onClick={handleUserUpdate} className="bg-blue-500 hover:bg-blue-700 text-white font-medium py-2 w-full rounded focus:outline-none focus:shadow-outline" type="button">
                             Update
                         </button>

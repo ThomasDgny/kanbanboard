@@ -5,6 +5,7 @@ import { UserAuth } from '../../../context/UserAuth'
 import { handleFileUpload } from '../../../repository/FirebaseUploadFile'
 import { storage } from '../../../Firebase'
 import { ref } from 'firebase/storage'
+import { getFilenameFromUrl } from '../../../useCase/DecodeUrlToFileName'
 
 const CreateProject = () => {
     const [projectName, setProjectName] = useState('')
@@ -24,15 +25,18 @@ const CreateProject = () => {
     };
     // console.log(file);
 
-
     const handleCreateProject = async (e) => {
         e.preventDefault()
-        const storageRef = ref(storage, `${user.uid}/Projects/ProjecstLogo/${file?.name}`);
-        setUploading(true);
-        const imgUrl = file ? await handleFileUpload(storageRef, file, file.type) : '';
-        setUploading(false);
+        let imgUrl = '';
+        if (file) {
+            const newFilename = Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+            const storageRef = ref(storage, `${user.uid}/Projects/ProjecstLogo/${newFilename}`);
+            setUploading(true)
+            imgUrl = await handleFileUpload(storageRef, file, file.type)
+        }
         await FirebaseCreateProject(user, projectName, imgUrl)
             .then((docId) => navigate(`/board/${docId.id}`, { state: docId.id }))
+        setUploading(false)
     }
 
     return (
@@ -59,7 +63,7 @@ const CreateProject = () => {
                         </div>
 
                         <div className="flex items-center">
-                            {uploading && <h2 className='py-3 px-6 border'>Image uploading</h2>}
+                            {uploading && <h2 className='py-3 px-6 border rounded-lg bg-slate-100'>Image uploading</h2>}
                             <button className="bg-blue-500 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                                 Create
                             </button>

@@ -6,12 +6,14 @@ import { UserOp } from '../../../../../context/ProjectOp';
 import { removeProjectHandler } from '../../../../../repository/FirebaseRemoveProject';
 import { useNavigate } from 'react-router-dom';
 import { storage } from '../../../../../Firebase';
-import { ref } from 'firebase/storage';
+import { deleteObject, ref } from 'firebase/storage';
 import DefaultImgIcon from '../../../../../assets/icons/DefaultImg';
+import { getFilenameFromUrl } from '../../../../../useCase/DecodeUrlToFileName';
 
 const ProjectSettings = ({ docRef, setIsProjectSettingsOpen }) => {
     const [projectName, setProjectName] = useState('')
     const [imgUrl, setImgUrl] = useState('')
+    const [uploading, setUploading] = useState(false);
     const [file, setFile] = useState(null);
 
     const { projectData, setDocRefId } = UserOp()
@@ -32,13 +34,15 @@ const ProjectSettings = ({ docRef, setIsProjectSettingsOpen }) => {
         }
     }, [projectData])
 
-    const handleCreateProject = async (e) => {
+    const handleUpdateProject = async (e) => {
         e.preventDefault()
         let imgUrl;
         if (file) {
-            const storageRef = ref(storage, `${user.uid}/${docRef}/ProjectLogo/${file?.name}`);
+            const fileName = getFilenameFromUrl(projectData.projectlogo)
+            const storageRef = ref(storage, `${user.uid}/Projects/ProjecstLogo/${fileName}`);
+            setUploading(true)
             imgUrl = await handleFileUpload(storageRef, file, file?.type)
-            updateProjectSettings(projectName, projectData.projectlogo, imgUrl, user, docRef)
+            setUploading(false)
         }
         await updateProjectSettings(projectName, projectData.projectlogo, imgUrl, user, docRef)
         console.log('updated');
@@ -46,10 +50,22 @@ const ProjectSettings = ({ docRef, setIsProjectSettingsOpen }) => {
     }
 
     const handlerRemoveProject = async () => {
-        await removeProjectHandler(user, docRef)
-        navigate('/dashboard')
-        setDocRefId('')
+        if (projectData.projectlogo) {
+            const getFileName = getFilenameFromUrl(projectData.projectlogo)
+            console.log(getFileName);
+            const storageRef = ref(storage, `${user.uid}/Projects/ProjecstLogo/${getFileName}`);
+            await deleteObject(storageRef)
+        }
+        let text = "Are you sure about that";
+        // eslint-disable-next-line no-restricted-globals
+        if (confirm(text) === true) {
+            await removeProjectHandler(user, docRef)
+            navigate('/dashboard')
+            setDocRefId('')
+        }
     }
+
+
 
     return (
         <div className='ProjectSettingsPopUp fixed z-[100] top-0 left-0 bottom-0 right-0 overflow-hidden flex justify-center items-center '>
@@ -75,7 +91,8 @@ const ProjectSettings = ({ docRef, setIsProjectSettingsOpen }) => {
                     </div>
 
                     <div className="flex flex-col items-center w-full gap-5">
-                        <button onClick={handleCreateProject} className="bg-blue-500 hover:bg-blue-700 text-white font-medium py-2 w-full rounded focus:outline-none focus:shadow-outline" type="button">
+                        {uploading && <h2 className='py-3 mb-3 px-6 border rounded-lg bg-slate-100'>Image uploading...</h2>}
+                        <button onClick={handleUpdateProject} className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 w-full rounded focus:outline-none focus:shadow-outline" type="button">
                             Update
                         </button>
                         <button onClick={handlerRemoveProject} className=" hover:text-white hover:bg-red-700 text-red-700 font-medium py-2 w-full duration-200 rounded focus:outline-none focus:shadow-outline" type="button">

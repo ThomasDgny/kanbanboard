@@ -95,7 +95,7 @@ const TaskCreateCard = ({ docRef }) => {
                             toolBarIsVisble={true}
                             height={'h-[35vh]'} />
                     </div>
-                    {uploading && <h2 className='py-3 px-6 border'>Image uploading...</h2>}
+                    {uploading && <h2 className='py-3 px-6 border rounded-lg bg-slate-100'>Image uploading...</h2>}
                     <input type="submit" className="sticky cursor-pointer drop-shadow-lg shadow-[#1DA1F2] bottom-5 left-5 right-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-6 py-3 mr-2 mb-2" value={'Create'} />
 
                 </form>
