@@ -22,9 +22,9 @@ const FeaturesSection = () => {
 
             <div className="FeaturesSection_Main flex flex-col gap-6 max-w-[90rem] w-full">
 
-                <div className="h-[70vh] w-full grid grid-rows-1 sm:grid-cols-2 md:grid-cols-12 gap-6 overflow-hidden">
+                <div className="h-[170vh] md:h-[70vh] w-full grid grid-rows-1 md:grid-cols-12 gap-6 overflow-hidden">
 
-                    <div className=" col-span-1 bg-gradient-to-tr h-full from-slate-200 to-slate-100 sm:col-span-8 p-1 rounded-2xl">
+                    <div className="bg-gradient-to-tr h-full from-slate-200 to-slate-100 col-span-12 md:col-span-8 p-1 rounded-2xl">
                         <div className='relative bg-gradient-to-tr h-full from-[#f2f2f2] via-[#a9d2f8] to-[#ffffff] rounded-2xl w-ful overflow-hidden '>
                             <div className='absolute z-[5] h-full w-full flex flex-col gap-5'>
                                 <div className='py-10 px-24'>
@@ -56,7 +56,7 @@ const FeaturesSection = () => {
                         </div>
                     </div>
 
-                    <div className="col-span-1 sm:col-span-4 bg-gradient-to-tr  from-slate-200 to-slate-100 p-1 rounded-2xl">
+                    <div className="col-span-12 md:col-span-4 bg-gradient-to-tr from-slate-200 to-slate-100 p-1 rounded-2xl">
                         <div className=' bg-gradient-to-r h-full from-[#0d113b] to-[#000212] rounded-2xl w-ful overflow-hidden flex flex-col justify-between gap-5'>
                             <div className='p-10'>
                                 <h1 className='text-[32px] text-white font-bold select-none'>Edit Your Task</h1>
@@ -70,16 +70,13 @@ const FeaturesSection = () => {
                         </div>
                     </div>
 
-
-
-
                 </div>
 
                 <div className=" col-span-1 bg-gradient-to-tr  from-slate-200 to-slate-100 sm:col-span-8 p-1 rounded-2xl">
                     <div className='relative bg-gradient-to-tr h-full from-[#f2f2f2] via-[#cad3ff] to-[#ffffff] rounded-2xl w-ful overflow-hidden flex flex-col justify-between gap-5 md:gap-20'>
                         <div className='p-10'>
-                            <h1 className='text-[32px] text-white font-bold'>Create Task</h1>
-                            <p className='text-slate-300 text-[18px] font-medium max-w-xl'>Fly through your tasks with rapid-fire keyboard shortcuts for everything. Literally everything.</p>
+                            <h1 className='text-[32px] text-slate-800 font-bold'>Create Task</h1>
+                            <p className='text-slate-600 text-[18px] font-medium max-w-xl'>Fly through your tasks with rapid-fire keyboard shortcuts for everything. Literally everything.</p>
                         </div>
 
                         <div className='overflow-hidden w-full h-96 scale-100 md:scale-125 md:flex md:justify-center'>
