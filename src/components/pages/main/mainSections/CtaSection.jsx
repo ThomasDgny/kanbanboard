@@ -30,7 +30,7 @@ const CtaSection = () => {
                 </p>
             </div>
             <div className="mt-5 max-w-md mx-auto flex justify-center space-x-4">
-                <button onClick={handleCtaBtn} className="inline-flex text-[18px] md:text-[24px] items-center justify-center px-12 py-4 border border-transparent rounded-md shadow-sm font-medium text-white bg-blue-600 hover:bg-blue-500 duration-200 focus:outline-double focus:ring-2 focus:ring-offset-2 focus:ring-blue-600">
+                <button onClick={handleCtaBtn} className="inline-flex text-[18px] md:text-[24px] items-center justify-center px-12 py-4 border  rounded-md font-medium text-white bg-gradient-to-tr from-[#1ec3ff] to-[#008be8] border-[#00BCFF] focus:outline-none focus:ring-8 focus:ring-offset-2 focus:ring-[#e3f4ffb9] shadow-lg shadow-[#00bbff7e]">
                     Get Started
                 </button>
             </div>

@@ -54,7 +54,10 @@ const TaskCreateCard = ({ docRef }) => {
         <div className='CreateCardPopUp fixed z-[500] top-0 bottom-0 left-0 w-full max-w-[70vh] bg-white drop-shadow-md overflow-y-scroll scroll-smooth scrollbar-hide'>
             <div className='CreateCardPopUp_Body p-6'>
                 <form className='flex flex-col w-full gap-6' onSubmit={createNewTask}>
-                    <input type="text" className='bg-transparent border-none outline-0 text-[32px] font-bold p-2 border text-gray-700 rounded-lg resize-none' required placeholder='Untitled' onChange={(e) => setTitle(e.target.value)} />
+                    <div>
+                        <label className="block mb-2 text-sm font-medium text-gray-900">Title</label>
+                        <input type="text" className='bg-transparent border-none outline-0 text-[32px] font-bold p-2 border text-gray-700 rounded-lg resize-none' required placeholder='Untitled' onChange={(e) => setTitle(e.target.value)} />
+                    </div>
                     <div className="Status">
                         <label className="block mb-2 text-sm font-medium text-gray-900">Status</label>
                         <select
