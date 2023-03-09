@@ -5,7 +5,7 @@ import { UserAuth } from '../../../../context/UserAuth'
 
 const CtaSection = () => {
     const navigate = useNavigate()
-    const user = UserAuth()
+    const { user } = UserAuth()
 
     const handleCtaBtn = () => {
         user ? navigate('/dashboard') : navigate('/signin')

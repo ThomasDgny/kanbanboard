@@ -22,14 +22,14 @@ const PriviteNav = () => {
     const toggleMenu = () => setIsOpen(!isOpen)
 
     return (
-        <nav className="flex items-center justify-between flex-wrap bg-transparent p-6">
+        <nav className="flex items-center justify-between flex-wrap bg-transparent px-6 py-3 border-b">
             <div className="flex items-center flex-shrink-0 text-black mr-6">
                 <Link
                     to='/'
                 >
                     <div className="relative bg-gradient-to-tr from-blue-700 to-blue-900 w-[7vh] h-[7vh] rounded-lg shadow-lg">
                         <div className="absolute h-full w-full top-[25%] left-[25%]">
-                            <SiteLogoIcon height={"30"} />
+                            <SiteLogoIcon height={"25"} />
                         </div>
                     </div>
                 </Link>
@@ -59,7 +59,7 @@ const PriviteNav = () => {
                 <div className="text-sm lg:flex-grow">
                     <Link
                         to='/dashboard'
-                        className="text-[18px] font-medium block mt-4 lg:inline-block lg:mt-0 text-slate-800 hover:text-slate-500 duration-200 mr-4"
+                        className="text-[14px] font-medium block mt-4 lg:inline-block lg:mt-0 text-slate-800 hover:text-slate-500 duration-200 mr-4"
                     >
                         Dash Board
                     </Link>
@@ -68,7 +68,7 @@ const PriviteNav = () => {
                 <div className='flex gap-5'>
                     <button
                         onClick={HandleSignOut}
-                        className="text-[18px] font-medium inline-block text-sm px-8 py-4 leading-none border rounded-lg text-white bg-blue-600 mt-4 lg:mt-0 shadow-lg"
+                        className="md:text-[14px] font-medium inline-block text-sm px-8 py-3 leading-none border rounded-lg text-white bg-blue-600 mt-4 lg:mt-0 shadow-lg"
                     >
                         Logout
                     </button>

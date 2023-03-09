@@ -24,7 +24,7 @@ const SignIn = () => {
     const bannerImg = `https://images.unsplash.com/photo-1544194215-541c2d3561a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80`
 
     return (
-        <div className='h-[87.5vh] overflow-hidden scrollbar-hide w-full'>
+        <div className='h-[89.5vh] overflow-hidden scrollbar-hide w-full'>
 
             <div className='SignInPage md:flex gap-4 items-center justify-center h-full overflow-y-hidden'>
 
@@ -36,8 +36,8 @@ const SignIn = () => {
                             {error && <p className='bg-[#ff314d] text-[15px] rounded-md mt-5 duration-300 ease-out text-white p-3'>Email or Password wrong!</p>}
                         </div>
                         <form className='flex h-full flex-col gap-5 text-center'>
-                            <input onChange={(e) => setEmail(e.target.value.toLocaleLowerCase())} type="text" placeholder='Email' className='p-3 border rounded-md border-[#2227] w-full text-black' />
-                            <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder='Password' autoComplete="true" className='p-3 border rounded-md border-[#2227] w-full text-black' />
+                            <input onChange={(e) => setEmail(e.target.value.toLocaleLowerCase())} type="text" placeholder='Email' className='text-[16px] p-3 border rounded-md border-[#2227] w-full text-black' />
+                            <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder='Password' autoComplete="true" className='text-[16px] p-3 border rounded-md border-[#2227] w-full text-black' />
                             <button onClick={HandleSubmit} className='bg-[#ff4fad] text-white py-3 hover:duration-300 hover:bg-[#ff74be]'>Sign In</button>
 
                             <Link className='text-slate-400 underline hover:duration-300 hover:text-slate-800' to={'/SignUp'}>Don't you have an account</Link>

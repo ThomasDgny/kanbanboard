@@ -16,23 +16,23 @@ const ProjectCrad = ({ item }) => {
 
     return (
         <div className='ProjectCard w-full cursor-pointer bg-slate-200 rounded-lg hover:drop-shadow-2xl hover:duration-300' onClick={handleOpenProject}>
-            <div className='w-full md:w-[40vh] h-[40vh] relative flex flex-col gap'>
-                <p className='absolute right-4 top-4 z-20 text-slate-300 text-[16px]'>#{item.projectid}</p>
+            <div className='w-[40vh] h-[40vh] relative flex flex-col gap'>
+                <p className='absolute right-4 top-4 z-20 text-slate-300 text-[13px]'>#{item.projectid}</p>
 
                 <div className='absolute z-20 px-5 py-5 flex flex-col justify-between bottom-0 w-full rounded-b-lg'>
-                    <div className='flex flex-col gap-4'>
-                        <h1 className='text-white text-[32px] font-semibold mb-1 leading-[130%]'>{item.projectname}</h1>
+                    <div className='flex flex-col gap-3'>
+                        <h1 className='text-white text-[28px] font-semibold mb-1 leading-[130%]'>{item.projectname}</h1>
                         <div className='flex gap-4 items-center'>
-                            <label className='text-white text-[16px]'>{dateConverter(item.createddate)}</label>
-                            <label className='py-1 px-4 text-[15px] bg-white text-gray-800 border border-slate-100 rounded-lg' >Total task: {taskNum.totaltask}</label>
+                            <label className='text-white text-[14px]'>{dateConverter(item.createddate)}</label>
+                            <label className='py-1 px-4 text-[13px] bg-white text-gray-800 border border-slate-100 rounded-lg' >Total task: {taskNum.totaltask}</label>
                         </div>
                     </div>
-                    <div className='py-3'>
-                        <label className='text-white'>Progress</label>
+                    <div className='pt-3'>
+                        <p className='text-white text-[13px] mb-1'>Progress</p>
                         <CostumeProgressBar
                             percentage={progress}
                             color={'#307EF3'}
-                            height={'30px'}
+                            height={'25px'}
                             borderRadius={5}
                         />
                     </div>

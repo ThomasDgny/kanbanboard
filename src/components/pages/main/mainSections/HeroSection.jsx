@@ -9,7 +9,7 @@ import BoardCard from '../../kanbanBoard/KanbanCompanents/BoardCard/BoardCard';
 
 const HeroSection = () => {
     const navigate = useNavigate()
-    const user = UserAuth()
+    const { user } = UserAuth()
 
     const mockTaskRow1 = mockTask.slice(0, 5)
     const mockTaskRow2 = mockTask.slice(5, 10)
@@ -85,15 +85,15 @@ const HeroSection = () => {
 
             <div className="absolute z-20 w-full h-full">
                 <div className="HeroSection_Body max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 flex h-full items-end py-20">
-                    <div className="text-center">
-                        <h1 className="text-8xl text-[3rem] sm:text-[4rem] md:text-[6rem] leading-[130%] font-bold text-transparent  text-[#000000]">
+                    <div className="text-center w-full">
+                        <h1 className="text-[3rem] md:text-8xl sm:text-[4rem] mx-auto max-w-7xl font-bold leading-[130%] text-[#000000]">
                             Your Private Work Space Think. Make. Done.
                         </h1>
-                        <p className="mt-3 max-w-4xl mx-auto text-xl text-slate-800 sm:text-2xl md:mt-5 md:text-3xl">
+                        <p className="mt-3 max-w-4xl mx-auto text-lg text-slate-800 sm:text-2xl md:mt-5 md:text-[28px]">
                             Here you can find all the information you need
                         </p>
                         <div className="mt-5 max-w-md mx-auto flex justify-center space-x-4">
-                            <button onClick={handleCtaBtn} className="inline-flex text-[18px] md:text-[24px] items-center justify-center px-12 py-4 border  rounded-md font-medium text-white bg-gradient-to-tr from-[#1ec3ff] to-[#008be8] border-[#00BCFF] focus:outline-none focus:ring-8 focus:ring-offset-2 focus:ring-[#e3f4ffb9] shadow-lg shadow-[#00bbff7e]">
+                            <button onClick={handleCtaBtn} className="inline-flex text-[14px] md:text-[20px] items-center justify-center px-12 py-4 border  rounded-md font-medium text-white bg-gradient-to-tr from-[#1ec3ff] to-[#008be8] border-[#00BCFF] focus:outline-none focus:ring-8 focus:ring-offset-2 focus:ring-[#e3f4ffb9] shadow-lg shadow-[#00bbff7e]">
                                 Get Started
                             </button>
                         </div>

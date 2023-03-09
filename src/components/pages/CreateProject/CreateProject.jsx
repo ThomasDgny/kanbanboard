@@ -40,7 +40,6 @@ const CreateProject = () => {
     }
 
     return (
-
         <div className="CreateProject h-[87.5vh] flex flex-col md:flex-row overflow-hidden">
 
             <div className="w-full md:w-1/2  flex items-center justify-center">

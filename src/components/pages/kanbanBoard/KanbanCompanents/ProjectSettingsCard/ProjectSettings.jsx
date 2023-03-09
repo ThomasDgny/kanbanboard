@@ -81,25 +81,25 @@ const ProjectSettings = ({ docRef, setIsProjectSettingsOpen }) => {
                         <div className='bg-slate-300 w-[12vh] h-[12vh] rounded-md flex justify-center items-center'> <DefaultImgIcon /> </div>}
                     <div className='flex flex-col gap-3'>
                         <div className="mb-4">
-                            <label className="block text-black text-sm font-medium mb-2" htmlFor="project-name">
+                            <label className="block text-black text-[12px] font-medium mb-2">
                                 Project Name
                             </label>
-                            <input defaultValue={projectName} onChange={(e) => setProjectName(e.target.value.trim())} className="appearance-none border border-gray-300  rounded-lg w-full p-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="project-name" type="text" placeholder="Enter project name" />
+                            <input defaultValue={projectName} onChange={(e) => setProjectName(e.target.value.trim())} className="appearance-none text-[13px] border border-gray-300 rounded-lg w-full px-4 py-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="project-name" type="text" placeholder="Enter project name" />
                         </div>
 
                         <div className='Upload file'>
-                            <label className="block mb-2 text-sm font-medium text-gray-900" htmlFor="file_input">Upload Cover Image</label>
-                            <input onChange={handleFileChange} className="block w-full text-sm text-gray-900  border border-gray-300 rounded-lg cursor-pointer bg-gray-50" aria-describedby="file_input_help" id="file_input" type="file" />
-                            <p className="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
+                            <label className="block mb-2 text-[12px] font-medium text-gray-900">Upload Cover Image</label>
+                            <input onChange={handleFileChange} className="block w-full text-[12px] text-sm text-gray-900  border border-gray-300 rounded-lg cursor-pointer bg-gray-50" aria-describedby="file_input_help" id="file_input" type="file" />
+                            <p className="mt-1 text-sm text-gray-500 text-[12px] dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 1000 X 1000px).</p>
                         </div>
                     </div>
 
-                    <div className="flex flex-col items-center w-full gap-5">
-                        {uploading && <h2 className='py-3 px-6 mb-3 w-full border rounded-lg bg-slate-100'>Image uploading...</h2>}
-                        <button onClick={handleUpdateProject} className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 w-full rounded focus:outline-none focus:shadow-outline" type="button">
+                    <div className="flex flex-col items-center w-full gap-2">
+                        {uploading && <h2 className='py-3 px-6 mb-3 w-full border rounded-lg text-[12px] bg-slate-100'>Image uploading...</h2>}
+                        <button onClick={handleUpdateProject} className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 w-full text-[13px] rounded focus:outline-none focus:shadow-outline" type="button">
                             Update
                         </button>
-                        <button onClick={handlerRemoveProject} className=" hover:text-white hover:bg-red-700 text-red-700 font-medium py-2 w-full duration-200 rounded focus:outline-none focus:shadow-outline" type="button">
+                        <button onClick={handlerRemoveProject} className=" hover:text-white hover:bg-red-700 text-red-700 font-medium py-2 text-[13px] w-full duration-200 rounded focus:outline-none focus:shadow-outline" type="button">
                             Delete This Project
                         </button>
                     </div>

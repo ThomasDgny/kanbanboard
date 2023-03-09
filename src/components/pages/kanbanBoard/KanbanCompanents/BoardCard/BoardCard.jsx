@@ -38,7 +38,7 @@ const BoardCard = ({ cardData, setCardId, setIsTaskDetailOpen }) => {
                 <div className='relative rounded-2xl border border-[#D6E3EC] p-[25px] flex flex-col gap-[15px]'>
 
                     <div className='CardHeader flex justify-between'>
-                        <h5 className="text-[24px] text-black font-bold">
+                        <h5 className="text-[20px] text-black font-bold">
                             {cardData.title}
                         </h5>
 
@@ -47,15 +47,15 @@ const BoardCard = ({ cardData, setCardId, setIsTaskDetailOpen }) => {
                     </div>
                     <div onClick={() => handlerTaskDetailInfo()} className='absolute bg-black opacity-0 rounded-2xl top-0 left-0 bottom-0 right-0 z-10'></div>
 
-                    {cardData?.fileurl && <img src={cardData?.fileurl} className='rounded-2xl h-[50vh] object-cover w-full ' alt="" />}
+                    {cardData?.fileurl && <img src={cardData?.fileurl} className='rounded-2xl h-[40vh] object-cover w-full ' alt="" />}
 
                     <div className='flex gap-3 items-center'>
                         <label className={severityTag(cardData)}>{cardData.severity}</label>
-                        <label className='text-[16px] text-[#8393B9] flex items-center gap-1 font-medium'> <ClanderIcon /> <span className='mt-1'>{dateConverter(cardData.creationDate)}</span></label>
+                        <label className='text-[16px] text-[#8393B9] flex items-center gap-1 font-medium'> <ClanderIcon /> <span className='mt-1 text-[14px]'>{dateConverter(cardData.creationDate)}</span></label>
                     </div>
 
                     {isDescActive !== 0 && <div className='relative'>
-                        <h5 className="absolute text-[18px] top-4 text-black font-bold">Note</h5>
+                        <h5 className="absolute text-[16px] top-4 text-black font-bold">Note</h5>
                         <TextEditor
                             className='top-0'
                             content={limitedDesc}
@@ -65,7 +65,6 @@ const BoardCard = ({ cardData, setCardId, setIsTaskDetailOpen }) => {
                             height={'max-h-max'}
                         />
                     </div>}
-
 
                 </div>
             </div>

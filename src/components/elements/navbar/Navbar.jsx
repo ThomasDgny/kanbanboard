@@ -10,12 +10,12 @@ export default function PublicNavbar() {
         setIsOpen(!isOpen);
     };
     return (
-        <nav className="flex items-center justify-between flex-wrap bg-transparent p-6">
+        <nav className="flex items-center justify-between flex-wrap bg-transparent px-6 py-3 border-b">
             <div className="flex items-center flex-shrink-0 text-black mr-6">
                 <Link to="/">
                     <div className="relative bg-gradient-to-tr from-blue-700 to-blue-900 w-[7vh] h-[7vh] rounded-lg shadow-lg">
                         <div className="absolute h-full w-full top-[25%] left-[25%]">
-                            <SiteLogoIcon height={"30"} />
+                            <SiteLogoIcon height={"25"} />
                         </div>
                     </div>
                 </Link>
@@ -45,13 +45,7 @@ export default function PublicNavbar() {
                 <div className="text-sm lg:flex-grow flex gap-10">
                     <Link
                         to="/contact"
-                        className="text-[18px] font-medium block mt-4 lg:inline-block lg:mt-0 text-slate-800 hover:text-slate-400 duration-200"
-                    >
-                        Features
-                    </Link>
-                    <Link
-                        to="/contact"
-                        className="text-[18px] font-medium block mt-4 lg:inline-block lg:mt-0 text-slate-800 hover:text-slate-400 duration-200"
+                        className="text-[14px] font-medium block mt-4 lg:inline-block lg:mt-0 text-slate-800 hover:text-slate-400 duration-200"
                     >
                         Contact
                     </Link>
@@ -59,13 +53,13 @@ export default function PublicNavbar() {
                 <div className='flex gap-5'>
                     <Link
                         to="/signin"
-                        className="text-[18px] font-medium inline-block text-sm px-8 py-4 leading-none border rounded-lg text-white bg-blue-600 mt-4 lg:mt-0 shadow-lg"
+                        className="text-[14px] font-medium inline-block text-sm px-8 py-3 leading-none border rounded-lg text-white bg-blue-600 mt-4 lg:mt-0 shadow-lg"
                     >
                         Sign In
                     </Link>
                     <Link
                         to="/signup"
-                        className="text-[18px] font-medium inline-block text-sm px-8 py-4 leading-none border rounded-lg text-black bg-white mt-4 lg:mt-0"
+                        className="text-[14px] font-medium inline-block text-sm px-8 py-3 leading-none border rounded-lg text-black bg-white mt-4 lg:mt-0"
                     >
                         Sign Up
                     </Link>

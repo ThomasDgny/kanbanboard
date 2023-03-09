@@ -7,7 +7,7 @@ const TextEditor = ({ content, setContent, readOnly, toolBarIsVisble, height }) 
   const modules = {
 
     toolbar: toolBarIsVisble ? [
-      [{ 'header': [1, 2, false] }],
+      [{ 'size': ['huge', 'large', false, 'small'] }],
       ['bold', 'italic', 'underline', 'strike', 'blockquote'],
       [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
       ['link'],
@@ -25,7 +25,7 @@ const TextEditor = ({ content, setContent, readOnly, toolBarIsVisble, height }) 
         readOnly={readOnly}
         onChange={(value) => setContent(value.trim())}
         modules={modules}
-        style={{ height: `${height}` }}
+        style={{ height: `${height}`, scrollbarWidth: 'none' }}
         placeholder='Description'
       />
     </div>

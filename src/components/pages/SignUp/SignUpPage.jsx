@@ -31,7 +31,7 @@ const SignUp = () => {
     const bannerImg = `https://images.unsplash.com/photo-1544194215-541c2d3561a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80`
 
     return (
-        <div className='SignInPage flex flex-col md:flex-row h-screen'>
+        <div className='SignInPage h-[89.5vh] flex flex-col md:flex-row'>
 
             <div className='signinEventContainer w-full md:w-1/2  flex items-center justify-center' >
                 <div className='SignUpleftbody flex w-full max-w-[50vh] px-3 flex-col gap-6'>
@@ -55,7 +55,7 @@ const SignUp = () => {
 
 
             <div className='signinImageContainer w-full md:w-1/2'>
-                <img src={bannerImg} alt={bannerImg} className='w-full h-full object-cover rounded-tl-2xl rounded-bl-2xl' />
+                <img src={bannerImg} alt={bannerImg} className='w-full h-full object-cover'/>
             </div>
 
         </div>

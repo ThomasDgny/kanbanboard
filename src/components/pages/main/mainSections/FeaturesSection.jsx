@@ -25,15 +25,15 @@ const FeaturesSection = () => {
                 <div className="h-[170vh] md:h-[70vh] w-full grid grid-rows-1 md:grid-cols-12 gap-6 overflow-hidden">
 
                     <div className="FeaturesCard_Lg bg-[#f9f9f9] h-full col-span-12 md:col-span-8 p-2 rounded-2xl">
-                        <div className='relative bg-[#ffffff] drop-shadow-md h-full rounded-2xl w-ful overflow-hidden '>
-                            <div className='absolute z-[5] h-full w-full flex flex-col gap-5'>
+                        <div className='relative bg-gradient-to-tr from-[#BF00FF] via-[#BF00FF] to-[#7400FF] drop-shadow-md h-full rounded-2xl w-ful overflow-hidden'>
+                            <div className='absolute z-[5] h-full w-full flex flex-col'>
                                 <div className='py-10 px-8 md:px-24'>
-                                    <h1 className='text-[34px] text-slate-800 font-bold'>Everything is possible</h1>
-                                    <p className='text-slate-500 text-[18px] font-medium max-w-2xl'>Create amazing text with our new text editor that loads faster and is more responsive. Our new text editor is designed to save time in your daily life.</p>
+                                    <h1 className='text-[34px] text-white font-bold'>Everything is possible</h1>
+                                    <p className='text-white text-[18px] font-medium max-w-2xl'>Create amazing text with our new text editor that loads faster and is more responsive. Our new text editor is designed to save time in your daily life.</p>
                                 </div>
 
-                                <div className='overflow-hidden w-full h-96 scale-125 flex justify-center pt-[3vh]'>
-                                    <div className='h-full w-[75%] md:w-[65%] TextArea bg-white rounded-lg p-5 overflow-hidden drop-shadow-2xl'>
+                                <div className='overflow-hidden w-full h-96 scale-100 flex justify-center'>
+                                    <div className='h-full w-[75%] md:w-[80%] TextArea bg-white rounded-lg p-5 overflow-hidden drop-shadow-2xl'>
                                         <TextEditor
                                             content={''}
                                             setContent={''}
@@ -46,17 +46,17 @@ const FeaturesSection = () => {
                             </div>
 
                             <div className="absolute z-20 bottom-10 flex justify-center opacity-[100%] w-full drop-shadow-xl">
-                                <h1 className='rounded-full py-3 px-6 bg-[#0d113b] max-h-max max-w-max text-[14px] flex gap-3 items-center text-white select-none'> <LiveIcon /> Live Componenet</h1>
+                                <h1 className='rounded-full py-2 px-6 bg-[#0d113b] max-h-max max-w-max text-[12px] flex gap-3 items-center text-white select-none'> <LiveIcon /> Live Componenet</h1>
                             </div>
 
-                            <div className="absolute z-[0]  opacity-[30%] h-full w-full overflow-hidden">
+                            <div className="absolute z-[0]  opacity-[15%] h-full w-full overflow-hidden">
                                 <GridSvg />
                             </div>
                         </div>
                     </div>
 
                     <div className="FeaturesCard_Sm col-span-12 md:col-span-4 bg-[#f9f9f9] p-2 rounded-2xl">
-                        <div className='bg-gradient-to-tr h-full from-[#019BFE] to-[#00CAFF] rounded-2xl w-ful overflow-hidden flex flex-col justify-between gap-5'>
+                        <div className='bg-gradient-to-tr h-full from-[#019BFE] to-[#00CAFF] rounded-2xl w-ful overflow-hidden flex flex-col'>
                             <div className='p-10'>
                                 <h1 className='text-[32px] text-white font-bold'>Edit Your Task</h1>
                                 <p className='text-white text-[18px] font-medium max-w-xl'>Track your tasks, update them and even delete them if you don't need them any more.</p>

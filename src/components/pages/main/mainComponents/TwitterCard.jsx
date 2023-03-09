@@ -8,12 +8,12 @@ const TwitterCard = ({ profile_img, name, username, comment }) => {
                     <img className="object-cover rounded-full w-[52px] h-[52px]" src={profile_img} alt={`${name} profile`} />
                     <div>
                         <div className="tracking-wide text-[20px] text-slate-800 font-bold">{name}</div>
-                        <div className="tracking-wide text-[16px] text-gray-500 font-medium">@{username}</div>
+                        <div className="tracking-wide text-[13px] text-gray-500 font-medium">@{username}</div>
                     </div>
                 </div>
 
                 <div className="">
-                    <p className="mt-2 text-slate-800 leading-[160%] text-[20px]">{comment}</p>
+                    <p className="mt-2 text-slate-800 leading-[160%] text-[16px]">{comment}</p>
                 </div>
 
             </div>

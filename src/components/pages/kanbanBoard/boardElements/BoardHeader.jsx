@@ -49,16 +49,16 @@ const BoardHeader = ({ id, projectData }) => {
                     <div className='ProjectInfo_BorderHeader flex gap-5'>
                         {projectData?.projectlogo !== '' ? <img src={projectData?.projectlogo} alt="" className='w-[12vh] h-[12vh] object-cover rounded-md' />
                             :
-                            <div className='bg-slate-300 w-[12vh] h-[12vh] rounded-md flex justify-center items-center'> <DefaultImgIcon /> </div>}
-                        <div>
-                            <h1 className='text-[30px] font-bold'>{projectData?.projectname}</h1>
-                            <h1>{createDate}</h1>
-                            <button onClick={() => setIsProjectSettingsOpen(true)} className='py-2 rounded-md text-[#307EF3] font-semibold text-[16px] hover:underline duration-200'>Project Settings</button>
+                            <div className='bg-slate-300 w-[12vh] h-[12vh] rounded-md'> <DefaultImgIcon /> </div>}
+                        <div className='flex flex-col gap-1'>
+                            <h3 className='text-[24px] font-bold'>{projectData?.projectname}</h3>
+                            <h3 className='text-[14px]'>{createDate}</h3>
+                            <button onClick={() => setIsProjectSettingsOpen(true)} className='ProjectSettings_Button rounded-md text-blue-600 font-semibold text-[14px] hover:underline duration-200 text-left'>Project Settings</button>
                         </div>
                     </div>
 
                     <div>
-                        <button className='py-3 px-6 rounded-md border bg-blue-600 hover:bg-blue-500 text-white text-[15px]' onClick={() => setCreateTaskPopUp(true)}>Create | +</button>
+                        <button className='py-2 px-4 rounded-md border bg-blue-600 hover:bg-blue-500 text-white text-[13px]' onClick={() => setCreateTaskPopUp(true)}>Create +</button>
                     </div>
 
                 </div>

@@ -30,18 +30,18 @@ const Dasboard = () => {
                     <div className='Dashboard_Header_body absolute z-10 w-[90%] flex flex-col md:flex-row items-center sm:gap-20 justify-between'>
 
                         <div className='Dashboard_Header_UserData'>
-                            <h1 className='text-[50px] font-bold  text-white leading-[130%] mb-3'>Hello {currentUserData.username}! <br /> Welcome Back</h1>
+                            <h1 className='text-[38px] font-bold  text-white leading-[130%] mb-3'>Hello {currentUserData.username}! <br /> Welcome Back</h1>
                             <div className='flex gap-3'>
-                                <p className='text-[18px] text-white'>{currentUserData.email}</p>
+                                <p className='text-[14px] text-white'>{currentUserData.email}</p>
                                 <p className='text-white'>&#8226;</p>
-                                <p className='text-[18px] text-white'>{dateConverter(currentUserData.joindate)}</p>
+                                <p className='text-[14px] text-white'>{dateConverter(currentUserData.joindate)}</p>
                             </div>
 
-                            <button onClick={() => setIsUserSettingsOpen(true)} className='UserSettings_Edit_Btn mt-5 rounded-full py-2 px-6 hover:bg-white text-white hover:text-black duration-300  border-[2px] text-[14px] font-medium'>Edit Profile</button>
+                            <button onClick={() => setIsUserSettingsOpen(true)} className='UserSettings_Edit_Btn mt-5 rounded-full py-2 px-6 bg-white hover:bg-slate-200 text-black duration-300 text-[12px] font-medium'>Edit Profile</button>
 
                         </div>
 
-                        <div className='Dashboard_Header_GenerelStats_Card w-full md:w-[70vh]'>
+                        <div className='Dashboard_Header_GenerelStats_Card w-full md:w-[78vh]'>
                             <GenerelStats />
                         </div>
 
@@ -56,7 +56,7 @@ const Dasboard = () => {
 
                         <div className='flex justify-between gap-10'>
                             <h1 className='text-[24px] font-bold'>Projects</h1>
-                            <button className='text-[16px] font-semibold text-blue-600' onClick={() => navigate('/create-project')}>Create New Project</button>
+                            <button className='text-[16px] font-semibold text-blue-600 hover:underline' onClick={() => navigate('/create-project')}>Create New Project</button>
                         </div>
 
                         <div className='ProjectLsit flex flex-wrap gap-5 w-full'>

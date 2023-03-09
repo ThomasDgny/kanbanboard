@@ -20,7 +20,7 @@ const GenerelStats = () => {
 
             <div className='Notes_Body p-5 flex flex-col gap-5 h-full'>
                 <div className='Notes_Body_Header flex items-center'>
-                    <h1 className='text-[24px] text-slate-800 font-bold'>Generela Progress</h1>
+                    <h1 className='text-[20px] text-slate-800 font-bold'>Generela Progress</h1>
                 </div>
 
                 <div className='Notes_Body_Main flex flex-col gap-5'>
@@ -29,30 +29,30 @@ const GenerelStats = () => {
                             <CostumeProgressBar
                                 percentage={progress}
                                 color={'#307EF3'}
-                                height={'40px'}
+                                height={'30px'}
                                 borderRadius={5}
                             />
                         </div>
 
                         <div className='StatsNumber flex md:flex-row flex-col w-full gap-3'>
-                            <div className='text-center w-full p-5 rounded-lg border'>
-                                <label className='text-[20px] font-semibold'>{totalTask}</label>
-                                <p>Task</p>
+                            <div className='text-center w-full p-3 rounded-lg border'>
+                                <label className='text-[18px] font-semibold'>{totalTask}</label>
+                                <p className='text-[14px]'>Task</p>
                             </div>
 
-                            <div className='text-center w-full p-5 rounded-lg border'>
-                                <label className='text-[20px] font-semibold'>{totalTodo}</label>
-                                <p>Todo</p>
+                            <div className='text-center w-full p-3 rounded-lg border'>
+                                <label className='text-[18px] font-semibold'>{totalTodo}</label>
+                                <p className='text-[14px]'>Todo</p>
                             </div>
 
-                            <div className='text-center w-full p-5 rounded-lg border'>
-                                <label className='text-[20px] font-semibold'>{totalInProgress}</label>
-                                <p>In Progress</p>
+                            <div className='text-center w-full p-3 rounded-lg border'>
+                                <label className='text-[18px] font-semibold'>{totalInProgress}</label>
+                                <p className='text-[14px]'>In Progress</p>
                             </div>
 
-                            <div className='text-center w-full p-5 rounded-lg border'>
-                                <label className='text-[20px] font-semibold'>{totalDone}</label>
-                                <p>Done</p>
+                            <div className='text-center w-full p-3 rounded-lg border'>
+                                <label className='text-[18px] font-semibold'>{totalDone}</label>
+                                <p className='text-[14px]'>Done</p>
                             </div>
                         </div>
 
