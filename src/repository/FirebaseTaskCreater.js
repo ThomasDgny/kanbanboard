@@ -2,7 +2,7 @@ import { addDoc, collection, updateDoc } from 'firebase/firestore'
 import { db } from "../Firebase"
 
 export const newTask = async (user, title, description, status, severity, url, DocRef) => {
-    console.log('newTask Url :', url);
+   // console.log('newTask Url :', url);
     if (user) {
         const newTask = {
             title: title,

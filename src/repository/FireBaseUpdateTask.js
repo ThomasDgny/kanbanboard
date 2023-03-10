@@ -3,7 +3,7 @@ import { db } from "../Firebase";
 
 export const fireBaseUpdateTask = async (passedId, user, docRefId, title, description, status, severity ,url) => {
 
-    console.log(docRefId);
+   // console.log(docRefId);
 
     try {
         const docRef = doc(db, 'users', user.uid, 'projects', docRefId, 'bucketlist', passedId)

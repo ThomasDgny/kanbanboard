@@ -3,7 +3,7 @@ import { db } from "../Firebase";
 
 export const RemoveTaskHandler = async (passedId ,user ,docRefId) => {
 
-    console.log(docRefId);
+  //  console.log(docRefId);
     try {
         const docRef = doc(db, 'users', user.uid, 'projects', docRefId, 'bucketlist', passedId)
         await deleteDoc(docRef);

@@ -7,7 +7,7 @@ export const updateProjectSettings = async (projectName, defaulturl, imgUrl, use
         projectname: projectName,
         projectlogo: imgUrl || defaulturl,
     }
-    console.log(imgUrl);
-    console.log(projectName);
+   // console.log(imgUrl);
+   // console.log(projectName);
     await updateDoc(docRef, updatedTask);
 }
