@@ -47,7 +47,7 @@ const UserSettingsCard = ({ setIsUserSettingsOpen }) => {
 
     return (
         <div className='ProjectSettingsPopUp fixed z-[100] top-0 left-0 bottom-0 right-0 overflow-hidden flex justify-center items-center '>
-            <div className='ProjectSettingsPopUp_Card absolute z-[100] max-h-max w-[50vh] bg-white rounded-lg p-10'>
+            <div className='ProjectSettingsPopUp_Card absolute z-[100] max-h-max w-[50vh] bg-white rounded-lg p-5'>
 
                 <div className='ProjectSettingsPopUp_Card_Body w-full h-full flex flex-col gap-10'>
                     <img src={currentUserData.coverimgurl} alt="" className='w-full h-[20vh] object-cover rounded-md' />

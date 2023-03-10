@@ -73,7 +73,7 @@ const ProjectSettings = ({ docRef, setIsProjectSettingsOpen }) => {
 
     return (
         <div className='ProjectSettingsPopUp fixed z-[100] top-0 left-0 bottom-0 right-0 overflow-hidden flex justify-center items-center '>
-            <div className='ProjectSettingsPopUp_Card absolute z-[100] max-h-max w-[50vh] bg-white rounded-lg p-10'>
+            <div className='ProjectSettingsPopUp_Card absolute z-[100] max-h-max w-[50vh] bg-white rounded-lg p-5'>
 
                 <div className='ProjectSettingsPopUp_Card_Body w-full h-full flex flex-col gap-10'>
                     {projectData?.projectlogo !== '' ? <img src={projectData?.projectlogo} alt="" className='w-[12vh] h-[12vh] object-cover rounded-md' />
@@ -90,7 +90,7 @@ const ProjectSettings = ({ docRef, setIsProjectSettingsOpen }) => {
                         <div className='Upload file'>
                             <label className="block mb-2 text-[12px] font-medium text-gray-900">Upload Cover Image</label>
                             <input onChange={handleFileChange} className="block w-full text-[12px] text-sm text-gray-900  border border-gray-300 rounded-lg cursor-pointer bg-gray-50" aria-describedby="file_input_help" id="file_input" type="file" />
-                            <p className="mt-1 text-sm text-gray-500 text-[12px] dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 1000 X 1000px).</p>
+                            <p className="mt-1 text-sm text-gray-500 text-[12px] dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (3MB MAX.).</p>
                         </div>
                     </div>
 

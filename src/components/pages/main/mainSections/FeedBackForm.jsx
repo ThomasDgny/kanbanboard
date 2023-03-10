@@ -20,14 +20,17 @@ const FeedBackForm = () => {
             url: 'https://dragon.pdf2go.com/api/applicant/job',
             body: userFeedBack
         };
-
-        await axios.request(options)
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.error(error);
-            })
+        if (description.trim() === '') {
+            alert('Please fill the message area')
+        } else {
+            await axios.request(options)
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.error(error);
+                })
+        }
     }
 
     const submitFeedBackForm = (e) => {
@@ -45,7 +48,7 @@ const FeedBackForm = () => {
                     We are open for every feedback
                 </h2>
                 <p className="mt-3 text-slate-800 max-w-4xl mx-auto text-xl sm:text-2xl md:mt-5 md:text-3xl">
-                    Our community loves how easy it is to design and publish a professional site in Framer.
+                    We love hearing from our customers! Whether you have a question, comment, or suggestion, we want to hear it.
                 </p>
             </div>
 
@@ -54,8 +57,8 @@ const FeedBackForm = () => {
                     <form onSubmit={submitFeedBackForm}>
                         <div className='flex flex-col gap-5'>
                             <div className='flex flex-col md:flex-row gap-5'>
-                                <input onChange={(e) => setEmail(e.target.value.toLocaleLowerCase())} type="text" placeholder='Email' className='text-[16px] p-3 border rounded-lg w-full text-black' />
-                                <input onChange={(e) => setSenderName(e.target.value.toLocaleLowerCase())} type="text" placeholder='Name' className='text-[16px] p-3 border rounded-lg w-full text-black' />
+                                <input onChange={(e) => setEmail(e.target.value.toLocaleLowerCase())} required type="email" placeholder='Email' className='text-[16px] p-3 border rounded-lg w-full text-black' />
+                                <input onChange={(e) => setSenderName(e.target.value.toLocaleLowerCase())} required type="text" placeholder='Name' className='text-[16px] p-3 border rounded-lg w-full text-black' />
                             </div>
                             <div className='TextArea bg-white p-5 rounded-lg border'>
                                 <TextEditor
