@@ -41,10 +41,6 @@ const UserSettingsCard = ({ setIsUserSettingsOpen }) => {
         update()
     }, [currentImgUrl, user, userName])
 
-    const handleUserRemove = async () => {
-        return alert('hehe kandirdim hesabini silemezzsin')
-    }
-
     return (
         <div className='ProjectSettingsPopUp fixed z-[100] top-0 left-0 bottom-0 right-0 overflow-hidden flex justify-center items-center '>
             <div className='ProjectSettingsPopUp_Card absolute z-[100] max-h-max w-[50vh] bg-white rounded-lg p-5'>
@@ -71,9 +67,6 @@ const UserSettingsCard = ({ setIsUserSettingsOpen }) => {
                         {uploading && <h2 className='py-3 px-6 w-full border rounded-lg text-[12px] bg-slate-100'>Image uploading...</h2>}
                         <button onClick={handleUserUpdate} className="bg-blue-500 hover:bg-blue-700 text-white font-medium py-2 w-full rounded focus:outline-none focus:shadow-outline text-[13px]" type="button">
                             Update
-                        </button>
-                        <button onClick={handleUserRemove} className="text-[13px] hover:text-white hover:bg-red-700 text-red-700 font-medium py-2 w-full duration-200 rounded focus:outline-none focus:shadow-outline" type="button">
-                            Delete Account
                         </button>
                     </div>
                 </div>
