@@ -26,7 +26,7 @@ const HeroSection = () => {
                     comments and brands are not in touch with this website</h4>
             </div>
             <div className="absolute z-10 bg-gradient-to-t bottom-0 from-white opacity-[100%] h-[100%] w-full"></div>
-            <div className="absolute z-0 from-white  opacity-[80%] h-full flex justify-center overflow-hidden w-full">
+            <div className="absolute z-0 from-white  opacity-[80%] h-[90%] flex justify-center overflow-hidden w-full">
                 <div className=' Comments_Main w-full flex justify-center h-[100vh] overflow-hidden'>
                     <div className='Comments_Main_Body flex gap-5 scroll-container overflow-hidden'>
 
@@ -91,7 +91,7 @@ const HeroSection = () => {
                             Your Private Work Space Think. Make. Done.
                         </h1>
                         <p className="mt-3 max-w-4xl mx-auto text-lg text-slate-800 sm:text-2xl md:mt-5 md:text-[28px]">
-                            Here you can find all the information you need
+                         Get your own personal work space, where you can manage your work and projects.
                         </p>
                         <div className="mt-5 md:mt-14 max-w-full md:mx-auto flex flex-col md:flex-row justify-center items-center space-x-4">
                             <button onClick={handleCtaBtn} className="inline-flex text-[14px] md:text-[20px] items-center justify-center px-12 py-4 border rounded-md font-medium text-white hover:bg-[#1ec3ff] duration-300 bg-gradient-to-tr from-[#1ec3ff] to-[#008be8] border-[#00BCFF] focus:outline-none focus:ring-8 focus:ring-offset-2 focus:ring-[#e3f4ffb9] shadow-lg shadow-[#00bbff7e]">

@@ -22,11 +22,10 @@ const CtaSection = () => {
             </div>
             <div>
                 <h2 className="text-8xl text-[3rem] sm:text-[4rem] md:text-[6rem] leading-[130%] font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500">
-                    Built for the future. <br />
-                    Available today.
+                    Crate for the future.
                 </h2>
                 <p className="mt-3 text-slate-800 max-w-4xl mx-auto text-xl sm:text-2xl md:mt-5 md:text-3xl">
-                    Design and publish your first free site with Framer today.
+                    Create and Start your first project with JettWork today.
                 </p>
             </div>
             <div className="mt-5 max-w-md mx-auto flex justify-center space-x-4">

@@ -17,7 +17,7 @@ const FeaturesSection = () => {
 
                 </h2>
                 <p className="mt-3 max-w-4xl mx-auto text-xl text-slate-800 sm:text-2xl md:mt-5 md:text-3xl">
-                    Framer makes building professional sites easy, fast and fun while delivering best-in-class SEO, performance, and hosting.
+                    Keep your work and projects in order, so you can focus on what matters most. With personal work space, you can organize files, keep track of tasks, and more
                 </p>
             </div>
 
@@ -63,7 +63,7 @@ const FeaturesSection = () => {
                         <div className='bg-gradient-to-tr h-full from-[#019BFE] to-[#00CAFF] rounded-2xl w-ful overflow-hidden flex flex-col'>
                             <div className='p-10'>
                                 <h1 className='text-[32px] text-white font-bold'>Edit Your Task</h1>
-                                <p className='text-white text-[18px] font-medium max-w-xl'>Track your tasks, update them and even delete them if you don't need them any more.</p>
+                                <p className='text-white text-[18px] font-medium max-w-xl'>A simple way to stay on top of your to-do list, this set of easy-to-handle task cards is designed for anyone who needs an extra push to get things done.</p>
                             </div>
 
                             <div className='w-full h-full flex justify-center'>
@@ -80,8 +80,8 @@ const FeaturesSection = () => {
                     <div className="FeaturesCard_Sm h-[50%] md:h-full  w-full md:w-[35%] bg-[#f9f9f9] p-2 rounded-2xl">
                         <div className='bg-gradient-to-tr h-full from-[#019BFE] to-[#00CAFF] rounded-2xl w-ful overflow-hidden flex flex-col'>
                             <div className='p-10'>
-                                <h1 className='text-[32px] text-white font-bold'>Edit Your Task</h1>
-                                <p className='text-white text-[18px] font-medium max-w-xl'>Track your tasks, update them and even delete them if you don't need them any more.</p>
+                                <h1 className='text-[32px] text-white font-bold'>Simple View</h1>
+                                <p className='text-white text-[18px] font-medium max-w-xl'>This task card is designed for easy management and viewing.</p>
                             </div>
 
                             <div className='w-full h-full flex justify-center'>

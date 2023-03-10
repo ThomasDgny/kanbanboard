@@ -21,7 +21,7 @@ const CoommentsSection = () => {
                     “It’s like magic.”
                 </h2>
                 <p className="mt-3 text-slate-800 max-w-4xl mx-auto text-xl sm:text-2xl md:mt-5 md:text-3xl">
-                    Our community loves how easy it is to design and publish a professional site in Framer.
+                    Our community loves how easy it is to start a project and managing a professional site in JettWork.
                 </p>
             </div>
             <div className="absolute z-10 bg-gradient-to-b from-white opacity-[100%] h-[20%] w-full"></div>
