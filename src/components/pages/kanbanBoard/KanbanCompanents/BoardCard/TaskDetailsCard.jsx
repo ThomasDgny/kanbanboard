@@ -4,15 +4,13 @@ import TextEditor from '../../../../elements/TextEditor'
 import { fireBaseUpdateTask } from '../../../../../repository/FireBaseUpdateTask'
 import { RemoveTaskHandler } from '../../../../../repository/FirebaseRemoveTask'
 import { UserAuth } from '../../../../../context/UserAuth'
-import { toastMessage } from '../../../../../useCase/ToastMessages'
-import { ToastContainer } from 'react-toastify'
 import { handleFileUpload } from '../../../../../repository/FirebaseUploadFile'
 import { storage } from '../../../../../Firebase'
 import { deleteObject, ref } from 'firebase/storage'
 import { getFilenameFromUrl } from '../../../../../useCase/DecodeUrlToFileName'
 
 
-const TaskDetailsCard = ({ cardInfo, docRefId }) => {
+const TaskDetailsCard = ({ cardInfo, docRefId, setIsTaskDetailOpen }) => {
     const [title, setTitle] = useState(cardInfo.title)
     const [description, setDescription] = useState(cardInfo.description)
     const [status, setStatus] = useState(cardInfo.status)
@@ -62,9 +60,10 @@ const TaskDetailsCard = ({ cardInfo, docRefId }) => {
 
     return (
         <div className='CreateCardPopUp fixed z-[100] top-0 bottom-0 left-0 w-full max-w-[70vh] bg-white drop-shadow-md overflow-y-scroll scroll-smooth scrollbar-hide'>
-            <ToastContainer />
             <div className='CreateCardPopUp_Body w-full h-full p-6'>
-
+                <div className='w-full flex justify-end'>
+                    <button onClick={() => setIsTaskDetailOpen(false)} className='py-2 px-4'>Close</button>
+                </div>
                 <form className='TaskForm relative h-full' onSubmit={updateTask}>
                     <div className='h-full flex flex-col w-full gap-6'>
 

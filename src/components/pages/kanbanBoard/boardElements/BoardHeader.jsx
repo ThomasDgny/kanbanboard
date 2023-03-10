@@ -34,7 +34,7 @@ const BoardHeader = ({ id, projectData }) => {
                 {
                     CreateTaskPopUp &&
                     <div ref={tabCloserRef}>
-                        <TaskCreateCard docRef={id} />
+                        <TaskCreateCard docRef={id} setCreateTaskPopUp={setCreateTaskPopUp}/>
                     </div>
                 }
 

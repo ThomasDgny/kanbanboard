@@ -27,7 +27,7 @@ const BoardMain = ({ docRefId }) => {
 
 
     return (
-        <div className='Main  w-full'>
+        <div className='Main  min-w-[130vh]'>
 
             <div className='MainBody overflow-x-scroll scrollbar-hide flex justify-center'>
                 <div className='MainContent w-[90%] gap-5 grid-cols-3 grid'>

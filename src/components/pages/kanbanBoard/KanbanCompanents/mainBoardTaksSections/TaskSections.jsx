@@ -53,7 +53,7 @@ const TaskSections = ({ title, bucketList, docRefId }) => {
             {
                 isTaskDetailOpen && taskInfo ?
                     <div ref={dropdownRef}>
-                        <TaskDetailsCard cardInfo={taskInfo} docRefId={docRefId} />
+                        <TaskDetailsCard cardInfo={taskInfo} docRefId={docRefId} setIsTaskDetailOpen={setIsTaskDetailOpen}/>
                     </div>
                     : null
             }

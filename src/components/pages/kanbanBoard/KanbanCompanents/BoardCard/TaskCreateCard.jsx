@@ -7,7 +7,7 @@ import { handleFileUpload } from '../../../../../repository/FirebaseUploadFile'
 import { storage } from '../../../../../Firebase'
 import { ref } from 'firebase/storage'
 
-const TaskCreateCard = ({ docRef }) => {
+const TaskCreateCard = ({ docRef, setCreateTaskPopUp }) => {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [status, setStatus] = useState('todo')
@@ -53,6 +53,10 @@ const TaskCreateCard = ({ docRef }) => {
     return (
         <div className='CreateCardPopUp fixed z-[500] top-0 bottom-0 left-0 w-full max-w-[75vh] bg-white drop-shadow-md overflow-y-scroll scroll-smooth scrollbar-hide'>
             <div className='CreateCardPopUp_Body p-6'>
+                <div className='w-full flex justify-end'>
+                    <button onClick={() => setCreateTaskPopUp(false)} className='py-2 px-4'>Close</button>
+                </div>
+
                 <form className='flex flex-col w-full gap-6' onSubmit={createNewTask}>
                     <div className='w-full'>
                         <label className="block w-full text-[12px] font-medium text-gray-900">Title</label>
@@ -97,7 +101,7 @@ const TaskCreateCard = ({ docRef }) => {
                             setContent={setDescription}
                             readonly={false}
                             toolBarIsVisble={true}
-                            height={'h-[35vh]'} 
+                            height={'h-[35vh]'}
                         />
                     </div>
                     {uploading && <h2 className='py-3 px-6 border rounded-lg bg-slate-100'>Image uploading...</h2>}

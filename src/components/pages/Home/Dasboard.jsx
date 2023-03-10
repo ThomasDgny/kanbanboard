@@ -27,7 +27,7 @@ const Dasboard = () => {
 
                 <div className='Dashboard_Header relative h-[120vh] md:h-[50vh] lg:h-[35vh] flex justify-center items-center'>
 
-                    <div className='Dashboard_Header_body absolute z-10 w-[90%] flex flex-col md:flex-row items-center sm:gap-20 justify-between'>
+                    <div className='Dashboard_Header_body absolute z-10 w-[90%] flex flex-col md:flex-row items-center gap-20 justify-between'>
 
                         <div className='Dashboard_Header_UserData'>
                             <h1 className='text-[38px] font-bold  text-white leading-[130%] mb-3'>Hello {currentUserData.username}! <br /> Welcome Back</h1>

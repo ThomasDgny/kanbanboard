@@ -40,11 +40,11 @@ const CreateProject = () => {
     }
 
     return (
-        <div className="CreateProject h-[87.5vh] flex flex-col md:flex-row overflow-hidden">
+        <div className="CreateProject h-[89.5vh] flex flex-col md:flex-row overflow-hidden">
 
             <div className="w-full md:w-1/2  flex items-center justify-center">
                 <div className="max-w-md py-12 px-6">
-                    <h2 className="text-[42px] font-bold text-black mb-6">Create New Project</h2>
+                    <h2 className="text-[42px] font-bold leading-[130%] text-black mb-6">Create New Project</h2>
                     <form onSubmit={handleCreateProject}>
 
                         <div className="mb-4">
