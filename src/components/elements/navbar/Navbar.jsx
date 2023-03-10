@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import SiteLogoIcon from '../../../assets/siteLogo/SiteLogo';
 
 
@@ -43,12 +43,13 @@ export default function PublicNavbar() {
                     }`}
             >
                 <div className="text-sm lg:flex-grow flex gap-10">
-                    <Link
-                        to="/contact"
+                    <a
+                        target={'_blank'}
+                        href="https://www.linkedin.com/in/tarik-doganay/"
                         className="text-[14px] font-medium block mt-4 lg:inline-block lg:mt-0 text-slate-800 hover:text-slate-400 duration-200"
                     >
                         Contact
-                    </Link>
+                    </a>
                 </div>
                 <div className='flex gap-5'>
                     <Link

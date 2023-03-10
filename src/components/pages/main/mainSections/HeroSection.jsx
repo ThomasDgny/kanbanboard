@@ -84,7 +84,11 @@ const HeroSection = () => {
             <div className="absolute z-20 w-full h-full">
                 <div className="HeroSection_Body max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 flex h-full items-end py-10 md:py-20">
                     <div className="text-center w-full">
-                        <h1 className="text-[3rem] md:text-8xl sm:text-[4rem] mx-auto max-w-7xl font-bold leading-[130%] text-[#000000]">
+                       <div className='w-full text-center flex justify-center mb-5'>
+                        <h4 className='bg-slate-800 font-medium text-white w-max text-center  py-2 px-4 rounded-full'>This website is a portfolio project.
+                            comments and brands are not in touch with this website</h4>
+                            </div>
+                        <h1 className="text-[3rem] md:text-[5.5rem] sm:text-[4rem] mx-auto max-w-7xl font-bold leading-[120%] text-[#000000]">
                             Your Private Work Space Think. Make. Done.
                         </h1>
                         <p className="mt-3 max-w-4xl mx-auto text-lg text-slate-800 sm:text-2xl md:mt-5 md:text-[28px]">
