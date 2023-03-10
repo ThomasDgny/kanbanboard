@@ -21,6 +21,10 @@ const HeroSection = () => {
 
     return (
         <div className='w-full h-full'>
+            <div className='w-full text-center flex justify-center bg-slate-800'>
+                <h4 className=' font-medium text-white text-[15px] w-max text-center  py-2 px-4 rounded-full'>This website is a portfolio project.
+                    comments and brands are not in touch with this website</h4>
+            </div>
             <div className="absolute z-10 bg-gradient-to-t bottom-0 from-white opacity-[100%] h-[100%] w-full"></div>
             <div className="absolute z-0 from-white  opacity-[80%] h-full flex justify-center overflow-hidden w-full">
                 <div className=' Comments_Main w-full flex justify-center h-[100vh] overflow-hidden'>
@@ -79,22 +83,17 @@ const HeroSection = () => {
                     </div>
                 </div>
             </div>
-
-
             <div className="absolute z-20 w-full h-full">
                 <div className="HeroSection_Body max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 flex h-full items-end py-10 md:py-20">
                     <div className="text-center w-full">
-                       <div className='w-full text-center flex justify-center mb-5'>
-                        <h4 className='bg-slate-800 font-medium text-white w-max text-center  py-2 px-4 rounded-full'>This website is a portfolio project.
-                            comments and brands are not in touch with this website</h4>
-                            </div>
-                        <h1 className="text-[3rem] md:text-[5.5rem] sm:text-[4rem] mx-auto max-w-7xl font-bold leading-[120%] text-[#000000]">
+
+                        <h1 className="text-[3rem] md:text-[5.3rem] sm:text-[4rem] mx-auto max-w-7xl font-bold leading-[120%] text-[#000000]">
                             Your Private Work Space Think. Make. Done.
                         </h1>
                         <p className="mt-3 max-w-4xl mx-auto text-lg text-slate-800 sm:text-2xl md:mt-5 md:text-[28px]">
                             Here you can find all the information you need
                         </p>
-                        <div className="mt-14 max-w-full md:mx-auto flex flex-col md:flex-row justify-center items-center space-x-4">
+                        <div className="mt-5 md:mt-14 max-w-full md:mx-auto flex flex-col md:flex-row justify-center items-center space-x-4">
                             <button onClick={handleCtaBtn} className="inline-flex text-[14px] md:text-[20px] items-center justify-center px-12 py-4 border rounded-md font-medium text-white hover:bg-[#1ec3ff] duration-300 bg-gradient-to-tr from-[#1ec3ff] to-[#008be8] border-[#00BCFF] focus:outline-none focus:ring-8 focus:ring-offset-2 focus:ring-[#e3f4ffb9] shadow-lg shadow-[#00bbff7e]">
                                 Use on Web
                             </button>
