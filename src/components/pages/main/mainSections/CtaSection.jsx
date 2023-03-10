@@ -17,7 +17,7 @@ const CtaSection = () => {
 
             <div className="relative bg-gradient-to-tr from-blue-700 to-blue-900 w-[12vh] h-[12vh] rounded-lg">
                 <div className="absolute h-full w-full top-[25%] left-[25%]">
-                    <SiteLogoIcon height={"50"} />
+                    <SiteLogoIcon height={"40"} />
                 </div>
             </div>
             <div>

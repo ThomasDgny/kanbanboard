@@ -2,6 +2,7 @@ import TasksSectionSvg from "../../../assets/svg/TasksSectionSvg";
 import CoommentsSection from "./mainSections/CoommentsSection";
 import CtaSection from "./mainSections/CtaSection";
 import FeaturesSection from "./mainSections/FeaturesSection";
+import FeedBackForm from "./mainSections/FeedBackForm";
 import HeroSection from "./mainSections/HeroSection";
 import LogoCarousel from "./mainSections/LogoCarusel";
 
@@ -32,6 +33,11 @@ function LnadingPage() {
             {/* GET STARTED SECTION */}
             <div className="CtaSection">
                 <CtaSection />
+            </div>
+
+            {/* FEEDBACK FORM SECTION */}
+            <div className="feedBackForm">
+                <FeedBackForm />
             </div>
 
 
