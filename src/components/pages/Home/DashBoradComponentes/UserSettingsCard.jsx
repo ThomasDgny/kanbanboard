@@ -68,7 +68,7 @@ const UserSettingsCard = ({ setIsUserSettingsOpen }) => {
                     </div>
 
                     <div className="flex flex-col items-center w-full gap-5">
-                        {uploading && <h2 className='py-3 px-6 border rounded-lg text-[12px] bg-slate-100'>Image uploading...</h2>}
+                        {uploading && <h2 className='py-3 px-6 w-full border rounded-lg text-[12px] bg-slate-100'>Image uploading...</h2>}
                         <button onClick={handleUserUpdate} className="bg-blue-500 hover:bg-blue-700 text-white font-medium py-2 w-full rounded focus:outline-none focus:shadow-outline text-[13px]" type="button">
                             Update
                         </button>

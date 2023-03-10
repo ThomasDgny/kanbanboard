@@ -47,9 +47,9 @@ const ProjectSettings = ({ docRef, setIsProjectSettingsOpen }) => {
             const storageRef = ref(storage, `${user.uid}/Projects/ProjecstLogo/${optionalFileName}`);
             setUploading(true)
             imgUrl = await handleFileUpload(storageRef, file, file.type, 500, 500)
+            setUploading(false)
         }
         await updateProjectSettings(projectName, projectData.projectlogo, imgUrl, user, docRef)
-        setUploading(false)
         //  console.log('updated');
     }
 
