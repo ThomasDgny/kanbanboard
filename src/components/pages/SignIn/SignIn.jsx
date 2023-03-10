@@ -21,7 +21,7 @@ const SignIn = () => {
             setError(error.message);
         }
     }
-    const bannerImg = `https://images.unsplash.com/photo-1544194215-541c2d3561a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80`
+    const bannerImg = `https://images.unsplash.com/photo-1606768666853-403c90a981ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80`
 
     return (
         <div className='h-[89.5vh] overflow-hidden scrollbar-hide w-full'>
@@ -38,7 +38,7 @@ const SignIn = () => {
                         <form className='flex h-full flex-col gap-5 text-center'>
                             <input onChange={(e) => setEmail(e.target.value.toLocaleLowerCase())} type="text" placeholder='Email' className='text-[16px] p-3 border rounded-md border-[#2227] w-full text-black' />
                             <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder='Password' autoComplete="true" className='text-[16px] p-3 border rounded-md border-[#2227] w-full text-black' />
-                            <button onClick={HandleSubmit} className='bg-[#ff4fad] text-white py-3 hover:duration-300 hover:bg-[#ff74be]'>Sign In</button>
+                            <button onClick={HandleSubmit} className='bg-blue-700 rounded-lg text-white py-3 hover:duration-300 hover:bg-[#ff74be]'>Sign In</button>
 
                             <Link className='text-slate-400 underline hover:duration-300 hover:text-slate-800' to={'/SignUp'}>Don't you have an account</Link>
                         </form>

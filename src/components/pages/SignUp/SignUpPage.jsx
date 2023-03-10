@@ -26,9 +26,9 @@ const SignUp = () => {
         }
     }
 
-    console.log(userName);
+    //console.log(userName);
 
-    const bannerImg = `https://images.unsplash.com/photo-1544194215-541c2d3561a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80`
+    const bannerImg = `https://images.unsplash.com/photo-1635320019034-171ab02d6e1f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80`
 
     return (
         <div className='SignInPage h-[89.5vh] flex flex-col md:flex-row'>
@@ -46,7 +46,7 @@ const SignUp = () => {
                         <input onChange={(e) => setEmail(e.target.value.toLocaleLowerCase())} type="text" placeholder='Email' className='p-3 border rounded-md border-[#2227] w-full text-black' />
                         <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder='Password' className='p-3 border rounded-md border-[#2227] w-full text-black' />
                         <input onChange={(e) => setVerify(e.target.value)} type="password" placeholder='Verify your password' className='p-3 border rounded-md border-[#2227] w-full text-black' />
-                        <button onClick={HandleSubmit} className='bg-[#ff4fad] text-white py-3 hover:duration-300 hover:bg-[#ff74be]'>Sign Up</button>
+                        <button onClick={HandleSubmit} className='bg-blue-700 rounded-lg text-white py-3 hover:duration-300 hover:bg-[#ff74be]'>Sign Up</button>
                         <Link className='text-black underline hover:duration-300 hover:text-[#c1c1c1]' to={'/SignIn'}>Do you have an account</Link>
                     </form>
                 </div>
